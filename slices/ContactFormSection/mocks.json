@@ -1,0 +1,49 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "log",
+				"type": "Text"
+			},
+			"tagline": {
+				"__TYPE__": "FieldContent",
+				"value": "nor",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"contact_person_name",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "sum",
+							"type": "Text"
+						}
+					],
+					[
+						"contact_person_position",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "canal",
+							"type": "Text"
+						}
+					],
+					[
+						"contact_person_email",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "equal",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]

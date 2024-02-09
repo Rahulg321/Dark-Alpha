@@ -2,32 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: #f0f8ff;
+    --primary: #ffffff;
+    --accent: #40a2e3;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  h1 {
+    @apply text-3xl font-extrabold md:text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl  font-semibold md:text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-xl  font-semibold md:text-2xl lg:text-3xl;
+  }
+
+  h4 {
+    @apply text-lg  font-semibold md:text-xl;
+  }
+
+  p {
+    @apply text-base  leading-relaxed lg:text-lg lg:leading-loose;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.big-container {
+  margin-inline: auto;
+  width: min(90%, 80.5rem);
+}
+
+.narrow-container {
+  margin-inline: auto;
+  width: min(80%, 55.5rem);
+}
+
+.block-space {
+  padding-block: min(10vh, 15rem);
+}
+
+.block-space-mini {
+  padding-block: min(3vh, 6rem);
+}
+
+.parent-container {
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+}
+
+.heading::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  margin-block: auto;
+  margin-top: 0.3em;
+  margin-bottom: 0.8em;
+  display: block;
+  background-color: black;
+}
+
+.image-zoom {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.image-zoom::after {
+  content: "";
+  background-image: url("https://images.unsplash.com/photo-1515868769-ad822a0c67e9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: transform 0.4s ease-in-out;
+}
+
+.image-zoom:hover::after {
+  transform: scale(1.1); /* Change 1.1 to your desired zoom level */
+}
+
+.hover-footer-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-footer-link::after {
+  content: "";
+  background-color: black; /* Inherit text color */
+  height: 2px; /* Change this to adjust underline thickness */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  transition: 0.3s ease-in-out; /* Adjust duration and timing as needed */
+}
+.hover-footer-link:hover {
+  cursor: pointer;
+}
+
+.hover-footer-link:hover::after {
+  width: 20%;
 }

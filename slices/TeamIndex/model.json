@@ -1,0 +1,41 @@
+{
+  "id": "team_index",
+  "type": "SharedSlice",
+  "name": "TeamIndex",
+  "description": "TeamIndex",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "member_image": {
+          "type": "Image",
+          "config": {
+            "label": "Member Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "member_name": {
+          "type": "Text",
+          "config": {
+            "label": "Member Name",
+            "placeholder": ""
+          }
+        },
+        "member_position": {
+          "type": "Text",
+          "config": {
+            "label": "Member Position",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}
