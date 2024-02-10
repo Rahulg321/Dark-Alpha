@@ -1,0 +1,48 @@
+{
+  "id": "how_we_operate",
+  "type": "SharedSlice",
+  "name": "HowWeOperate",
+  "description": "HowWeOperate",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "tagline": {
+          "type": "Text",
+          "config": {
+            "label": "Tagline",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "experience_point": {
+          "type": "Text",
+          "config": {
+            "label": "Experience Point",
+            "placeholder": ""
+          }
+        },
+        "benefit_point": {
+          "type": "Text",
+          "config": {
+            "label": "Benefit Point",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

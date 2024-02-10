@@ -4,6 +4,192 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type BlogpostDocumentDataSlicesSlice = TextBlockSlice;
+
+/**
+ * Content for Blogpost documents
+ */
+interface BlogpostDocumentData {
+  /**
+   * Heading field in *Blogpost*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Created at field in *Blogpost*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.created_at
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  created_at: prismic.DateField;
+
+  /**
+   * Description field in *Blogpost*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Hero Image field in *Blogpost*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.hero_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hero_image: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Blogpost*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<BlogpostDocumentDataSlicesSlice> /**
+   * Meta Title field in *Blogpost*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blogpost.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Blogpost*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blogpost.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blogpost*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Blogpost document from Prismic
+ *
+ * - **API ID**: `blogpost`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogpostDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<BlogpostDocumentData>,
+    "blogpost",
+    Lang
+  >;
+
+/**
+ * Item in *GrowthAreaPoints → Product and Engineering*
+ */
+export interface GrowthareapointsDocumentDataProductAndEngineeringItem {
+  /**
+   * Point field in *GrowthAreaPoints → Product and Engineering*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growthareapoints.product_and_engineering[].point
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  point: prismic.KeyTextField;
+}
+
+/**
+ * Item in *GrowthAreaPoints → Team and Talent*
+ */
+export interface GrowthareapointsDocumentDataTeamAndTalentItem {
+  /**
+   * Point field in *GrowthAreaPoints → Team and Talent*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growthareapoints.team_and_talent[].point
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  point: prismic.KeyTextField;
+}
+
+/**
+ * Content for GrowthAreaPoints documents
+ */
+interface GrowthareapointsDocumentData {
+  /**
+   * Product and Engineering field in *GrowthAreaPoints*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growthareapoints.product_and_engineering[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  product_and_engineering: prismic.GroupField<
+    Simplify<GrowthareapointsDocumentDataProductAndEngineeringItem>
+  >;
+
+  /**
+   * Team and Talent field in *GrowthAreaPoints*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growthareapoints.team_and_talent[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  team_and_talent: prismic.GroupField<
+    Simplify<GrowthareapointsDocumentDataTeamAndTalentItem>
+  >;
+}
+
+/**
+ * GrowthAreaPoints document from Prismic
+ *
+ * - **API ID**: `growthareapoints`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GrowthareapointsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<GrowthareapointsDocumentData>,
+    "growthareapoints",
+    Lang
+  >;
+
 type HomepageDocumentDataSlicesSlice = HeroSliceSlice;
 
 /**
@@ -70,6 +256,11 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | BlogContentIndexSlice
+  | LeftImageSliceSlice
+  | GrowthInvestmentAreaSlice
+  | HowWeOperateSlice
+  | ImpactInitiativesSlice
   | ContactHeroSlice
   | ContactFormSectionSlice
   | TeamIndexSlice
@@ -134,7 +325,41 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = HomepageDocument | PageDocument;
+export type AllDocumentTypes =
+  | BlogpostDocument
+  | GrowthareapointsDocument
+  | HomepageDocument
+  | PageDocument;
+
+/**
+ * Default variation for BlogContentIndex Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogContentIndexSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *BlogContentIndex*
+ */
+type BlogContentIndexSliceVariation = BlogContentIndexSliceDefault;
+
+/**
+ * BlogContentIndex Shared Slice
+ *
+ * - **API ID**: `blog_content_index`
+ * - **Description**: BlogContentIndex
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogContentIndexSlice = prismic.SharedSlice<
+  "blog_content_index",
+  BlogContentIndexSliceVariation
+>;
 
 /**
  * Primary content in *ContactFormSection → Primary*
@@ -292,6 +517,36 @@ export type ContactHeroSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Default variation for GrowthInvestmentArea Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GrowthInvestmentAreaSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *GrowthInvestmentArea*
+ */
+type GrowthInvestmentAreaSliceVariation = GrowthInvestmentAreaSliceDefault;
+
+/**
+ * GrowthInvestmentArea Shared Slice
+ *
+ * - **API ID**: `growth_investment_area`
+ * - **Description**: GrowthInvestmentArea
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GrowthInvestmentAreaSlice = prismic.SharedSlice<
+  "growth_investment_area",
+  GrowthInvestmentAreaSliceVariation
+>;
+
+/**
  * Primary content in *HeroSlice → Primary*
  */
 export interface HeroSliceSliceDefaultPrimary {
@@ -354,6 +609,207 @@ type HeroSliceSliceVariation = HeroSliceSliceDefault;
 export type HeroSliceSlice = prismic.SharedSlice<
   "hero_slice",
   HeroSliceSliceVariation
+>;
+
+/**
+ * Primary content in *HowWeOperate → Primary*
+ */
+export interface HowWeOperateSliceDefaultPrimary {
+  /**
+   * Heading field in *HowWeOperate → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_operate.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *HowWeOperate → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_operate.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *HowWeOperate → Items*
+ */
+export interface HowWeOperateSliceDefaultItem {
+  /**
+   * Experience Point field in *HowWeOperate → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_operate.items[].experience_point
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  experience_point: prismic.KeyTextField;
+
+  /**
+   * Benefit Point field in *HowWeOperate → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_operate.items[].benefit_point
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  benefit_point: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for HowWeOperate Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HowWeOperateSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HowWeOperateSliceDefaultPrimary>,
+  Simplify<HowWeOperateSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *HowWeOperate*
+ */
+type HowWeOperateSliceVariation = HowWeOperateSliceDefault;
+
+/**
+ * HowWeOperate Shared Slice
+ *
+ * - **API ID**: `how_we_operate`
+ * - **Description**: HowWeOperate
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HowWeOperateSlice = prismic.SharedSlice<
+  "how_we_operate",
+  HowWeOperateSliceVariation
+>;
+
+/**
+ * Primary content in *ImpactInitiatives → Items*
+ */
+export interface ImpactInitiativesSliceDefaultItem {
+  /**
+   * Initiative Heading field in *ImpactInitiatives → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_initiatives.items[].initiative_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  initiative_heading: prismic.KeyTextField;
+
+  /**
+   * Initiative Tagline field in *ImpactInitiatives → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_initiatives.items[].initiative_tagline
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  initiative_tagline: prismic.LinkField;
+}
+
+/**
+ * Default variation for ImpactInitiatives Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactInitiativesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<ImpactInitiativesSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ImpactInitiatives*
+ */
+type ImpactInitiativesSliceVariation = ImpactInitiativesSliceDefault;
+
+/**
+ * ImpactInitiatives Shared Slice
+ *
+ * - **API ID**: `impact_initiatives`
+ * - **Description**: ImpactInitiatives
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactInitiativesSlice = prismic.SharedSlice<
+  "impact_initiatives",
+  ImpactInitiativesSliceVariation
+>;
+
+/**
+ * Primary content in *LeftImageSlice → Primary*
+ */
+export interface LeftImageSliceSliceDefaultPrimary {
+  /**
+   * LeftImage field in *LeftImageSlice → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: left_image_slice.primary.leftimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  leftimage: prismic.ImageField<never>;
+
+  /**
+   * Description field in *LeftImageSlice → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: left_image_slice.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Image left or right? field in *LeftImageSlice → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: left_image_slice.primary.image_left
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  image_left: prismic.BooleanField;
+}
+
+/**
+ * Default variation for LeftImageSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LeftImageSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LeftImageSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *LeftImageSlice*
+ */
+type LeftImageSliceSliceVariation = LeftImageSliceSliceDefault;
+
+/**
+ * LeftImageSlice Shared Slice
+ *
+ * - **API ID**: `left_image_slice`
+ * - **Description**: LeftImageSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LeftImageSliceSlice = prismic.SharedSlice<
+  "left_image_slice",
+  LeftImageSliceSliceVariation
 >;
 
 /**
@@ -421,6 +877,51 @@ export type TeamIndexSlice = prismic.SharedSlice<
   TeamIndexSliceVariation
 >;
 
+/**
+ * Primary content in *TextBlock → Primary*
+ */
+export interface TextBlockSliceDefaultPrimary {
+  /**
+   * Main Content field in *TextBlock → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_block.primary.main_content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TextBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextBlockSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TextBlockSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TextBlock*
+ */
+type TextBlockSliceVariation = TextBlockSliceDefault;
+
+/**
+ * TextBlock Shared Slice
+ *
+ * - **API ID**: `text_block`
+ * - **Description**: TextBlock
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextBlockSlice = prismic.SharedSlice<
+  "text_block",
+  TextBlockSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -431,6 +932,13 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      BlogpostDocument,
+      BlogpostDocumentData,
+      BlogpostDocumentDataSlicesSlice,
+      GrowthareapointsDocument,
+      GrowthareapointsDocumentData,
+      GrowthareapointsDocumentDataProductAndEngineeringItem,
+      GrowthareapointsDocumentDataTeamAndTalentItem,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
@@ -438,6 +946,9 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      BlogContentIndexSlice,
+      BlogContentIndexSliceVariation,
+      BlogContentIndexSliceDefault,
       ContactFormSectionSlice,
       ContactFormSectionSliceDefaultPrimary,
       ContactFormSectionSliceDefaultItem,
@@ -447,14 +958,34 @@ declare module "@prismicio/client" {
       ContactHeroSliceDefaultPrimary,
       ContactHeroSliceVariation,
       ContactHeroSliceDefault,
+      GrowthInvestmentAreaSlice,
+      GrowthInvestmentAreaSliceVariation,
+      GrowthInvestmentAreaSliceDefault,
       HeroSliceSlice,
       HeroSliceSliceDefaultPrimary,
       HeroSliceSliceVariation,
       HeroSliceSliceDefault,
+      HowWeOperateSlice,
+      HowWeOperateSliceDefaultPrimary,
+      HowWeOperateSliceDefaultItem,
+      HowWeOperateSliceVariation,
+      HowWeOperateSliceDefault,
+      ImpactInitiativesSlice,
+      ImpactInitiativesSliceDefaultItem,
+      ImpactInitiativesSliceVariation,
+      ImpactInitiativesSliceDefault,
+      LeftImageSliceSlice,
+      LeftImageSliceSliceDefaultPrimary,
+      LeftImageSliceSliceVariation,
+      LeftImageSliceSliceDefault,
       TeamIndexSlice,
       TeamIndexSliceDefaultItem,
       TeamIndexSliceVariation,
       TeamIndexSliceDefault,
+      TextBlockSlice,
+      TextBlockSliceDefaultPrimary,
+      TextBlockSliceVariation,
+      TextBlockSliceDefault,
     };
   }
 }

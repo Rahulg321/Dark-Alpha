@@ -1,0 +1,34 @@
+{
+  "id": "impact_initiatives",
+  "type": "SharedSlice",
+  "name": "ImpactInitiatives",
+  "description": "ImpactInitiatives",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "initiative_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Initiative Heading",
+            "placeholder": ""
+          }
+        },
+        "initiative_tagline": {
+          "type": "Link",
+          "config": {
+            "label": "Initiative Tagline",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      }
+    }
+  ]
+}

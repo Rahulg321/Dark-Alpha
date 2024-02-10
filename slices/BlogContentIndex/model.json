@@ -1,0 +1,16 @@
+{
+  "id": "blog_content_index",
+  "type": "SharedSlice",
+  "name": "BlogContentIndex",
+  "description": "BlogContentIndex",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

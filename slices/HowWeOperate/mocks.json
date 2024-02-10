@@ -1,0 +1,41 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "letter",
+				"type": "Text"
+			},
+			"tagline": {
+				"__TYPE__": "FieldContent",
+				"value": "driven",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"experience_point",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "top",
+							"type": "Text"
+						}
+					],
+					[
+						"benefit_point",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "found",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]

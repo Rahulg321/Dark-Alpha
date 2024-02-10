@@ -3,8 +3,14 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  blog_content_index: dynamic(() => import("./BlogContentIndex")),
   contact_form_section: dynamic(() => import("./ContactFormSection")),
   contact_hero: dynamic(() => import("./ContactHero")),
+  growth_investment_area: dynamic(() => import("./GrowthInvestmentArea")),
   hero_slice: dynamic(() => import("./HeroSlice")),
+  how_we_operate: dynamic(() => import("./HowWeOperate")),
+  impact_initiatives: dynamic(() => import("./ImpactInitiatives")),
+  left_image_slice: dynamic(() => import("./LeftImageSlice")),
   team_index: dynamic(() => import("./TeamIndex")),
+  text_block: dynamic(() => import("./TextBlock")),
 };

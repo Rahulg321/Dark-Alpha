@@ -1,0 +1,43 @@
+{
+  "format": "custom",
+  "id": "growthareapoints",
+  "label": "GrowthAreaPoints",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "product_and_engineering": {
+        "type": "Group",
+        "config": {
+          "label": "Product and Engineering",
+          "repeat": true,
+          "fields": {
+            "point": {
+              "type": "Text",
+              "config": {
+                "label": "Point",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "team_and_talent": {
+        "type": "Group",
+        "config": {
+          "label": "Team and Talent",
+          "repeat": true,
+          "fields": {
+            "point": {
+              "type": "Text",
+              "config": {
+                "label": "Point",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

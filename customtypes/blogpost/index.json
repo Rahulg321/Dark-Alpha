@@ -1,47 +1,52 @@
 {
   "format": "page",
-  "id": "page",
-  "label": "Page",
+  "id": "blogpost",
+  "label": "Blogpost",
   "repeatable": true,
   "status": true,
   "json": {
     "Main": {
+      "heading": {
+        "type": "Text",
+        "config": {
+          "label": "Heading",
+          "placeholder": ""
+        }
+      },
       "uid": {
         "config": {
           "label": "UID"
         },
         "type": "UID"
       },
+      "created_at": {
+        "type": "Date",
+        "config": {
+          "label": "Created at",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "Description",
+          "placeholder": ""
+        }
+      },
+      "hero_image": {
+        "type": "Image",
+        "config": {
+          "label": "Hero Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "blog_content_index": {
-              "type": "SharedSlice"
-            },
-            "left_image_slice": {
-              "type": "SharedSlice"
-            },
-            "growth_investment_area": {
-              "type": "SharedSlice"
-            },
-            "how_we_operate": {
-              "type": "SharedSlice"
-            },
-            "impact_initiatives": {
-              "type": "SharedSlice"
-            },
-            "contact_hero": {
-              "type": "SharedSlice"
-            },
-            "contact_form_section": {
-              "type": "SharedSlice"
-            },
-            "team_index": {
-              "type": "SharedSlice"
-            },
-            "hero_slice": {
+            "text_block": {
               "type": "SharedSlice"
             }
           }

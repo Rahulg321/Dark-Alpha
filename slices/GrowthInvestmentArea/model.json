@@ -1,0 +1,16 @@
+{
+  "id": "growth_investment_area",
+  "type": "SharedSlice",
+  "name": "GrowthInvestmentArea",
+  "description": "GrowthInvestmentArea",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}
