@@ -23,10 +23,10 @@ const FocusAreas = ({ slice }: FocusAreasProps): JSX.Element => {
     >
       <div className="big-container">
         <div className="text-center">
-          <span>WHERE WE FOCUS</span>
+          <span className="text-xl font-semibold italic">WHERE WE FOCUS</span>
           <h2 className="mb-12 mt-4">Industries of Interest</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
           <FocusAreaCard
             icon={<BsFillAirplaneEnginesFill />}
             heading="Aerospace & Defence"

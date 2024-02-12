@@ -134,7 +134,7 @@ function DesktopMenu() {
   return (
     <div className="hidden gap-4 md:flex">
       <Link
-        className={clsx("text-2xl font-semibold", {
+        className={clsx("text-xl font-semibold", {
           "active-link": pathname === "/home",
         })}
         href={"/home"}
@@ -142,7 +142,7 @@ function DesktopMenu() {
         Home
       </Link>
       <Link
-        className={clsx("text-2xl font-semibold", {
+        className={clsx("text-xl font-semibold", {
           "active-link": pathname === "/team",
         })}
         href={"/team"}
@@ -150,15 +150,7 @@ function DesktopMenu() {
         Team
       </Link>
       <Link
-        className={clsx("text-2xl font-semibold", {
-          "active-link": pathname === "/about-us",
-        })}
-        href={"/about-us"}
-      >
-        About
-      </Link>
-      <Link
-        className={clsx("text-2xl font-semibold", {
+        className={clsx("text-xl font-semibold", {
           "active-link": pathname === "/strategy",
         })}
         href={"/strategy"}
@@ -166,7 +158,7 @@ function DesktopMenu() {
         Strategy
       </Link>
       <Link
-        className={clsx("text-2xl font-semibold", {
+        className={clsx("text-xl font-semibold", {
           "active-link": pathname === "/blogs",
         })}
         href={"/blogs"}
@@ -174,7 +166,15 @@ function DesktopMenu() {
         Blogs
       </Link>
       <Link
-        className={clsx("text-2xl font-semibold", {
+        className={clsx("text-xl font-semibold", {
+          "active-link": pathname === "/about-us",
+        })}
+        href={"/about-us"}
+      >
+        About
+      </Link>
+      <Link
+        className={clsx("text-xl font-semibold", {
           "active-link": pathname === "/contact",
         })}
         href={"/contact"}

@@ -36,6 +36,19 @@
   }
 }
 
+html {
+  font-family: var(--font-montserrat);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-barlowCondensed);
+}
+
 .big-container {
   margin-inline: auto;
   width: min(90%, 80.5rem);
