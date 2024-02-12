@@ -54,6 +54,17 @@ const Header = ({ classname }: HeaderProps) => {
             </Link>
             <Link
               className={clsx("text-2xl font-semibold", {
+                "active-link": pathname === "/team",
+              })}
+              href={"/team"}
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              Team
+            </Link>
+            <Link
+              className={clsx("text-2xl font-semibold", {
                 "active-link": pathname === "/about-us",
               })}
               href={"/about-us"}
@@ -129,6 +140,14 @@ function DesktopMenu() {
         href={"/home"}
       >
         Home
+      </Link>
+      <Link
+        className={clsx("text-2xl font-semibold", {
+          "active-link": pathname === "/home",
+        })}
+        href={"/team"}
+      >
+        Team
       </Link>
       <Link
         className={clsx("text-2xl font-semibold", {
