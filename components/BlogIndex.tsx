@@ -8,7 +8,7 @@ const BlogIndex = async () => {
   const blogposts = await client.getAllByType("blogpost");
 
   return (
-    <div>
+    <div className="">
       {blogposts.map((item, index) => (
         <BlogCard
           key={index}

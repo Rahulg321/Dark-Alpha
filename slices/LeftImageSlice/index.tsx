@@ -27,7 +27,7 @@ const LeftImageSlice = ({ slice }: LeftImageSliceProps): JSX.Element => {
     >
       <div className="big-container">
         <div
-          className={clsx("flex flex-col md:flex-row", {
+          className={clsx("flex flex-col gap-6 md:flex-row md:gap-8", {
             "md:flex-row-reverse": ImageShouldBeLeft === false,
           })}
         >
@@ -44,7 +44,7 @@ const LeftImageSlice = ({ slice }: LeftImageSliceProps): JSX.Element => {
           </div>
 
           <div className="basis-1/2 md:basis-2/3">
-            <div className="prose md:prose-xl">
+            <div className="prose  md:prose-lg lg:prose-xl">
               <PrismicRichText field={slice.primary.description} />
             </div>
           </div>

@@ -22,7 +22,7 @@ const BackgroundImageSection = ({
         {children}
       </div>
       <PrismicNextImage
-        className="trasition absolute left-0 right-0  aspect-1 object-cover  opacity-75 duration-300 ease-in-out group-hover:scale-105 group-hover:opacity-100"
+        className="trasition absolute left-0 right-0  aspect-1 object-cover  duration-300 ease-in-out group-hover:scale-105 group-hover:opacity-100 md:opacity-75"
         field={backgroundImage}
         fill
       />
