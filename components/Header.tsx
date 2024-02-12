@@ -143,7 +143,7 @@ function DesktopMenu() {
       </Link>
       <Link
         className={clsx("text-2xl font-semibold", {
-          "active-link": pathname === "/home",
+          "active-link": pathname === "/team",
         })}
         href={"/team"}
       >
