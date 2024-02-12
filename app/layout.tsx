@@ -23,7 +23,7 @@ export default function RootLayout({
         <main className="parent-container bg-background">
           <Header classname="bg-primary" />
           {children}
-          <Footer classname="bg-primary" />
+          <Footer />
         </main>
       </body>
     </html>
