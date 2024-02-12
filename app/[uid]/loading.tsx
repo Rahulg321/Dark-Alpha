@@ -1,7 +1,12 @@
+import LoadingSpinner from "@/components/LoadingSpinner";
 import React from "react";
 
 const loading = () => {
-  return <div>Fetching Content Please wait bitch</div>;
+  return (
+    <div className="flex items-center justify-center text-5xl">
+      <LoadingSpinner />
+    </div>
+  );
 };
 
 export default loading;

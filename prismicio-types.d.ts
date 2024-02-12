@@ -256,6 +256,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | FocusAreasSlice
   | BlogContentIndexSlice
   | LeftImageSliceSlice
   | GrowthInvestmentAreaSlice
@@ -517,6 +518,36 @@ export type ContactHeroSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Default variation for FocusAreas Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FocusAreasSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *FocusAreas*
+ */
+type FocusAreasSliceVariation = FocusAreasSliceDefault;
+
+/**
+ * FocusAreas Shared Slice
+ *
+ * - **API ID**: `focus_areas`
+ * - **Description**: FocusAreas
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FocusAreasSlice = prismic.SharedSlice<
+  "focus_areas",
+  FocusAreasSliceVariation
+>;
+
+/**
  * Default variation for GrowthInvestmentArea Slice
  *
  * - **API ID**: `default`
@@ -771,7 +802,7 @@ export interface LeftImageSliceSliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
-   * Image left or right? field in *LeftImageSlice → Primary*
+   * Image left? field in *LeftImageSlice → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
@@ -780,6 +811,17 @@ export interface LeftImageSliceSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   image_left: prismic.BooleanField;
+
+  /**
+   * Image Circle field in *LeftImageSlice → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: left_image_slice.primary.image_circle
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  image_circle: prismic.BooleanField;
 }
 
 /**
@@ -958,6 +1000,9 @@ declare module "@prismicio/client" {
       ContactHeroSliceDefaultPrimary,
       ContactHeroSliceVariation,
       ContactHeroSliceDefault,
+      FocusAreasSlice,
+      FocusAreasSliceVariation,
+      FocusAreasSliceDefault,
       GrowthInvestmentAreaSlice,
       GrowthInvestmentAreaSliceVariation,
       GrowthInvestmentAreaSliceDefault,

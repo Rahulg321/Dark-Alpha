@@ -21,9 +21,9 @@ const ContactFormSection = ({
       className="block-space"
     >
       <div className="big-container">
-        <div className="grid grid-cols-2">
-          <div className="px-12">
-            <h2 className="mb-2  text-5xl font-extrabold">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div className="lg:px-12">
+            <h2 className="mb-2 text-3xl font-extrabold md:text-5xl">
               {slice.primary.heading}
             </h2>
             <span className="text-pretty font-semibold text-gray-600">
@@ -34,7 +34,7 @@ const ContactFormSection = ({
                 return (
                   <div key={index} className="mb-4 flex justify-between">
                     <div>
-                      <span className="block text-2xl font-bold">
+                      <span className="block text-xl font-bold md:text-2xl">
                         {item.contact_person_name}
                       </span>
                       <span className="font-semibold text-gray-600">
@@ -42,7 +42,7 @@ const ContactFormSection = ({
                       </span>
                     </div>
                     <div>
-                      <button className="bg-black px-8 py-3 text-white transition-all hover:border hover:border-black hover:bg-white  hover:font-bold hover:text-black">
+                      <button className="bg-black px-4 py-2 text-white transition-all hover:border hover:border-black hover:bg-white hover:font-bold  hover:text-black md:px-6">
                         Email
                       </button>
                     </div>
@@ -51,7 +51,7 @@ const ContactFormSection = ({
               })}
             </div>
           </div>
-          <div className="px-12">
+          <div className="">
             <ContactForm />
           </div>
         </div>

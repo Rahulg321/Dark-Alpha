@@ -6,6 +6,7 @@ export const components = {
   blog_content_index: dynamic(() => import("./BlogContentIndex")),
   contact_form_section: dynamic(() => import("./ContactFormSection")),
   contact_hero: dynamic(() => import("./ContactHero")),
+  focus_areas: dynamic(() => import("./FocusAreas")),
   growth_investment_area: dynamic(() => import("./GrowthInvestmentArea")),
   hero_slice: dynamic(() => import("./HeroSlice")),
   how_we_operate: dynamic(() => import("./HowWeOperate")),

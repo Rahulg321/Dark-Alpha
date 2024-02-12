@@ -1,0 +1,16 @@
+{
+  "id": "focus_areas",
+  "type": "SharedSlice",
+  "name": "FocusAreas",
+  "description": "FocusAreas",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

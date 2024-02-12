@@ -18,8 +18,8 @@ const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
       backgroundImage={slice.primary.background_image}
       classname="min-h-[80vh]"
     >
-      <h1 className="text-6xl text-white">{slice.primary.heading}</h1>
-      <span className="mt-4 text-gray-200">{slice.primary.tagline}</span>
+      <h1 className="text-primary">{slice.primary.heading}</h1>
+      <span className=" text-primary">{slice.primary.tagline}</span>
     </BackgroundImageSection>
   );
 };

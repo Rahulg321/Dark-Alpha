@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "focus_areas": {
+              "type": "SharedSlice"
+            },
             "blog_content_index": {
               "type": "SharedSlice"
             },

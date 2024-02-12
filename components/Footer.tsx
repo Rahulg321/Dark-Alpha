@@ -1,54 +1,24 @@
-import clsx from "clsx";
 import React from "react";
+import Link from "next/link";
 
-type FooterProps = {
-  classname?: string;
-};
-
-const Footer = ({ classname }: FooterProps) => {
+const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className={clsx("", classname)}>
-      <div className="bg-accent block-space text-white">
-        <div className="big-container flex">
-          <div className="flex basis-1/4 flex-col items-start justify-start ">
-            <span className="text-5xl font-extrabold text-slate-900">
-              Dark Alpha
-            </span>
+    <footer className="block-space bg-black text-primary">
+      <div className="big-container">
+        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+          <div className="flex gap-4">
+            <Link href="/home">Home</Link>
+            <Link href="/about-us">About</Link>
+            <Link href="/blogs">Blogs</Link>
+            <Link href="/contact">Contact</Link>
           </div>
-
-          <div className="flex basis-3/4  gap-4">
-            <div className="flex flex-1 flex-col gap-3 px-3">
-              <span className=" text-xl font-bold text-slate-900">Menu</span>
-              <span className="hover-footer-link">Home</span>
-              <span className="hover-footer-link">Strategy</span>
-              <span className="hover-footer-link">Blog</span>
-              <span className="hover-footer-link">Team</span>
-              <span className="hover-footer-link">Contact</span>
-            </div>
-
-            <div className="flex flex-1 flex-col gap-3 text-pretty px-3">
-              <span className="text-xl font-bold text-slate-900">New York</span>
-              <span className="max-w-[25ch]">
-                79 Wellington St. W, Suite 3500, P.O. Box 357 Toronto, ON, M5K
-                1K7
-              </span>
-              <span>contact@altas.com</span>
-              <span>+1 416-306-9800</span>
-            </div>
-            <div className="flex flex-1 flex-col gap-3 text-pretty px-3">
-              <span className="text-xl font-bold text-slate-900">Toronto</span>
-              <span className="max-w-[25ch]">
-                767 Fifth Avenue, 33rd Floor, New York, NY, 10153
-              </span>
-              <span>+1 416-306-9800</span>
-            </div>
+          <div>
+            <span className="text-4xl">Dark Alpha</span>
           </div>
-        </div>
-      </div>
-      <div className="bg-black py-8 text-white">
-        <div className="big-container">
-          &copy; {currentYear} All rights Reserved.
+          <div>
+            <span>{currentYear} &copy; All rights reserved</span>
+          </div>
         </div>
       </div>
     </footer>

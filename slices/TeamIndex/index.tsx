@@ -36,38 +36,6 @@ const TeamIndex = ({ slice }: TeamIndexProps): JSX.Element => {
               memberPosition={item.member_position}
             />
           ))}
-          {slice.items.map((item, index) => (
-            <TeamMemberCard
-              key={index}
-              memberImage={item.member_image}
-              memberName={item.member_name}
-              memberPosition={item.member_position}
-            />
-          ))}
-          {slice.items.map((item, index) => (
-            <TeamMemberCard
-              key={index}
-              memberImage={item.member_image}
-              memberName={item.member_name}
-              memberPosition={item.member_position}
-            />
-          ))}
-          {slice.items.map((item, index) => (
-            <TeamMemberCard
-              key={index}
-              memberImage={item.member_image}
-              memberName={item.member_name}
-              memberPosition={item.member_position}
-            />
-          ))}
-          {slice.items.map((item, index) => (
-            <TeamMemberCard
-              key={index}
-              memberImage={item.member_image}
-              memberName={item.member_name}
-              memberPosition={item.member_position}
-            />
-          ))}
         </div>
       </div>
     </section>

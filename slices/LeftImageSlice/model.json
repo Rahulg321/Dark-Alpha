@@ -32,7 +32,16 @@
         "image_left": {
           "type": "Boolean",
           "config": {
-            "label": "Image left or right?",
+            "label": "Image left?",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
+          }
+        },
+        "image_circle": {
+          "type": "Boolean",
+          "config": {
+            "label": "Image Circle",
             "placeholder_false": "false",
             "placeholder_true": "true",
             "default_value": true

@@ -30,6 +30,10 @@
   p {
     @apply text-base  leading-relaxed lg:text-lg lg:leading-loose;
   }
+
+  .active-link {
+    @apply font-extrabold text-accent underline;
+  }
 }
 
 .big-container {
@@ -91,25 +95,27 @@
   transform: scale(1.1); /* Change 1.1 to your desired zoom level */
 }
 
-.hover-footer-link {
+.header-container {
   position: relative;
-  overflow: hidden;
+  /* Other styles */
 }
 
-.hover-footer-link::after {
-  content: "";
-  background-color: black; /* Inherit text color */
-  height: 2px; /* Change this to adjust underline thickness */
+.cursor-circle {
   position: absolute;
-  bottom: 0;
-  left: 0;
   width: 0;
-  transition: 0.3s ease-in-out; /* Adjust duration and timing as needed */
-}
-.hover-footer-link:hover {
-  cursor: pointer;
+  height: 0;
+  border-radius: 50%;
+  background-color: #ffff;
+  transition: 0.1s;
+  transform: translate(-50%, -60%);
+  pointer-events: none;
+  mix-blend-mode: difference;
 }
 
-.hover-footer-link:hover::after {
-  width: 20%;
+.header-container:hover .cursor-circle {
+  width: 25px;
+  height: 25px;
+}
+nav:hover ~ .cursor-circle {
+  transform: scale(3); /* Scale up on hover */
 }

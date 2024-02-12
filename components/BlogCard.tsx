@@ -1,9 +1,11 @@
 import { DateField, ImageField, KeyTextField } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
+import Link from "next/link";
 import React from "react";
 
 type BlogCardProps = {
   title: KeyTextField;
+  uid: string;
   description: KeyTextField;
   heroImg: ImageField;
   createdAt: DateField;
@@ -11,27 +13,31 @@ type BlogCardProps = {
 
 const BlogCard = ({
   title,
+  uid,
   description,
   heroImg,
   createdAt,
 }: BlogCardProps) => {
   const formattedDate = convertDateToDayMonthYear(createdAt);
   return (
-    <div className="mt-4 flex">
-      <div className="flex-1 px-12">
+    <div className="mt-12 flex flex-col gap-8 md:flex-row">
+      <div className="basis-1/3">
         <div className="aspect-h-1 aspect-w-1 relative">
           <PrismicNextImage field={heroImg} fill className="object-cover" />
         </div>
       </div>
-      <div className="flex-1">
+      <div className="basis-2/3">
         <span className="text-xl font-bold italic">{formattedDate}</span>
-        <h2 className="my-4 font-extrabold">{title}</h2>
-        <span className="my-6 block text-base font-semibold text-gray-600">
+        <h2 className="my-2 font-extrabold md:my-4">{title}</h2>
+        <span className="block text-base font-semibold text-gray-600">
           {description}
         </span>
-        <button className="bg-black px-8 py-3 text-white transition-all hover:border hover:border-black hover:bg-white  hover:font-bold hover:text-black">
+        <Link
+          href={`/blog/${uid}`}
+          className="mt-2 inline-block bg-black px-4 py-3 text-white transition-all hover:border hover:border-black hover:bg-white  hover:font-bold hover:text-black"
+        >
           Read More
-        </button>
+        </Link>
       </div>
     </div>
   );

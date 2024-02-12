@@ -39,7 +39,11 @@
 			},
 			"image_left": {
 				"__TYPE__": "BooleanContent",
-				"value": false
+				"value": true
+			},
+			"image_circle": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": []
