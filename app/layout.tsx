@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Dark Alpha🕶️",
@@ -26,6 +27,7 @@ export default function RootLayout({
           <Header classname="bg-primary" />
           {children}
           <Analytics />
+          <SpeedInsights />
           <Footer />
         </main>
       </body>
