@@ -16,10 +16,12 @@ const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       backgroundImage={slice.primary.background_image}
-      classname="min-h-[60vh]  md:min-h-[80vh] lg:min-h-[90vh]"
+      classname="min-h-[60vh]  md:min-h-[80vh] lg:min-h-[90vh] px-4"
     >
-      <h1 className="text-primary">{slice.primary.heading}</h1>
-      <span className=" text-primary">{slice.primary.tagline}</span>
+      <h1 className="text-6xl text-primary">{slice.primary.heading}</h1>
+      <span className="mt-2 text-2xl text-primary md:mt-4">
+        {slice.primary.tagline}
+      </span>
     </BackgroundImageSection>
   );
 };
