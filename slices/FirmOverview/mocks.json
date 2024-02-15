@@ -1,0 +1,31 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"firm_overview_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis esse duis id officia. Amet nisi deserunt exercitation eiusmod ad culpa esse labore occaecat pariatur proident officia incididunt."
+						}
+					}
+				]
+			},
+			"firm_strategy_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Non non commodo veniam et id sunt do deserunt consequat pariatur voluptate mollit et non. Sit esse velit sit laboris quis."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

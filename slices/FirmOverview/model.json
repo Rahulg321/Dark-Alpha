@@ -1,0 +1,37 @@
+{
+  "id": "firm_overview",
+  "type": "SharedSlice",
+  "name": "FirmOverview",
+  "description": "FirmOverview",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "firm_overview_content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Firm Overview Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "firm_strategy_content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Firm Strategy Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

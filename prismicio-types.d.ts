@@ -256,6 +256,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | FirmOverviewSlice
   | FavouriteIndeustrySlice
   | CapabilitiesSlice
   | FocusAreasSlice
@@ -577,6 +578,61 @@ type FavouriteIndeustrySliceVariation = FavouriteIndeustrySliceDefault;
 export type FavouriteIndeustrySlice = prismic.SharedSlice<
   "favourite_indeustry",
   FavouriteIndeustrySliceVariation
+>;
+
+/**
+ * Primary content in *FirmOverview → Primary*
+ */
+export interface FirmOverviewSliceDefaultPrimary {
+  /**
+   * Firm Overview Content field in *FirmOverview → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: firm_overview.primary.firm_overview_content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  firm_overview_content: prismic.RichTextField;
+
+  /**
+   * Firm Strategy Content field in *FirmOverview → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: firm_overview.primary.firm_strategy_content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  firm_strategy_content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for FirmOverview Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FirmOverviewSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FirmOverviewSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FirmOverview*
+ */
+type FirmOverviewSliceVariation = FirmOverviewSliceDefault;
+
+/**
+ * FirmOverview Shared Slice
+ *
+ * - **API ID**: `firm_overview`
+ * - **Description**: FirmOverview
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FirmOverviewSlice = prismic.SharedSlice<
+  "firm_overview",
+  FirmOverviewSliceVariation
 >;
 
 /**
@@ -1068,6 +1124,10 @@ declare module "@prismicio/client" {
       FavouriteIndeustrySlice,
       FavouriteIndeustrySliceVariation,
       FavouriteIndeustrySliceDefault,
+      FirmOverviewSlice,
+      FirmOverviewSliceDefaultPrimary,
+      FirmOverviewSliceVariation,
+      FirmOverviewSliceDefault,
       FocusAreasSlice,
       FocusAreasSliceVariation,
       FocusAreasSliceDefault,

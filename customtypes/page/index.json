@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "firm_overview": {
+              "type": "SharedSlice"
+            },
             "favourite_indeustry": {
               "type": "SharedSlice"
             },
