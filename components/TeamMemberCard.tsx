@@ -19,11 +19,7 @@ const TeamMemberCard = ({
   return (
     <div className={clsx("", classname)}>
       <div className="aspect-h-1 aspect-w-1 relative">
-        <PrismicNextImage
-          field={memberImage}
-          fill
-          className="rounded-full object-cover"
-        />
+        <PrismicNextImage field={memberImage} fill className=" object-cover" />
       </div>
       <div className="mt-2">
         <div className="text-center">

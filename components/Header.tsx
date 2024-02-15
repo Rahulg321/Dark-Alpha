@@ -5,6 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { MdMenu, MdClose } from "react-icons/md";
+import Image from "next/image";
+import DarkAlphaLogo from "@/public/darkAlphaLogo.png";
 
 type HeaderProps = {
   classname?: string;
@@ -15,7 +17,7 @@ const Header = ({ classname }: HeaderProps) => {
   const pathname = usePathname();
 
   return (
-    <header className={clsx("relative px-2 py-4", classname)}>
+    <header className={clsx("relative px-2 py-3", classname)}>
       <nav aria-label="Main-navigation">
         <ul className="flex flex-col justify-between md:m-4 md:flex-row md:items-center md:rounded-xl">
           <div className="flex items-center justify-between">
@@ -61,18 +63,18 @@ const Header = ({ classname }: HeaderProps) => {
                 setIsOpen(false);
               }}
             >
-              Team
+              Advisors
             </Link>
             <Link
               className={clsx("text-2xl font-semibold", {
-                "active-link": pathname === "/about-us",
+                "active-link": pathname === "/criteria",
               })}
-              href={"/about-us"}
+              href={"/criteria"}
               onClick={() => {
                 setIsOpen(false);
               }}
             >
-              About
+              Criteria
             </Link>
             <Link
               className={clsx("text-2xl font-semibold", {
@@ -85,17 +87,7 @@ const Header = ({ classname }: HeaderProps) => {
             >
               Strategy
             </Link>
-            <Link
-              className={clsx("text-2xl font-semibold", {
-                "active-link": pathname === "/blogs",
-              })}
-              href={"/blogs"}
-              onClick={() => {
-                setIsOpen(false);
-              }}
-            >
-              Blogs
-            </Link>
+
             <Link
               className={clsx("text-2xl font-semibold", {
                 "active-link": pathname === "/contact",
@@ -119,13 +111,22 @@ export default Header;
 
 function NameLogo({}: {}) {
   return (
-    <Link
-      href="/home"
-      aria-label="Home page"
-      className="text-2xl font-extrabold md:text-3xl"
-    >
-      Dark Alpha
-    </Link>
+    <div className="flex items-center">
+      <Image
+        src={DarkAlphaLogo}
+        alt="official logo of dark alpha website"
+        width={50}
+        height={50}
+        className="rounded-full object-cover"
+      />
+      <Link
+        href="/home"
+        aria-label="Home page"
+        className="text-2xl font-extrabold md:text-3xl"
+      >
+        Dark Alpha
+      </Link>
+    </div>
   );
 }
 
@@ -147,7 +148,7 @@ function DesktopMenu() {
         })}
         href={"/team"}
       >
-        Team
+        Advisors
       </Link>
       <Link
         className={clsx("text-xl font-semibold", {
@@ -157,21 +158,14 @@ function DesktopMenu() {
       >
         Strategy
       </Link>
+
       <Link
         className={clsx("text-xl font-semibold", {
-          "active-link": pathname === "/blogs",
+          "active-link": pathname === "/criteria",
         })}
-        href={"/blogs"}
+        href={"/criteria"}
       >
-        Blogs
-      </Link>
-      <Link
-        className={clsx("text-xl font-semibold", {
-          "active-link": pathname === "/about-us",
-        })}
-        href={"/about-us"}
-      >
-        About
+        Criteria
       </Link>
       <Link
         className={clsx("text-xl font-semibold", {

@@ -17,6 +17,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "favourite_indeustry": {
+              "type": "SharedSlice"
+            },
+            "capabilities": {
+              "type": "SharedSlice"
+            },
             "focus_areas": {
               "type": "SharedSlice"
             },

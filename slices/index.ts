@@ -4,8 +4,10 @@ import dynamic from "next/dynamic";
 
 export const components = {
   blog_content_index: dynamic(() => import("./BlogContentIndex")),
+  capabilities: dynamic(() => import("./Capabilities")),
   contact_form_section: dynamic(() => import("./ContactFormSection")),
   contact_hero: dynamic(() => import("./ContactHero")),
+  favourite_indeustry: dynamic(() => import("./FavouriteIndustry")),
   focus_areas: dynamic(() => import("./FocusAreas")),
   growth_investment_area: dynamic(() => import("./GrowthInvestmentArea")),
   hero_slice: dynamic(() => import("./HeroSlice")),

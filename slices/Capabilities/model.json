@@ -1,0 +1,16 @@
+{
+  "id": "capabilities",
+  "type": "SharedSlice",
+  "name": "Capabilities",
+  "description": "Capabilities",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

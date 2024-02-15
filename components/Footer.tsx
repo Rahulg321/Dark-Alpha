@@ -3,21 +3,79 @@ import Link from "next/link";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const menuLinks = [
+    {
+      link: "/home",
+      label: "Home",
+    },
+    {
+      link: "/team",
+      label: "Advisors",
+    },
+    {
+      link: "/strategy",
+      label: "Strategy",
+    },
+    {
+      link: "/criteria",
+      label: "Criteria",
+    },
+    {
+      link: "/contact",
+      label: "Contact",
+    },
+  ];
+
   return (
-    <footer className="block-space bg-black text-primary">
+    <footer className="block-space bg-gray-900 text-primary">
       <div className="big-container">
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-          <div className="flex gap-4">
-            <Link href="/home">Home</Link>
-            <Link href="/about-us">About</Link>
-            <Link href="/blogs">Blogs</Link>
-            <Link href="/contact">Contact</Link>
+        <div className="flex flex-col gap-6 border-b-2 py-6 md:flex-row md:justify-between">
+          <div>
+            <span className="text-2xl font-bold">Dark Alpha</span>
+            <span className="ml-8 block text-2xl">Capital</span>
+          </div>
+
+          <div className="flex flex-col">
+            <span className="text-xl font-bold">Menu</span>
+            {menuLinks.map((menu, index) => {
+              return (
+                <Link
+                  href={menu.link}
+                  key={index}
+                  className="mt-2 text-gray-400 transition hover:text-white"
+                >
+                  {menu.label}
+                </Link>
+              );
+            })}
+          </div>
+          <div className="flex flex-col">
+            <span className=" text-xl font-bold">Contact</span>
+            <span className="mt-2 text-gray-400 transition hover:text-white">
+              team@marketstreetcp.com
+            </span>
+            <span className="mt-2 text-gray-400 transition hover:text-white ">
+              (423) 447-42342
+            </span>
+            <span className="mt-2 text-gray-400 transition hover:text-white ">
+              Lorem ipsum dolor sit amet.loremlorem2 Lorem, ipsum.
+            </span>
+          </div>
+        </div>
+        <div className="flex flex-col justify-between py-6 md:flex-row">
+          <div className="flex flex-col">
+            <span className="text-gray-400 transition hover:text-white">
+              &copy; All rights reserved - {currentYear} Dark Alpha Capital Inc.
+            </span>
+            <span className="text-gray-400 transition hover:text-white">
+              Broker dealers services provided by Pickwick Capital Partners
+            </span>
           </div>
           <div>
-            <span className="text-4xl">Dark Alpha</span>
-          </div>
-          <div>
-            <span>{currentYear} &copy; All rights reserved</span>
+            <span className="text-gray-400 transition hover:text-white">
+              Designed and developed By Destiny
+            </span>
           </div>
         </div>
       </div>

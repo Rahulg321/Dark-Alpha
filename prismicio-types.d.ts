@@ -256,6 +256,8 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | FavouriteIndeustrySlice
+  | CapabilitiesSlice
   | FocusAreasSlice
   | BlogContentIndexSlice
   | LeftImageSliceSlice
@@ -360,6 +362,36 @@ type BlogContentIndexSliceVariation = BlogContentIndexSliceDefault;
 export type BlogContentIndexSlice = prismic.SharedSlice<
   "blog_content_index",
   BlogContentIndexSliceVariation
+>;
+
+/**
+ * Default variation for Capabilities Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CapabilitiesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Capabilities*
+ */
+type CapabilitiesSliceVariation = CapabilitiesSliceDefault;
+
+/**
+ * Capabilities Shared Slice
+ *
+ * - **API ID**: `capabilities`
+ * - **Description**: Capabilities
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CapabilitiesSlice = prismic.SharedSlice<
+  "capabilities",
+  CapabilitiesSliceVariation
 >;
 
 /**
@@ -515,6 +547,36 @@ type ContactHeroSliceVariation = ContactHeroSliceDefault;
 export type ContactHeroSlice = prismic.SharedSlice<
   "contact_hero",
   ContactHeroSliceVariation
+>;
+
+/**
+ * Default variation for FavouriteIndustry Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FavouriteIndeustrySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *FavouriteIndustry*
+ */
+type FavouriteIndeustrySliceVariation = FavouriteIndeustrySliceDefault;
+
+/**
+ * FavouriteIndustry Shared Slice
+ *
+ * - **API ID**: `favourite_indeustry`
+ * - **Description**: FavouriteIndeustry
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FavouriteIndeustrySlice = prismic.SharedSlice<
+  "favourite_indeustry",
+  FavouriteIndeustrySliceVariation
 >;
 
 /**
@@ -991,6 +1053,9 @@ declare module "@prismicio/client" {
       BlogContentIndexSlice,
       BlogContentIndexSliceVariation,
       BlogContentIndexSliceDefault,
+      CapabilitiesSlice,
+      CapabilitiesSliceVariation,
+      CapabilitiesSliceDefault,
       ContactFormSectionSlice,
       ContactFormSectionSliceDefaultPrimary,
       ContactFormSectionSliceDefaultItem,
@@ -1000,6 +1065,9 @@ declare module "@prismicio/client" {
       ContactHeroSliceDefaultPrimary,
       ContactHeroSliceVariation,
       ContactHeroSliceDefault,
+      FavouriteIndeustrySlice,
+      FavouriteIndeustrySliceVariation,
+      FavouriteIndeustrySliceDefault,
       FocusAreasSlice,
       FocusAreasSliceVariation,
       FocusAreasSliceDefault,

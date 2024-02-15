@@ -1,0 +1,18 @@
+{
+  "id": "favourite_indeustry",
+  "type": "SharedSlice",
+  "name": "FavouriteIndustry",
+  "description": "FavouriteIndeustry",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}

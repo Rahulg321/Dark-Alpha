@@ -5,6 +5,9 @@ import { BsFillAirplaneEnginesFill } from "react-icons/bs";
 import { GiSatelliteCommunication } from "react-icons/gi";
 import { SlEnergy } from "react-icons/sl";
 import { GiEnergyBreath } from "react-icons/gi";
+import { IoMdBuild } from "react-icons/io";
+import { GiHealthNormal } from "react-icons/gi";
+import { IoMdAirplane } from "react-icons/io";
 
 /**
  * Props for `FocusAreas`.
@@ -27,16 +30,13 @@ const FocusAreas = ({ slice }: FocusAreasProps): JSX.Element => {
           <h2 className="mb-12 mt-4">Industries of Interest</h2>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
+          <FocusAreaCard icon={<IoMdBuild />} heading="Manufacturing" />
+          <FocusAreaCard icon={<GiHealthNormal />} heading="Health Care" />
           <FocusAreaCard
-            icon={<BsFillAirplaneEnginesFill />}
+            icon={<IoMdAirplane />}
             heading="Aerospace & Defence"
           />
-          <FocusAreaCard
-            icon={<GiSatelliteCommunication />}
-            heading="Telecommunications"
-          />
-          <FocusAreaCard icon={<GiEnergyBreath />} heading="Semiconductors" />
-          <FocusAreaCard icon={<SlEnergy />} heading="Renewable Energy" />
+          <FocusAreaCard icon={<SlEnergy />} heading="Construction & Energy" />
         </div>
       </div>
     </section>
