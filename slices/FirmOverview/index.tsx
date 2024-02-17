@@ -21,13 +21,6 @@ const FirmOverview = ({ slice }: FirmOverviewProps): JSX.Element => {
         <div className="prose  md:prose-lg lg:prose-xl">
           <PrismicRichText field={slice.primary.firm_overview_content} />
         </div>
-
-        <div className="mt-4 md:mt-6">
-          <h2 className="heading tracking-loose text-6xl">Firm Strategy</h2>
-          <div className="prose  md:prose-lg lg:prose-xl">
-            <PrismicRichText field={slice.primary.firm_strategy_content} />
-          </div>
-        </div>
       </div>
     </section>
   );
