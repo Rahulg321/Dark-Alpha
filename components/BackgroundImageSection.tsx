@@ -18,11 +18,11 @@ const BackgroundImageSection = ({
     <section
       className={clsx("group relative overflow-hidden bg-slate-900", classname)}
     >
-      <div className="absolute bottom-0 left-0 right-0 top-0 z-10 flex flex-col items-center justify-center px-2">
+      <div className="absolute bottom-0 left-0 right-0 top-0 z-10 items-center ">
         {children}
       </div>
       <PrismicNextImage
-        className="trasition absolute left-0 right-0  aspect-1 object-cover  duration-300 ease-in-out group-hover:scale-105 group-hover:opacity-100 md:opacity-75"
+        className="trasition absolute left-0 right-0  aspect-1 object-cover opacity-75  duration-300 ease-in-out "
         field={backgroundImage}
         fill
       />

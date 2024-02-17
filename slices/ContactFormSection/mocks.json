@@ -12,37 +12,35 @@
 				"__TYPE__": "FieldContent",
 				"value": "nor",
 				"type": "Text"
+			},
+			"contactformimage": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+					"width": 4016,
+					"height": 6016
+				},
+				"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+				"width": 4016,
+				"height": 6016,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
 			}
 		},
 		"items": [
 			{
 				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"contact_person_name",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "sum",
-							"type": "Text"
-						}
-					],
-					[
-						"contact_person_position",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "canal",
-							"type": "Text"
-						}
-					],
-					[
-						"contact_person_email",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "equal",
-							"type": "Text"
-						}
-					]
-				]
+				"value": []
 			}
 		]
 	}

@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "text_with_background": {
+              "type": "SharedSlice"
+            },
             "firm_overview": {
               "type": "SharedSlice"
             },

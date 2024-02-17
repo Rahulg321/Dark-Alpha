@@ -1,8 +1,8 @@
 {
-  "id": "contact_form_section",
+  "id": "text_with_background",
   "type": "SharedSlice",
-  "name": "ContactFormSection",
-  "description": "ContactFormSection",
+  "name": "TextWithBackground",
+  "description": "TextWithBackground",
   "variations": [
     {
       "id": "default",
@@ -12,6 +12,14 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "backgroundimage": {
+          "type": "Image",
+          "config": {
+            "label": "BackgroundImage",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "heading": {
           "type": "Text",
           "config": {
@@ -24,14 +32,6 @@
           "config": {
             "label": "Tagline",
             "placeholder": ""
-          }
-        },
-        "contactformimage": {
-          "type": "Image",
-          "config": {
-            "label": "ContactFormImage",
-            "constraint": {},
-            "thumbnails": []
           }
         }
       },

@@ -32,7 +32,7 @@
   }
 
   .active-link {
-    @apply font-extrabold text-accent underline;
+    @apply rounded-xl bg-slate-600 px-2 py-1 font-extrabold;
   }
 }
 

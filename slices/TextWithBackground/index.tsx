@@ -1,30 +1,31 @@
 import BackgroundImageSection from "@/components/BackgroundImageSection";
-import Header from "@/components/Header";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
 /**
- * Props for `HeroSlice`.
+ * Props for `TextWithBackground`.
  */
-export type HeroSliceProps = SliceComponentProps<Content.HeroSliceSlice>;
+export type TextWithBackgroundProps =
+  SliceComponentProps<Content.TextWithBackgroundSlice>;
 
 /**
- * Component for "HeroSlice" Slices.
+ * Component for "TextWithBackground" Slices.
  */
-const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
+const TextWithBackground = ({
+  slice,
+}: TextWithBackgroundProps): JSX.Element => {
   return (
     <BackgroundImageSection
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      backgroundImage={slice.primary.background_image}
-      classname="min-h-[60vh]  md:min-h-[80vh] lg:min-h-[90vh]"
+      backgroundImage={slice.primary.backgroundimage}
+      classname="min-h-[60vh]"
     >
-      <Header />
-      <div className="mt-6 text-center">
+      <div className="mt-auto text-center">
         <h1 className="text-4xl text-primary md:text-6xl">
           {slice.primary.heading}
         </h1>
-        <span className="mt-2 block text-xl text-primary md:mt-4">
+        <span className="mt-2 block text-xl text-primary md:mt-4 md:text-2xl">
           {slice.primary.tagline}
         </span>
       </div>
@@ -32,4 +33,4 @@ const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
   );
 };
 
-export default HeroSlice;
+export default TextWithBackground;

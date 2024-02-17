@@ -256,6 +256,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TextWithBackgroundSlice
   | FirmOverviewSlice
   | FavouriteIndeustrySlice
   | CapabilitiesSlice
@@ -418,41 +419,16 @@ export interface ContactFormSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   tagline: prismic.KeyTextField;
-}
-
-/**
- * Primary content in *ContactFormSection → Items*
- */
-export interface ContactFormSectionSliceDefaultItem {
-  /**
-   * Contact Person Name field in *ContactFormSection → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: contact_form_section.items[].contact_person_name
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  contact_person_name: prismic.KeyTextField;
 
   /**
-   * Contact Person Position field in *ContactFormSection → Items*
+   * ContactFormImage field in *ContactFormSection → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: contact_form_section.items[].contact_person_position
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: contact_form_section.primary.contactformimage
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  contact_person_position: prismic.KeyTextField;
-
-  /**
-   * Contact Person Email field in *ContactFormSection → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: contact_form_section.items[].contact_person_email
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  contact_person_email: prismic.KeyTextField;
+  contactformimage: prismic.ImageField<never>;
 }
 
 /**
@@ -465,7 +441,7 @@ export interface ContactFormSectionSliceDefaultItem {
 export type ContactFormSectionSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<ContactFormSectionSliceDefaultPrimary>,
-  Simplify<ContactFormSectionSliceDefaultItem>
+  never
 >;
 
 /**
@@ -1082,6 +1058,71 @@ export type TextBlockSlice = prismic.SharedSlice<
   TextBlockSliceVariation
 >;
 
+/**
+ * Primary content in *TextWithBackground → Primary*
+ */
+export interface TextWithBackgroundSliceDefaultPrimary {
+  /**
+   * BackgroundImage field in *TextWithBackground → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_background.primary.backgroundimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  backgroundimage: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *TextWithBackground → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_background.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *TextWithBackground → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_background.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for TextWithBackground Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextWithBackgroundSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TextWithBackgroundSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TextWithBackground*
+ */
+type TextWithBackgroundSliceVariation = TextWithBackgroundSliceDefault;
+
+/**
+ * TextWithBackground Shared Slice
+ *
+ * - **API ID**: `text_with_background`
+ * - **Description**: TextWithBackground
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextWithBackgroundSlice = prismic.SharedSlice<
+  "text_with_background",
+  TextWithBackgroundSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1114,7 +1155,6 @@ declare module "@prismicio/client" {
       CapabilitiesSliceDefault,
       ContactFormSectionSlice,
       ContactFormSectionSliceDefaultPrimary,
-      ContactFormSectionSliceDefaultItem,
       ContactFormSectionSliceVariation,
       ContactFormSectionSliceDefault,
       ContactHeroSlice,
@@ -1159,6 +1199,10 @@ declare module "@prismicio/client" {
       TextBlockSliceDefaultPrimary,
       TextBlockSliceVariation,
       TextBlockSliceDefault,
+      TextWithBackgroundSlice,
+      TextWithBackgroundSliceDefaultPrimary,
+      TextWithBackgroundSliceVariation,
+      TextWithBackgroundSliceDefault,
     };
   }
 }

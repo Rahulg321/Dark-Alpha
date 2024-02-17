@@ -1,6 +1,11 @@
 import ContactForm from "@/components/ContactForm";
+import ContactFormInfoCard from "@/components/ContactFormInfoCard";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { MdEmail } from "react-icons/md";
+import { FaPhoneFlip } from "react-icons/fa6";
+import { FaLocationDot } from "react-icons/fa6";
+import { PrismicNextImage } from "@prismicio/next";
 
 /**
  * Props for `ContactFormSection`.
@@ -18,41 +23,42 @@ const ContactFormSection = ({
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="block-space"
+      className="block-space bg-slate-800"
     >
       <div className="big-container">
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="lg:px-12">
-            <h2 className="mb-2 text-3xl font-extrabold md:text-5xl">
+        <div className="flex flex-col-reverse gap-12 md:flex-row">
+          <div className="flex-1">
+            <h2 className="text-3xl font-extrabold text-white md:text-5xl">
               {slice.primary.heading}
             </h2>
-            <span className="text-pretty font-semibold text-gray-600">
+            <span className="my-4 block text-pretty font-semibold text-gray-400">
               {slice.primary.tagline}
             </span>
-            <div className="mt-12 flex flex-col">
-              {slice.items.map((item, index) => {
-                return (
-                  <div key={index} className="mb-4 flex justify-between">
-                    <div>
-                      <span className="block text-xl font-bold md:text-2xl">
-                        {item.contact_person_name}
-                      </span>
-                      <span className="font-semibold text-gray-600">
-                        {item.contact_person_position}
-                      </span>
-                    </div>
-                    <div>
-                      <button className="bg-black px-4 py-2 text-white transition-all hover:border hover:border-black hover:bg-white hover:font-bold  hover:text-black md:px-6">
-                        Email
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-          <div className="">
             <ContactForm />
+          </div>
+          <div className="flex flex-1 flex-col gap-4">
+            <div className="aspect-h-2 aspect-w-4 relative">
+              <PrismicNextImage
+                field={slice.primary.contactformimage}
+                className="rounded-xl object-cover"
+                fill
+              />
+            </div>
+            <ContactFormInfoCard
+              icon={<MdEmail />}
+              heading="Email"
+              tagline="rg5353070@gmail.com"
+            />
+            <ContactFormInfoCard
+              icon={<FaPhoneFlip />}
+              heading="Phone"
+              tagline="9876939930"
+            />
+            <ContactFormInfoCard
+              icon={<FaLocationDot />}
+              heading="Address"
+              tagline="5757 Woodway Drive, Suite 301B, Houston TX, 77057"
+            />
           </div>
         </div>
       </div>
