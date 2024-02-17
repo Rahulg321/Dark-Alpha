@@ -7,15 +7,9 @@ import { FaPhoneFlip } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import { PrismicNextImage } from "@prismicio/next";
 
-/**
- * Props for `ContactFormSection`.
- */
 export type ContactFormSectionProps =
   SliceComponentProps<Content.ContactFormSectionSlice>;
 
-/**
- * Component for "ContactFormSection" Slices.
- */
 const ContactFormSection = ({
   slice,
 }: ContactFormSectionProps): JSX.Element => {
