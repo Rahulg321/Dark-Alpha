@@ -1,6 +1,6 @@
 import ExperiencePoint from "@/components/ExperiencePoint";
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 /**
  * Props for `HowWeOperate`.
@@ -19,12 +19,13 @@ const HowWeOperate = ({ slice }: HowWeOperateProps): JSX.Element => {
         className="block-space bg-primary"
       >
         <div className="narrow-container">
-          <div className="text-pretty text-center">
-            <span className="text-2xl font-semibold text-accent">Overview</span>
-            <h2 className="my-4 font-extrabold">{slice.primary.heading}</h2>
-            <span className="font-semibold text-gray-600">
-              {slice.primary.tagline}
-            </span>
+          <div className="text-pretty">
+            <h1 className="text-center  font-semibold text-accent">
+              INVESTMENT STRATEGY
+            </h1>
+            <div className="prose mx-auto mt-12 md:prose-base lg:prose-lg prose-p:font-semibold prose-p:text-gray-600 prose-a:text-blue-400">
+              <PrismicRichText field={slice.primary.strategy_content} />
+            </div>
           </div>
         </div>
       </section>

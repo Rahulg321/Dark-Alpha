@@ -256,6 +256,8 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TextBlockSlice
+  | CriteriaInfoSliceSlice
   | TextWithBackgroundSlice
   | FirmOverviewSlice
   | FavouriteIndeustrySlice
@@ -527,6 +529,36 @@ export type ContactHeroSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Default variation for CriteriaInfoSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CriteriaInfoSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *CriteriaInfoSlice*
+ */
+type CriteriaInfoSliceSliceVariation = CriteriaInfoSliceSliceDefault;
+
+/**
+ * CriteriaInfoSlice Shared Slice
+ *
+ * - **API ID**: `criteria_info_slice`
+ * - **Description**: CriteriaInfoSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CriteriaInfoSliceSlice = prismic.SharedSlice<
+  "criteria_info_slice",
+  CriteriaInfoSliceSliceVariation
+>;
+
+/**
  * Default variation for FavouriteIndustry Slice
  *
  * - **API ID**: `default`
@@ -759,6 +791,16 @@ export interface HowWeOperateSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   tagline: prismic.KeyTextField;
+
+  /**
+   * Strategy_Content field in *HowWeOperate → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_operate.primary.strategy_content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  strategy_content: prismic.RichTextField;
 }
 
 /**
@@ -916,6 +958,27 @@ export interface LeftImageSliceSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   image_circle: prismic.BooleanField;
+
+  /**
+   * Page Link field in *LeftImageSlice → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: left_image_slice.primary.page_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  page_link: prismic.LinkField;
+
+  /**
+   * ShowLearnMoreButton field in *LeftImageSlice → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: left_image_slice.primary.showlearnmorebutton
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  showlearnmorebutton: prismic.BooleanField;
 }
 
 /**
@@ -1161,6 +1224,9 @@ declare module "@prismicio/client" {
       ContactHeroSliceDefaultPrimary,
       ContactHeroSliceVariation,
       ContactHeroSliceDefault,
+      CriteriaInfoSliceSlice,
+      CriteriaInfoSliceSliceVariation,
+      CriteriaInfoSliceSliceDefault,
       FavouriteIndeustrySlice,
       FavouriteIndeustrySliceVariation,
       FavouriteIndeustrySliceDefault,

@@ -1,6 +1,10 @@
 import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import {
+  PrismicLink,
+  PrismicRichText,
+  SliceComponentProps,
+} from "@prismicio/react";
 import clsx from "clsx";
 
 /**
@@ -47,6 +51,13 @@ const LeftImageSlice = ({ slice }: LeftImageSliceProps): JSX.Element => {
             <div className="prose  md:prose-lg lg:prose-xl">
               <PrismicRichText field={slice.primary.description} />
             </div>
+            {slice.primary.showlearnmorebutton ? (
+              <div className="mt-4 w-fit bg-accent px-6 py-2 font-semibold text-white transition hover:border-2 hover:bg-primary hover:text-black">
+                <PrismicLink field={slice.primary.page_link}>
+                  Learn More
+                </PrismicLink>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

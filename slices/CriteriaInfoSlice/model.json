@@ -1,0 +1,16 @@
+{
+  "id": "criteria_info_slice",
+  "type": "SharedSlice",
+  "name": "CriteriaInfoSlice",
+  "description": "CriteriaInfoSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

@@ -7,6 +7,7 @@ export const components = {
   capabilities: dynamic(() => import("./Capabilities")),
   contact_form_section: dynamic(() => import("./ContactFormSection")),
   contact_hero: dynamic(() => import("./ContactHero")),
+  criteria_info_slice: dynamic(() => import("./CriteriaInfoSlice")),
   favourite_indeustry: dynamic(() => import("./FavouriteIndustry")),
   firm_overview: dynamic(() => import("./FirmOverview")),
   focus_areas: dynamic(() => import("./FocusAreas")),

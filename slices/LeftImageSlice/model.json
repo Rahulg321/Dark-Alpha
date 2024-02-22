@@ -46,6 +46,23 @@
             "placeholder_true": "true",
             "default_value": true
           }
+        },
+        "page_link": {
+          "type": "Link",
+          "config": {
+            "label": "Page Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "showlearnmorebutton": {
+          "type": "Boolean",
+          "config": {
+            "label": "ShowLearnMoreButton",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
         }
       },
       "items": {}

@@ -129,7 +129,7 @@ function NameLogo({}: {}) {
       </div>
       <div className="hidden px-2 lg:block">
         <span className="text-sm font-semibold">
-          Where Main Street <br /> meets Wall Street
+          Investing in the full <br /> potential of businesses
         </span>
       </div>
     </div>

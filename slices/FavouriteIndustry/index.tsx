@@ -29,8 +29,11 @@ const FavouriteIndeustry = ({
       <div className="big-container text-center">
         <h2 className="mb-6 text-5xl">Our Favourite Industries</h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <FavoriteIndustryCard icon={<IoCartOutline />} heading="Retail" />
-          <FavoriteIndustryCard icon={<MdFactory />} heading="Industry" />
+          <FavoriteIndustryCard
+            icon={<IoCartOutline />}
+            heading="Manufacturing"
+          />
+          <FavoriteIndustryCard icon={<MdFactory />} heading="Construction" />
           <FavoriteIndustryCard
             icon={<GiHealthNormal />}
             heading="Healthcare"
@@ -40,6 +43,7 @@ const FavouriteIndeustry = ({
             icon={<IoAirplaneOutline />}
             heading="Aerospace"
           />
+
           <FavoriteIndustryCard
             icon={<MdBusinessCenter />}
             heading="Business Services"

@@ -44,6 +44,17 @@
 			"image_circle": {
 				"__TYPE__": "BooleanContent",
 				"value": true
+			},
+			"page_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"showlearnmorebutton": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": []

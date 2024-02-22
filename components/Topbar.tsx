@@ -15,13 +15,8 @@ const Topbar = () => {
       </div>
       <div className="flex gap-4">
         <div>
-          <button className="hidden px-2 py-1 text-sm font-semibold transition hover:bg-gray-600 hover:text-white md:block">
+          <button className="px-2 py-1 text-sm font-semibold transition hover:bg-gray-600 hover:text-white">
             PAST TRANSACTIONS
-          </button>
-        </div>
-        <div>
-          <button className="bg-gray-600 px-2 py-1 text-sm font-semibold text-white transition">
-            SET UP AN APPOINTMENT
           </button>
         </div>
       </div>

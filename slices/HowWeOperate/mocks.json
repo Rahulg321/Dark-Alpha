@@ -12,6 +12,17 @@
 				"__TYPE__": "FieldContent",
 				"value": "driven",
 				"type": "Text"
+			},
+			"strategy_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Id anim duis laborum. Sint enim qui occaecat officia consequat sint ad excepteur ut ullamco exercitation id incididunt nisi. Exercitation do irure dolore ad et proident officia adipisicing consectetur."
+						}
+					}
+				]
 			}
 		},
 		"items": [

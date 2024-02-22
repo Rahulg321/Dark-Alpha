@@ -27,78 +27,87 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
     >
       <div className="big-container">
         <h2>Growth and Value Creation Investment Areas</h2>
-        <div className="mt-6 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div>
-            <h4>Product and Engineering</h4>
-            {engineeringPoints.map((item, index) => {
-              return (
-                <ExperiencePoint
-                  blueBackground={true}
-                  key={index}
-                  point={item.point}
-                />
-              );
-            })}
+            <h4>Technology and Innovation</h4>
+            <ExperiencePoint
+              blueBackground={true}
+              point={"AI & Machine Learning"}
+            />
+            <ExperiencePoint blueBackground={true} point={"Blockchain"} />
+            <ExperiencePoint blueBackground={true} point={"Cybersecurity"} />
+            <ExperiencePoint blueBackground={true} point={"Robotics"} />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"AR & VR Technologies"}
+            />
           </div>
           <div>
-            <h4>Team and Talent</h4>
-            {engineeringPoints.map((item, index) => {
-              return (
-                <ExperiencePoint
-                  blueBackground={true}
-                  key={index}
-                  point={item.point}
-                />
-              );
-            })}
+            <h4>Renewable Energy</h4>
+
+            <ExperiencePoint blueBackground={true} point={"Solar Power"} />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Geothermal Energy"}
+            />
+            <ExperiencePoint blueBackground={true} point={"Wind Energy"} />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Sustainable Transportation"}
+            />
           </div>
           <div>
-            <h4>Product and Engineering</h4>
-            {engineeringPoints.map((item, index) => {
-              return (
-                <ExperiencePoint
-                  blueBackground={true}
-                  key={index}
-                  point={item.point}
-                />
-              );
-            })}
+            <h4>Financial Services(Fintech)</h4>
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Digital Banking Platforms"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Payment Processing"}
+            />
+            <ExperiencePoint blueBackground={true} point={"Cryptocurrency"} />
+            <ExperiencePoint blueBackground={true} point={"Open Banking"} />
           </div>
           <div>
-            <h4>Team and Talent</h4>
-            {engineeringPoints.map((item, index) => {
-              return (
-                <ExperiencePoint
-                  blueBackground={true}
-                  key={index}
-                  point={item.point}
-                />
-              );
-            })}
+            <h4>Aerospace</h4>
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Commercial Aircraft"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Space Exploration"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Aircraft Maintenance"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Space Telecommunications"}
+            />
           </div>
           <div>
-            <h4>Product and Engineering</h4>
-            {engineeringPoints.map((item, index) => {
-              return (
-                <ExperiencePoint
-                  blueBackground={true}
-                  key={index}
-                  point={item.point}
-                />
-              );
-            })}
+            <h4>Infrastructure</h4>
+            <ExperiencePoint blueBackground={true} point={"Transportation"} />
+            <ExperiencePoint blueBackground={true} point={"Energy"} />
+            <ExperiencePoint blueBackground={true} point={"Water"} />
+            <ExperiencePoint blueBackground={true} point={"Digital"} />
+            <ExperiencePoint blueBackground={true} point={"Industrial"} />
           </div>
           <div>
-            <h4>Team and Talent</h4>
-            {engineeringPoints.map((item, index) => {
-              return (
-                <ExperiencePoint
-                  blueBackground={true}
-                  key={index}
-                  point={item.point}
-                />
-              );
-            })}
+            <h4>Ecommerce</h4>
+            <ExperiencePoint blueBackground={true} point={"Online Retail"} />
+            <ExperiencePoint blueBackground={true} point={"Mobile Commerce"} />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Digital Payment Solutions"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Cross Border Ecomm"}
+            />
           </div>
         </div>
       </div>
