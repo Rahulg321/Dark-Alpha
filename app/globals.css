@@ -49,6 +49,10 @@ h6 {
   font-family: var(--font-barlowCondensed);
 }
 
+.btn-primary {
+  background-color: #7a9e9f;
+}
+
 .big-container {
   margin-inline: auto;
   width: min(90%, 80.5rem);

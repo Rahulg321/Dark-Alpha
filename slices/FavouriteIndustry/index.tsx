@@ -33,20 +33,13 @@ const FavouriteIndeustry = ({
             icon={<IoCartOutline />}
             heading="Manufacturing"
           />
-          <FavoriteIndustryCard icon={<MdFactory />} heading="Construction" />
-          <FavoriteIndustryCard
-            icon={<GiHealthNormal />}
-            heading="Healthcare"
-          />
-          <FavoriteIndustryCard icon={<SlEnergy />} heading="Energy" />
-          <FavoriteIndustryCard
-            icon={<IoAirplaneOutline />}
-            heading="Aerospace"
-          />
-
           <FavoriteIndustryCard
             icon={<MdBusinessCenter />}
             heading="Business Services"
+          />
+          <FavoriteIndustryCard
+            icon={<GiHealthNormal />}
+            heading="Healthcare"
           />
         </div>
       </div>

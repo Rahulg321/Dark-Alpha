@@ -45,7 +45,6 @@ const CriteriaInfoSlice = ({ slice }: CriteriaInfoSliceProps): JSX.Element => {
                 Good visibility, driven by reoccurring revenue and low customer
                 concentration
               </li>
-              <li>Limited capital requirements (asset-light)</li>
             </ul>
           </div>
         </div>

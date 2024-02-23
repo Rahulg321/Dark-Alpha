@@ -29,7 +29,7 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
         <h2>Growth and Value Creation Investment Areas</h2>
         <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div>
-            <h4>Technology and Innovation</h4>
+            <h3 className="">Technology and Innovation</h3>
             <ExperiencePoint
               blueBackground={true}
               point={"AI & Machine Learning"}
@@ -43,7 +43,7 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
             />
           </div>
           <div>
-            <h4>Renewable Energy</h4>
+            <h3 className="">Renewable Energy</h3>
 
             <ExperiencePoint blueBackground={true} point={"Solar Power"} />
             <ExperiencePoint
@@ -57,7 +57,7 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
             />
           </div>
           <div>
-            <h4>Financial Services(Fintech)</h4>
+            <h3>Financial Services(Fintech)</h3>
             <ExperiencePoint
               blueBackground={true}
               point={"Digital Banking Platforms"}
@@ -70,7 +70,7 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
             <ExperiencePoint blueBackground={true} point={"Open Banking"} />
           </div>
           <div>
-            <h4>Aerospace</h4>
+            <h3>Aerospace</h3>
             <ExperiencePoint
               blueBackground={true}
               point={"Commercial Aircraft"}
@@ -89,7 +89,7 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
             />
           </div>
           <div>
-            <h4>Infrastructure</h4>
+            <h3>Infrastructure</h3>
             <ExperiencePoint blueBackground={true} point={"Transportation"} />
             <ExperiencePoint blueBackground={true} point={"Energy"} />
             <ExperiencePoint blueBackground={true} point={"Water"} />
@@ -97,7 +97,7 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
             <ExperiencePoint blueBackground={true} point={"Industrial"} />
           </div>
           <div>
-            <h4>Ecommerce</h4>
+            <h3>Ecommerce</h3>
             <ExperiencePoint blueBackground={true} point={"Online Retail"} />
             <ExperiencePoint blueBackground={true} point={"Mobile Commerce"} />
             <ExperiencePoint

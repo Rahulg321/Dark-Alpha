@@ -736,6 +736,28 @@ export interface HeroSliceSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   background_image: prismic.ImageField<never>;
+
+  /**
+   * BigHeight field in *HeroSlice → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: hero_slice.primary.bigheight
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  bigheight: prismic.BooleanField;
+
+  /**
+   * isContactPage field in *HeroSlice → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: hero_slice.primary.iscontactpage
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  iscontactpage: prismic.BooleanField;
 }
 
 /**

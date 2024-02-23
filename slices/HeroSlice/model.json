@@ -33,6 +33,24 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "bigheight": {
+          "type": "Boolean",
+          "config": {
+            "label": "BigHeight",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "iscontactpage": {
+          "type": "Boolean",
+          "config": {
+            "label": "isContactPage",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
         }
       },
       "items": {}

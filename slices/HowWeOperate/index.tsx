@@ -34,7 +34,7 @@ const HowWeOperate = ({ slice }: HowWeOperateProps): JSX.Element => {
         <div className="big-container">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <h3 className=" font-bold">The Experience</h3>
+              <h3 className="mb-2 font-bold md:mb-4">The Experience</h3>
               <div className="">
                 {slice.items.map((item, index) => (
                   <ExperiencePoint key={index} point={item.experience_point} />
@@ -42,7 +42,7 @@ const HowWeOperate = ({ slice }: HowWeOperateProps): JSX.Element => {
               </div>
             </div>
             <div>
-              <h3 className="font-bold">The Benefits</h3>
+              <h3 className="mb-4 font-bold">The Benefits</h3>
               <div className="">
                 {slice.items.map((item, index) => (
                   <ExperiencePoint key={index} point={item.benefit_point} />

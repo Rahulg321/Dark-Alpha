@@ -53,13 +53,11 @@ const Footer = () => {
           <div className="flex flex-col">
             <span className=" text-xl font-bold">Contact</span>
             <span className="mt-2 text-gray-400 transition hover:text-white">
-              team@marketstreetcp.com
+              info@darkalphacapital.com
             </span>
+
             <span className="mt-2 text-gray-400 transition hover:text-white ">
-              (423) 447-42342
-            </span>
-            <span className="mt-2 text-gray-400 transition hover:text-white ">
-              Lorem ipsum dolor sit amet.loremlorem2 Lorem, ipsum.
+              8 The Green Suite 4000, Dover, DE 19901
             </span>
           </div>
         </div>
@@ -68,15 +66,15 @@ const Footer = () => {
             <span className="text-gray-400 transition hover:text-white">
               &copy; All rights reserved - {currentYear} Dark Alpha Capital Inc.
             </span>
-            <span className="text-gray-400 transition hover:text-white">
+            <span className="leading-tight tracking-tighter text-gray-400 transition hover:text-white">
               Broker dealers services provided by Pickwick Capital Partners
             </span>
           </div>
-          <div>
+          {/* <div>
             <span className="text-gray-400 transition hover:text-white">
               Designed and developed By Destiny
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

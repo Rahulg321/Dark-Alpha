@@ -20,7 +20,7 @@ const ExperiencePoint = ({ point, blueBackground }: ExperiencePointProps) => {
       </div>
       <span
         className={clsx("font-semibold text-gray-600", {
-          "text-stone-100": blueBackground === true,
+          "text-primary": blueBackground === true,
         })}
       >
         {point}

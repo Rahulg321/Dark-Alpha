@@ -5,6 +5,7 @@ import { SiAtom } from "react-icons/si";
 import Link from "next/link";
 import { IoIosStarOutline } from "react-icons/io";
 import { HiOutlineBuildingLibrary } from "react-icons/hi2";
+import { FaArrowRight } from "react-icons/fa";
 
 /**
  * Props for `Capabilities`.
@@ -38,27 +39,11 @@ const Capabilities = ({ slice }: CapabilitiesProps): JSX.Element => {
           <CapabilityCard
             icon={<HiOutlineBuildingLibrary />}
             backgroundColor="bg-black"
-            heading="Impactful Investing"
-            tagline="We believe that financial success should go hand-in-hand with positive social and environmental impact. We actively seek out businesses that are making a difference in the world."
+            heading="Cooperation"
+            tagline="At Dark Alpha, we believe that cooperation is the cornerstone of success. Through collaborative efforts with our partners, we navigate the investment landscape with precision and purpose. "
           />
         </div>
-        <div className="mt-6 grid grid-cols-1 gap-6 rounded-xl border-2 px-6 py-8 md:mt-12 md:grid-cols-2">
-          <div>
-            <h2>Contact Us</h2>
-            <span className="mt-4 block font-semibold text-gray-600">
-              As a burgeoning independent sponsor company, we welcome the
-              opportunity to engage with you. Whether you seek information, have
-              proposals, or simply wish to initiate dialogue, your outreach is
-              highly valued. Connect with Dark Alpha today, and let's embark on
-              a journey toward mutually rewarding partnerships.
-            </span>
-            <Link
-              className="mt-4 inline-block border-2 px-6 py-2 font-semibold transition hover:shadow-md"
-              href="/contact"
-            >
-              Contact Us
-            </Link>
-          </div>
+        <div className="mt-6 grid grid-cols-1 gap-6 rounded-xl px-6 py-8 shadow-md md:mt-12 md:grid-cols-2">
           <div>
             <h2>Services and Capabilities</h2>
             <span className="mt-4 block font-semibold text-gray-600">
@@ -74,21 +59,55 @@ const Capabilities = ({ slice }: CapabilitiesProps): JSX.Element => {
             </span>
             <div className="mt-4">
               <div className="block w-full rounded-xl px-2 py-2 transition hover:cursor-pointer hover:bg-gray-200 hover:text-gray-600">
-                <Link href={"/strategy"} className="font-bold">
-                  Strategy
+                <Link
+                  href={"/strategy"}
+                  className="flex items-center justify-start  font-bold"
+                >
+                  Strategy{" "}
+                  <div className="ml-4">
+                    <FaArrowRight />
+                  </div>
                 </Link>
               </div>
               <div className="block w-full rounded-xl px-2 py-2 transition hover:cursor-pointer hover:bg-gray-200 hover:text-gray-600">
-                <Link href={"/criteria"} className="font-bold">
-                  Criteria
+                <Link
+                  href={"/criteria"}
+                  className="flex items-center justify-start font-bold"
+                >
+                  Criteria{" "}
+                  <div className="ml-4">
+                    <FaArrowRight />
+                  </div>
                 </Link>
               </div>
               <div className="block w-full rounded-xl px-2 py-2 transition hover:cursor-pointer hover:bg-gray-200 hover:text-gray-600">
-                <Link href={"/team"} className="font-bold">
-                  Advisors
+                <Link
+                  href={"/team"}
+                  className="flex items-center justify-start  font-bold"
+                >
+                  Advisors{" "}
+                  <div className="ml-4">
+                    <FaArrowRight />
+                  </div>
                 </Link>
               </div>
             </div>
+          </div>
+          <div>
+            <h2>Contact Us</h2>
+            <span className="mt-4 block font-semibold text-gray-600">
+              As a burgeoning independent sponsor company, we welcome the
+              opportunity to engage with you. Whether you seek information, have
+              proposals, or simply wish to initiate dialogue, your outreach is
+              highly valued. Connect with Dark Alpha today, and let's embark on
+              a journey toward mutually rewarding partnerships.
+            </span>
+            <Link
+              className="mt-4 inline-block border-2 px-6 py-2 font-semibold transition hover:bg-green-500 hover:text-white"
+              href="/contact"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
       </div>

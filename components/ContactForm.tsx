@@ -15,7 +15,7 @@ const ContactForm = () => {
             name="name"
             id="name"
             placeholder=""
-            className="border-t-1 rounded-xl bg-slate-500 p-4 text-xl font-semibold text-white"
+            className="border-t-1 rounded-md bg-slate-500 p-4 text-xl font-semibold text-white"
             required
           />
         </div>
@@ -28,7 +28,7 @@ const ContactForm = () => {
             name="email"
             id="email"
             placeholder=""
-            className="border-t-1 rounded-xl bg-slate-500 p-4 text-xl font-semibold text-white"
+            className="border-t-1 rounded-md bg-slate-500 p-4 text-xl font-semibold text-white"
             required
           />
         </div>
@@ -41,7 +41,7 @@ const ContactForm = () => {
             name="phoneNumber"
             id="phoneNumber"
             placeholder=""
-            className="border-t-1 rounded-xl bg-slate-500 p-4 text-xl font-semibold text-white"
+            className="border-t-1 rounded-md bg-slate-500 p-4 text-xl font-semibold text-white"
             required
           />
         </div>
@@ -53,7 +53,7 @@ const ContactForm = () => {
             name="comments"
             id="comments"
             rows={10}
-            className="border-t-1 rounded-xl bg-slate-500 p-4 text-xl font-semibold text-white"
+            className="border-t-1 rounded-md bg-slate-500 p-4 text-xl font-semibold text-white"
           ></textarea>
         </div>
         <button

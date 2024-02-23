@@ -13,13 +13,13 @@ const Topbar = () => {
           <FaLinkedin />
         </div>
       </div>
-      <div className="flex gap-4">
+      {/* <div className="flex gap-4">
         <div>
           <button className="px-2 py-1 text-sm font-semibold transition hover:bg-gray-600 hover:text-white">
             PAST TRANSACTIONS
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
