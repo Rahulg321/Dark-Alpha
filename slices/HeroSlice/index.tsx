@@ -19,7 +19,7 @@ const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       backgroundImage={slice.primary.background_image}
-      classname={clsx("min-h-[60vh]", {
+      classname={clsx("min-h-[80vh]", {
         "min-h-[90vh]": slice.primary.bigheight === true,
       })}
     >
@@ -27,7 +27,7 @@ const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
       <div className="big-container">
         <div className="grid grid-cols-2">
           <div>
-            <h1 className="text-4xl text-primary md:text-6xl">
+            <h1 className="text-primary md:text-4xl lg:text-6xl">
               {slice.primary.heading}
             </h1>
             <span className="mt-2 block text-primary md:mt-4">
