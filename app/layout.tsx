@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Topbar from "@/components/Topbar";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Dark Alpha Capital🕶️",
@@ -31,6 +32,7 @@ export default function RootLayout({
           <Footer />
         </main>
       </body>
+      <GoogleAnalytics gaId="G-YWTQ8W1DMT" />
     </html>
   );
 }
