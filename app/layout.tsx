@@ -23,6 +23,10 @@ export default function RootLayout({
       lang="en"
       className={`${montserrat.variable} ${barlowCondensed.variable}`}
     >
+      <meta
+        name="google-site-verification"
+        content="8pP_lJBKWWCw5FpUWOGsVYea4jHoZ4bVNitNrYCI_EU"
+      />
       <body>
         <main className="parent-container bg-background">
           <Topbar />
