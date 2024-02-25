@@ -24,15 +24,15 @@
   }
 
   h4 {
-    @apply text-lg  font-semibold md:text-xl;
+    @apply text-lg  font-semibold md:text-xl lg:text-2xl;
   }
 
   p {
-    @apply text-base  leading-relaxed lg:text-lg lg:leading-loose;
+    @apply text-base  leading-relaxed lg:leading-loose;
   }
 
   .active-link {
-    @apply rounded-xl bg-slate-600 px-2 py-1 font-extrabold;
+    @apply rounded-md bg-slate-600 px-2 font-extrabold;
   }
 }
 

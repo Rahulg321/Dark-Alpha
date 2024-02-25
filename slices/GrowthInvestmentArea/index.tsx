@@ -29,47 +29,6 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
         <h2>Growth and Value Creation Investment Areas</h2>
         <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div>
-            <h3 className="">Technology and Innovation</h3>
-            <ExperiencePoint
-              blueBackground={true}
-              point={"AI & Machine Learning"}
-            />
-            <ExperiencePoint blueBackground={true} point={"Blockchain"} />
-            <ExperiencePoint blueBackground={true} point={"Cybersecurity"} />
-            <ExperiencePoint blueBackground={true} point={"Robotics"} />
-            <ExperiencePoint
-              blueBackground={true}
-              point={"AR & VR Technologies"}
-            />
-          </div>
-          <div>
-            <h3 className="">Renewable Energy</h3>
-
-            <ExperiencePoint blueBackground={true} point={"Solar Power"} />
-            <ExperiencePoint
-              blueBackground={true}
-              point={"Geothermal Energy"}
-            />
-            <ExperiencePoint blueBackground={true} point={"Wind Energy"} />
-            <ExperiencePoint
-              blueBackground={true}
-              point={"Sustainable Transportation"}
-            />
-          </div>
-          <div>
-            <h3>Financial Services(Fintech)</h3>
-            <ExperiencePoint
-              blueBackground={true}
-              point={"Digital Banking Platforms"}
-            />
-            <ExperiencePoint
-              blueBackground={true}
-              point={"Payment Processing"}
-            />
-            <ExperiencePoint blueBackground={true} point={"Cryptocurrency"} />
-            <ExperiencePoint blueBackground={true} point={"Open Banking"} />
-          </div>
-          <div>
             <h3>Aerospace</h3>
             <ExperiencePoint
               blueBackground={true}
@@ -89,6 +48,25 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
             />
           </div>
           <div>
+            <h3>Defense</h3>
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Defense Contracting"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Defense Eqipment Manufacturing"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Defense Cybersecurity"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Information Technology Solutions"}
+            />
+          </div>
+          <div>
             <h3>Infrastructure</h3>
             <ExperiencePoint blueBackground={true} point={"Transportation"} />
             <ExperiencePoint blueBackground={true} point={"Energy"} />
@@ -97,16 +75,57 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
             <ExperiencePoint blueBackground={true} point={"Industrial"} />
           </div>
           <div>
-            <h3>Ecommerce</h3>
-            <ExperiencePoint blueBackground={true} point={"Online Retail"} />
-            <ExperiencePoint blueBackground={true} point={"Mobile Commerce"} />
+            <h3>Manufacturing</h3>
             <ExperiencePoint
               blueBackground={true}
-              point={"Digital Payment Solutions"}
+              point={"Advanced Manufacturing Technologies"}
             />
             <ExperiencePoint
               blueBackground={true}
-              point={"Cross Border Ecomm"}
+              point={"Automotive Industry Innovation"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Aerospace and Defense Manufacturing"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Industrial Automation and Process Optimization"}
+            />
+          </div>
+          <div>
+            <h3>Business Services</h3>
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Technology Consulting"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Financial and Accounting Services"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Legal Compliance Services"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Business Process Outsourcing"}
+            />
+          </div>
+          <div>
+            <h3>Health Care</h3>
+            <ExperiencePoint blueBackground={true} point={"Biotechnology"} />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Healthcare Information Technology"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Healthcare Analytics and Insights"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Personalized Medicine"}
             />
           </div>
         </div>

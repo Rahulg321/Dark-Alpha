@@ -64,17 +64,9 @@ const Footer = () => {
         <div className="flex flex-col justify-between py-6 md:flex-row">
           <div className="flex flex-col">
             <span className="text-gray-400 transition hover:text-white">
-              &copy; All rights reserved - {currentYear} Dark Alpha Capital Inc.
-            </span>
-            <span className="leading-tight tracking-tighter text-gray-400 transition hover:text-white">
-              Broker dealers services provided by Pickwick Capital Partners
+              &copy; All rights reserved - {currentYear} Dark Alpha Capital LLC.
             </span>
           </div>
-          {/* <div>
-            <span className="text-gray-400 transition hover:text-white">
-              Designed and developed By Destiny
-            </span>
-          </div> */}
         </div>
       </div>
     </footer>

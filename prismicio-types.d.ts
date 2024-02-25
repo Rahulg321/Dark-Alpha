@@ -278,6 +278,17 @@ type PageDocumentDataSlicesSlice =
  */
 interface PageDocumentData {
   /**
+   * AppointmentButtonLink field in *Page*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.appointmentbuttonlink
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  appointmentbuttonlink: prismic.LinkField;
+
+  /**
    * Slice Zone field in *Page*
    *
    * - **Field Type**: Slice Zone
@@ -747,17 +758,6 @@ export interface HeroSliceSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   bigheight: prismic.BooleanField;
-
-  /**
-   * isContactPage field in *HeroSlice → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: hero_slice.primary.iscontactpage
-   * - **Documentation**: https://prismic.io/docs/field#boolean
-   */
-  iscontactpage: prismic.BooleanField;
 }
 
 /**

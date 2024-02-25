@@ -24,63 +24,63 @@ const ImpactInitiatives = ({ slice }: ImpactInitiativesProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="block-space big-container"
     >
-      <h2 className="heading text-6xl font-extrabold">Impact Initiatives</h2>
+      <h2 className="heading text-6xl font-extrabold">Our Expertise</h2>
       <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
-          <h4 className="font-bold">Growth Initiatives</h4>
           <InitiativeCard reactIcon={<FaHandHoldingDollar />}>
             <span>
-              <strong className="text-accent">
-                Increased customer retention
-              </strong>{" "}
-              and share of wallet expansion 27% by implementing customer success
-              function and quarterly business reviews
+              Dark Alpha{" "}
+              <strong className="text-accent">prioritizes high-growth</strong>{" "}
+              sectors like manufacturing, business services, and healthcare,
+              ensuring strategic investments aligned with future market trends
             </span>
           </InitiativeCard>
           <InitiativeCard reactIcon={<SiGooglecloud />}>
             <span>
-              Overhauled legacy IT infrastructure, implementing a digital
-              technology platform and{" "}
+              Dark Alpha{" "}
               <strong className="text-accent">
-                capturing 30%+ run-rate savings
-              </strong>
+                implements cutting-edge technologies
+              </strong>{" "}
+              such as RPA and AI to enhance operational efficiency and drive
+              cost savings post-acquisition.
             </span>
           </InitiativeCard>
           <InitiativeCard reactIcon={<GrCloudComputer />}>
-            <strong className="text-accent">
-              Over-achieved sales targets by 58%
-            </strong>{" "}
-            by implementing a customer prioritization analytical model and new
-            sales for a B2B technology sales team
+            <span>
+              <strong className="text-accent">Through ERP integration,</strong>{" "}
+              Dark Alpha optimizes business workflows, fostering cohesion and
+              productivity across finance, human resources, and other functions
+            </span>
           </InitiativeCard>
         </div>
         <div>
-          <h4 className="font-bold">Margin Requirements</h4>
           <InitiativeCard reactIcon={<IoBarChartSharp />}>
             <span>
-              Built predictive models to increase asset availability and reduce
-              <strong className="text-accent">
-                maintenance downtime by 20%
-              </strong>{" "}
-              for an Aerospace organization
+              <strong className="text-accent">Utilizing BPO,</strong> Dark Alpha
+              refines core functions like finance and accounting, allowing
+              businesses to benefit from specialized expertise while focusing on
+              core competencies.
             </span>
           </InitiativeCard>
           <InitiativeCard reactIcon={<TbGoGame />}>
             <span>
+              Dark Alpha employs{" "}
               <strong className="text-accent">
-                Delivered 44% revenue CAGR
+                Lean Six Sigma methodologies
               </strong>{" "}
-              by altering sales team composition, named account coverage, and
-              improving commission plans to deter quarter stuffing
+              for ongoing refinement, driving sustained operational gains and
+              margin enhancements across acquisitions.
             </span>
           </InitiativeCard>
           <InitiativeCard reactIcon={<LiaFantasyFlightGames />}>
             <span>
-              Designed digital platform to modernize operations of a pilot
-              training program, reducing error rates by{" "}
+              Dark Alpha{" "}
               <strong className="text-accent">
-                20% and enabling 10% budget re-allocation
-              </strong>
+                strategically leverages synergies
+              </strong>{" "}
+              between portfolio companies, harnessing shared resources and
+              expertise to fortify businesses and drive operational and
+              financial improvements
             </span>
           </InitiativeCard>
         </div>

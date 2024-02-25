@@ -12,6 +12,14 @@
         },
         "type": "UID"
       },
+      "appointmentbuttonlink": {
+        "type": "Link",
+        "config": {
+          "label": "AppointmentButtonLink",
+          "placeholder": "",
+          "select": null
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

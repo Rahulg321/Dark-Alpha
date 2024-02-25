@@ -74,10 +74,13 @@ const FavouriteIndeustry = ({
             </span>
             <ul className="my-4 list-disc px-2 font-semibold text-gray-400">
               <li>Hire an Investment Banker / Broker - 1 Month</li>
-              <li>Hire an Investment Banker / Broker - 1 Month</li>
-              <li>Hire an Investment Banker / Broker - 1 Month</li>
-              <li>Hire an Investment Banker / Broker - 1 Month</li>
-              <li>Hire an Investment Banker / Broker - 1 Month</li>
+              <li>Build and Populate Data Room - 1 Month</li>
+              <li>Buyers Outreach - 2 Months</li>
+              <li>The Dog and Pony Show - 1 Month</li>
+              <li>Term Sheets + Negotiations + LOI - 2 Months</li>
+              <li>Due Diligence - 1-2 Months</li>
+              <li>Q&As + Renegotiations - 1 Month</li>
+              <li>Closing - 1-2 Months 50% Probability</li>
             </ul>
             <span className="block text-xl font-bold">
               Total Time: 300-365 Days
@@ -90,7 +93,7 @@ const FavouriteIndeustry = ({
           </div>
           <div className="bg-yellow-300 px-4 py-6">
             <span className="block text-2xl font-bold">
-              Amalgam Capital Process
+              Dark Alpha Capital Process
             </span>
             <ul className="my-4 list-disc px-2 font-semibold text-gray-600">
               <li>The Business Statement – A Letter by You</li>
@@ -98,6 +101,7 @@ const FavouriteIndeustry = ({
               <li>Analysis of Business - 2-5 Days</li>
               <li>A Fair Offer from Us - 1 Day</li>
               <li>The Handshake - 2-3 Days</li>
+              <li>Closing - 8 -10 Weeks</li>
             </ul>
             <span className="block text-xl font-bold">Total Time: 75 Days</span>
             <span className="my-4 block text-xl font-bold">Next 3 years</span>
@@ -106,6 +110,29 @@ const FavouriteIndeustry = ({
               next exit event with wins for both you and your employees
             </span>
           </div>
+        </div>
+
+        <div className="mt-12">
+          <h3>What do we need from you to get started?</h3>
+          <h4 className="mt-2 md:mt-6">Business Statement</h4>
+          <p>
+            Send us an letter explaining your competitive advantage. Some
+            examples of the things we're looking for: A dominant brand, a large
+            and loyal community, a niche vertical, or something similar with 5+
+            years of operating history.
+          </p>
+          <h4>Financials</h4>
+          <p>
+            Share your historical financials. We're primarily looking for a
+            profitability benchmark between $2.0M to $10M per year.
+          </p>
+          <h4>Future Plans</h4>
+          <p>
+            Tell us about your desires for the future of the business. Would you
+            like to continue to run it or would you like to transition out? If
+            you would like to stay, how do you see growing the business and
+            where do you see the opportunities?
+          </p>
         </div>
       </div>
     </section>

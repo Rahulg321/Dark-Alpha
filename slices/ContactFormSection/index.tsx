@@ -32,17 +32,11 @@ const ContactFormSection = ({
           </div>
           <div className="flex flex-1 flex-col gap-4">
             <div className="aspect-h-2 aspect-w-4 relative">
-              {/* <PrismicNextImage
+              <PrismicNextImage
                 field={slice.primary.contactformimage}
                 className="rounded-xl object-cover"
                 fill
-              /> */}
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3093.796384137957!2d-75.52676472417654!3d39.15661257166981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c764aa67a6aaab%3A0x2f5024d850a6924a!2s8%20The%20Green%20STE%204000%20A%2C%20Dover%2C%20DE%2019901%2C%20USA!5e0!3m2!1sen!2sin!4v1708673987044!5m2!1sen!2sin"
-                width="400"
-                height="300"
-                loading="lazy"
-              ></iframe>
+              />
             </div>
             <ContactFormInfoCard
               icon={<MdEmail />}

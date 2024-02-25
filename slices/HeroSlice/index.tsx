@@ -25,7 +25,7 @@ const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
     >
       <Header />
       <div className="big-container">
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           <div>
             <h1 className="text-primary md:text-4xl lg:text-6xl">
               {slice.primary.heading}
@@ -33,16 +33,17 @@ const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
             <span className="mt-2 block text-primary md:mt-4">
               {slice.primary.tagline}
             </span>
-            {slice.primary.iscontactpage ? null : (
-              <div className="mt-4 transition hover:scale-105">
-                <Link
-                  className="text-uppercase btn-primary px-6 py-2 font-bold text-white"
-                  href="/contact"
-                >
-                  Set an Appointment
-                </Link>
-              </div>
-            )}
+
+            <div className="mt-6">
+              <Link
+                className="text-uppercase btn-primary px-6 py-2 font-bold text-white transition"
+                href="https://calendly.com/darkalphacapital"
+                target="_blank"
+              >
+                Set an Appointment
+              </Link>
+            </div>
+
             <div></div>
           </div>
         </div>

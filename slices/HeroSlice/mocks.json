@@ -39,10 +39,6 @@
 			"bigheight": {
 				"__TYPE__": "BooleanContent",
 				"value": true
-			},
-			"iscontactpage": {
-				"__TYPE__": "BooleanContent",
-				"value": true
 			}
 		},
 		"items": []

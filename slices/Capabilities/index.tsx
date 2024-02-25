@@ -103,7 +103,7 @@ const Capabilities = ({ slice }: CapabilitiesProps): JSX.Element => {
               a journey toward mutually rewarding partnerships.
             </span>
             <Link
-              className="mt-4 inline-block border-2 px-6 py-2 font-semibold transition hover:bg-green-500 hover:text-white"
+              className="mt-4 inline-block border-2 px-6 py-2 font-semibold transition hover:bg-[#7a9e9f] hover:text-white"
               href="/contact"
             >
               Contact Us

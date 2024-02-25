@@ -10,7 +10,7 @@ type ExperiencePointProps = {
 
 const ExperiencePoint = ({ point, blueBackground }: ExperiencePointProps) => {
   return (
-    <div className="mt-2 flex items-start gap-2">
+    <div className="mt-1 flex items-start gap-2">
       <div
         className={clsx("text-xl font-bold text-black", {
           "text-primary": blueBackground === true,
