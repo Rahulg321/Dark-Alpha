@@ -61,10 +61,10 @@ const Capabilities = ({ slice }: CapabilitiesProps): JSX.Element => {
               <div className="block w-full rounded-xl px-2 py-2 transition hover:cursor-pointer hover:bg-gray-200 hover:text-gray-600">
                 <Link
                   href={"/strategy"}
-                  className="flex items-center justify-start  font-bold"
+                  className="flex items-center justify-start  font-bold hover:text-[#7a9e9f]"
                 >
                   Strategy{" "}
-                  <div className="ml-4">
+                  <div className="ml-2">
                     <FaArrowRight />
                   </div>
                 </Link>
@@ -72,10 +72,10 @@ const Capabilities = ({ slice }: CapabilitiesProps): JSX.Element => {
               <div className="block w-full rounded-xl px-2 py-2 transition hover:cursor-pointer hover:bg-gray-200 hover:text-gray-600">
                 <Link
                   href={"/criteria"}
-                  className="flex items-center justify-start font-bold"
+                  className="flex items-center justify-start font-bold hover:text-[#7a9e9f]"
                 >
                   Criteria{" "}
-                  <div className="ml-4">
+                  <div className="ml-2">
                     <FaArrowRight />
                   </div>
                 </Link>
@@ -83,10 +83,10 @@ const Capabilities = ({ slice }: CapabilitiesProps): JSX.Element => {
               <div className="block w-full rounded-xl px-2 py-2 transition hover:cursor-pointer hover:bg-gray-200 hover:text-gray-600">
                 <Link
                   href={"/team"}
-                  className="flex items-center justify-start  font-bold"
+                  className="flex items-center justify-start  font-bold hover:text-[#7a9e9f]"
                 >
                   Advisors{" "}
-                  <div className="ml-4">
+                  <div className="ml-2">
                     <FaArrowRight />
                   </div>
                 </Link>

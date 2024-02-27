@@ -29,52 +29,6 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
         <h2>Growth and Value Creation Investment Areas</h2>
         <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div>
-            <h3>Aerospace</h3>
-            <ExperiencePoint
-              blueBackground={true}
-              point={"Commercial Aircraft"}
-            />
-            <ExperiencePoint
-              blueBackground={true}
-              point={"Space Exploration"}
-            />
-            <ExperiencePoint
-              blueBackground={true}
-              point={"Aircraft Maintenance"}
-            />
-            <ExperiencePoint
-              blueBackground={true}
-              point={"Space Telecommunications"}
-            />
-          </div>
-          <div>
-            <h3>Defense</h3>
-            <ExperiencePoint
-              blueBackground={true}
-              point={"Defense Contracting"}
-            />
-            <ExperiencePoint
-              blueBackground={true}
-              point={"Defense Eqipment Manufacturing"}
-            />
-            <ExperiencePoint
-              blueBackground={true}
-              point={"Defense Cybersecurity"}
-            />
-            <ExperiencePoint
-              blueBackground={true}
-              point={"Information Technology Solutions"}
-            />
-          </div>
-          <div>
-            <h3>Infrastructure</h3>
-            <ExperiencePoint blueBackground={true} point={"Transportation"} />
-            <ExperiencePoint blueBackground={true} point={"Energy"} />
-            <ExperiencePoint blueBackground={true} point={"Water"} />
-            <ExperiencePoint blueBackground={true} point={"Digital"} />
-            <ExperiencePoint blueBackground={true} point={"Industrial"} />
-          </div>
-          <div>
             <h3>Manufacturing</h3>
             <ExperiencePoint
               blueBackground={true}
@@ -114,7 +68,6 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
           </div>
           <div>
             <h3>Health Care</h3>
-            <ExperiencePoint blueBackground={true} point={"Biotechnology"} />
             <ExperiencePoint
               blueBackground={true}
               point={"Healthcare Information Technology"}
@@ -127,6 +80,52 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
               blueBackground={true}
               point={"Personalized Medicine"}
             />
+          </div>
+          <div>
+            <h3>Aerospace</h3>
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Commercial Aircraft"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Space Exploration"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Aircraft Maintenance"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Space Telecommunications"}
+            />
+          </div>
+          <div>
+            <h3>Defense</h3>
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Defense Contracting"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Defense Equipment Manufacturing"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Defense Cybersecurity"}
+            />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Information Technology Solutions"}
+            />
+          </div>
+          <div>
+            <h3>Infrastructure</h3>
+            <ExperiencePoint blueBackground={true} point={"Transportation"} />
+            <ExperiencePoint blueBackground={true} point={"Energy"} />
+            <ExperiencePoint blueBackground={true} point={"Water"} />
+            <ExperiencePoint blueBackground={true} point={"Digital"} />
+            <ExperiencePoint blueBackground={true} point={"Industrial"} />
           </div>
         </div>
       </div>

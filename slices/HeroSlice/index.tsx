@@ -40,7 +40,7 @@ const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
                 href="https://calendly.com/darkalphacapital"
                 target="_blank"
               >
-                Set an Appointment
+                SET AN APPOINTMENT
               </Link>
             </div>
 

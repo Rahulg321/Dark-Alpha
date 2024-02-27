@@ -13,7 +13,7 @@ const InitiativeCard = ({
   children,
 }: InitiativeCardProps) => {
   return (
-    <div className="border-b-2 py-4">
+    <div className="py-4">
       <div className="mb-2 text-7xl">{reactIcon}</div>
       <div>{children}</div>
     </div>
