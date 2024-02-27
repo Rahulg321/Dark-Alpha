@@ -64,7 +64,7 @@ const Footer = () => {
         <div className="flex flex-col justify-between py-6 md:flex-row">
           <div className="flex flex-col">
             <span className="text-gray-400 transition hover:text-white">
-              &copy; All rights reserved - {currentYear} Dark Alpha Capital LLC.
+              &copy; All rights reserved - {currentYear} Dark Alpha Capital LLC
             </span>
           </div>
         </div>
