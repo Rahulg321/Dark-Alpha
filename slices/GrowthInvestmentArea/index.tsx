@@ -80,6 +80,10 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
               blueBackground={true}
               point={"Personalized Medicine"}
             />
+            <ExperiencePoint
+              blueBackground={true}
+              point={"Medical Practices"}
+            />
           </div>
           <div>
             <h3>Aerospace</h3>
