@@ -256,6 +256,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | OperationTeamIndexSlice
   | TextBlockSlice
   | CriteriaInfoSliceSlice
   | TextWithBackgroundSlice
@@ -343,11 +344,135 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
+type TeammemberDocumentDataSlicesSlice =
+  | LeftImageSliceSlice
+  | TextBlockSlice
+  | HeroSliceSlice;
+
+/**
+ * Content for TeamMember documents
+ */
+interface TeammemberDocumentData {
+  /**
+   * Name field in *TeamMember*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: teammember.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * LinkedInProfileLink field in *TeamMember*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: teammember.linkedinprofilelink
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkedinprofilelink: prismic.LinkField;
+
+  /**
+   * BioLink field in *TeamMember*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: teammember.biolink
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  biolink: prismic.LinkField;
+
+  /**
+   * Profile Image field in *TeamMember*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: teammember.profile_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  profile_image: prismic.ImageField<never>;
+
+  /**
+   * Designation field in *TeamMember*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: teammember.designation
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  designation: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *TeamMember*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: teammember.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<TeammemberDocumentDataSlicesSlice> /**
+   * Meta Title field in *TeamMember*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: teammember.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *TeamMember*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: teammember.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *TeamMember*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: teammember.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * TeamMember document from Prismic
+ *
+ * - **API ID**: `teammember`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TeammemberDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<TeammemberDocumentData>,
+    "teammember",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | BlogpostDocument
   | GrowthareapointsDocument
   | HomepageDocument
-  | PageDocument;
+  | PageDocument
+  | TeammemberDocument;
 
 /**
  * Default variation for BlogContentIndex Slice
@@ -1034,19 +1159,84 @@ export type LeftImageSliceSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *TeamIndex → Items*
+ * Primary content in *OperationTeamIndex → Items*
  */
-export interface TeamIndexSliceDefaultItem {
+export interface OperationTeamIndexSliceDefaultItem {
   /**
-   * Member Image field in *TeamIndex → Items*
+   * Name field in *OperationTeamIndex → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: operation_team_index.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Image field in *OperationTeamIndex → Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: team_index.items[].member_image
+   * - **API ID Path**: operation_team_index.items[].image
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  member_image: prismic.ImageField<never>;
+  image: prismic.ImageField<never>;
 
+  /**
+   * Designation field in *OperationTeamIndex → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: operation_team_index.items[].designation
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  designation: prismic.KeyTextField;
+
+  /**
+   * LinkedInProfileLink field in *OperationTeamIndex → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: operation_team_index.items[].linkedinprofilelink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkedinprofilelink: prismic.LinkField;
+}
+
+/**
+ * Default variation for OperationTeamIndex Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OperationTeamIndexSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<OperationTeamIndexSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *OperationTeamIndex*
+ */
+type OperationTeamIndexSliceVariation = OperationTeamIndexSliceDefault;
+
+/**
+ * OperationTeamIndex Shared Slice
+ *
+ * - **API ID**: `operation_team_index`
+ * - **Description**: OperationTeamIndex
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OperationTeamIndexSlice = prismic.SharedSlice<
+  "operation_team_index",
+  OperationTeamIndexSliceVariation
+>;
+
+/**
+ * Primary content in *TeamIndex → Items*
+ */
+export interface TeamIndexSliceDefaultItem {
   /**
    * Member Name field in *TeamIndex → Items*
    *
@@ -1066,6 +1256,26 @@ export interface TeamIndexSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   member_position: prismic.KeyTextField;
+
+  /**
+   * Member Image field in *TeamIndex → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_index.items[].member_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  member_image: prismic.ImageField<never>;
+
+  /**
+   * LinkedIn Link field in *TeamIndex → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_index.items[].linkedin_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkedin_link: prismic.LinkField;
 }
 
 /**
@@ -1231,6 +1441,9 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      TeammemberDocument,
+      TeammemberDocumentData,
+      TeammemberDocumentDataSlicesSlice,
       AllDocumentTypes,
       BlogContentIndexSlice,
       BlogContentIndexSliceVariation,
@@ -1279,6 +1492,10 @@ declare module "@prismicio/client" {
       LeftImageSliceSliceDefaultPrimary,
       LeftImageSliceSliceVariation,
       LeftImageSliceSliceDefault,
+      OperationTeamIndexSlice,
+      OperationTeamIndexSliceDefaultItem,
+      OperationTeamIndexSliceVariation,
+      OperationTeamIndexSliceDefault,
       TeamIndexSlice,
       TeamIndexSliceDefaultItem,
       TeamIndexSliceVariation,

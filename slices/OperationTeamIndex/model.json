@@ -1,8 +1,8 @@
 {
-  "id": "team_index",
+  "id": "operation_team_index",
   "type": "SharedSlice",
-  "name": "TeamIndex",
-  "description": "TeamIndex",
+  "name": "OperationTeamIndex",
+  "description": "OperationTeamIndex",
   "variations": [
     {
       "id": "default",
@@ -13,32 +13,32 @@
       "imageUrl": "",
       "primary": {},
       "items": {
-        "member_name": {
+        "name": {
           "type": "Text",
           "config": {
-            "label": "Member Name",
+            "label": "Name",
             "placeholder": ""
           }
         },
-        "member_position": {
-          "type": "Text",
-          "config": {
-            "label": "Member Position",
-            "placeholder": ""
-          }
-        },
-        "member_image": {
+        "image": {
           "type": "Image",
           "config": {
-            "label": "Member Image",
+            "label": "Image",
             "constraint": {},
             "thumbnails": []
           }
         },
-        "linkedin_link": {
+        "designation": {
+          "type": "Text",
+          "config": {
+            "label": "Designation",
+            "placeholder": ""
+          }
+        },
+        "linkedinprofilelink": {
           "type": "Link",
           "config": {
-            "label": "LinkedIn Link",
+            "label": "LinkedInProfileLink",
             "placeholder": "",
             "select": null
           }

@@ -53,9 +53,9 @@ const FavouriteIndeustry = ({
             <p>
               You've worked hard to build your business, and you have choices.
               You can work with another private equity and go through the
-              typical process or consider the Amalgam Capital alternative–which
-              is built on trust, professional respect, and thoughtful guidance
-              for continued value creation.
+              typical process or consider the Dark Alpha alternative–which is
+              built on trust, professional respect, and thoughtful guidance for
+              continued value creation.
             </p>
             <p>
               Whatever your motives are to sell your business–or seek an
@@ -121,11 +121,13 @@ const FavouriteIndeustry = ({
             and loyal community, a niche vertical, or something similar with 5+
             years of operating history.
           </p>
-          <h4>Financials</h4>
-          <p>
-            Share your historical financials. We're primarily looking for a
-            profitability benchmark between $2.0M to $10M per year.
-          </p>
+          <div className="my-2">
+            <h4>Financials</h4>
+            <p>
+              Share your historical financials. We're primarily looking for a
+              profitability benchmark between $1M to $10M per year.
+            </p>
+          </div>
           <h4>Future Plans</h4>
           <p>
             Tell us about your desires for the future of the business. Would you

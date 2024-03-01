@@ -14,9 +14,12 @@ const TextBlock = ({ slice }: TextBlockProps): JSX.Element => {
     <div
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="block-space"
     >
-      <div className="prose prose-neutral md:prose-lg lg:prose-xl">
-        <PrismicRichText field={slice.primary.main_content} />
+      <div className="narrow-container">
+        <div className="prose prose-gray md:prose-lg lg:prose-xl">
+          <PrismicRichText field={slice.primary.main_content} />
+        </div>
       </div>
     </div>
   );

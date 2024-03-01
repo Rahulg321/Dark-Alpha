@@ -1,6 +1,8 @@
+import ExecutiveTeamIndex from "@/components/ExecutiveTeamIndex";
 import TeamMemberCard from "@/components/TeamMemberCard";
-import { Content } from "@prismicio/client";
+import { createClient } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { Content } from "@prismicio/client";
 
 /**
  * Props for `TeamIndex`.
@@ -19,24 +21,7 @@ const TeamIndex = ({ slice }: TeamIndexProps): JSX.Element => {
     >
       <div className="big-container">
         <h2 className="heading font-extrabold">The Executives</h2>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-12">
-          {slice.items.map((item, index) => (
-            <TeamMemberCard
-              key={index}
-              memberImage={item.member_image}
-              memberName={item.member_name}
-              memberPosition={item.member_position}
-            />
-          ))}
-          {slice.items.map((item, index) => (
-            <TeamMemberCard
-              key={index}
-              memberImage={item.member_image}
-              memberName={item.member_name}
-              memberPosition={item.member_position}
-            />
-          ))}
-        </div>
+        <ExecutiveTeamIndex />
       </div>
     </section>
   );

@@ -16,6 +16,7 @@ export const components = {
   how_we_operate: dynamic(() => import("./HowWeOperate")),
   impact_initiatives: dynamic(() => import("./ImpactInitiatives")),
   left_image_slice: dynamic(() => import("./LeftImageSlice")),
+  operation_team_index: dynamic(() => import("./OperationTeamIndex")),
   team_index: dynamic(() => import("./TeamIndex")),
   text_block: dynamic(() => import("./TextBlock")),
   text_with_background: dynamic(() => import("./TextWithBackground")),

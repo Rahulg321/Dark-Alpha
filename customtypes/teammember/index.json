@@ -1,23 +1,53 @@
 {
   "format": "page",
-  "id": "page",
-  "label": "Page",
+  "id": "teammember",
+  "label": "TeamMember",
   "repeatable": true,
   "status": true,
   "json": {
     "Main": {
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "Name",
+          "placeholder": ""
+        }
+      },
       "uid": {
         "config": {
           "label": "UID"
         },
         "type": "UID"
       },
-      "appointmentbuttonlink": {
+      "linkedinprofilelink": {
         "type": "Link",
         "config": {
-          "label": "AppointmentButtonLink",
+          "label": "LinkedInProfileLink",
           "placeholder": "",
           "select": null
+        }
+      },
+      "biolink": {
+        "type": "Link",
+        "config": {
+          "label": "BioLink",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "profile_image": {
+        "type": "Image",
+        "config": {
+          "label": "Profile Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "designation": {
+        "type": "Text",
+        "config": {
+          "label": "Designation",
+          "placeholder": ""
         }
       },
       "slices": {
@@ -25,52 +55,10 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "operation_team_index": {
-              "type": "SharedSlice"
-            },
-            "text_block": {
-              "type": "SharedSlice"
-            },
-            "criteria_info_slice": {
-              "type": "SharedSlice"
-            },
-            "text_with_background": {
-              "type": "SharedSlice"
-            },
-            "firm_overview": {
-              "type": "SharedSlice"
-            },
-            "favourite_indeustry": {
-              "type": "SharedSlice"
-            },
-            "capabilities": {
-              "type": "SharedSlice"
-            },
-            "focus_areas": {
-              "type": "SharedSlice"
-            },
-            "blog_content_index": {
-              "type": "SharedSlice"
-            },
             "left_image_slice": {
               "type": "SharedSlice"
             },
-            "growth_investment_area": {
-              "type": "SharedSlice"
-            },
-            "how_we_operate": {
-              "type": "SharedSlice"
-            },
-            "impact_initiatives": {
-              "type": "SharedSlice"
-            },
-            "contact_hero": {
-              "type": "SharedSlice"
-            },
-            "contact_form_section": {
-              "type": "SharedSlice"
-            },
-            "team_index": {
+            "text_block": {
               "type": "SharedSlice"
             },
             "hero_slice": {

@@ -8,17 +8,25 @@
 				"__TYPE__": "GroupItemContent",
 				"value": [
 					[
-						"member_image",
+						"name",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "lady",
+							"type": "Text"
+						}
+					],
+					[
+						"image",
 						{
 							"origin": {
 								"id": "main",
-								"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
-								"width": 4000,
-								"height": 4000
+								"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+								"width": 4480,
+								"height": 4480
 							},
-							"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
-							"width": 4000,
-							"height": 4000,
+							"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+							"width": 4480,
+							"height": 4480,
 							"edit": {
 								"zoom": 1,
 								"crop": {
@@ -34,28 +42,20 @@
 						}
 					],
 					[
-						"member_name",
+						"designation",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "dropped",
+							"value": "minerals",
 							"type": "Text"
 						}
 					],
 					[
-						"member_position",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "remember",
-							"type": "Text"
-						}
-					],
-					[
-						"linkedin_link",
+						"linkedinprofilelink",
 						{
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
-								"url": "http://twitter.com"
+								"url": "https://slicemachine.dev"
 							}
 						}
 					]

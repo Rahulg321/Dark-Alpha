@@ -67,7 +67,7 @@ const Header = ({ classname }: HeaderProps) => {
                   setIsOpen(false);
                 }}
               >
-                Advisors
+                Team
               </Link>
               <Link
                 className={clsx("text-2xl font-semibold", {
@@ -154,7 +154,7 @@ function DesktopMenu() {
         })}
         href={"/team"}
       >
-        Advisors
+        Team
       </Link>
       <Link
         className={clsx("text-xl font-semibold", {
