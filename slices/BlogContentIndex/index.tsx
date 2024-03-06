@@ -22,7 +22,7 @@ const BlogContentIndex = ({ slice }: BlogContentIndexProps): JSX.Element => {
     >
       <Suspense
         fallback={
-          <div className="text-center">
+          <div className="text-center" role="progressbar">
             <LoadingSpinner />
           </div>
         }

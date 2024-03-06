@@ -43,6 +43,7 @@ const TextWithBackground = ({
               href={"https://herotechnologiesinc.com/"}
               target="_blank"
               className="flex items-center justify-center text-yellow-500"
+              aria-label="Opens in a new window"
             >
               Visit Site <MdArrowOutward />
             </Link>
