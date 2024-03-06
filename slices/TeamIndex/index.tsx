@@ -20,7 +20,7 @@ const TeamIndex = ({ slice }: TeamIndexProps): JSX.Element => {
       className="block-space"
     >
       <div className="big-container">
-        <h2 className="heading font-extrabold">The Executives</h2>
+        <h1 className="heading font-extrabold">Who We Are</h1>
         <ExecutiveTeamIndex />
       </div>
     </section>

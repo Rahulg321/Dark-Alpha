@@ -2,20 +2,20 @@ import { createClient } from "@/prismicio";
 import React from "react";
 import TeamMemberCard from "./TeamMemberCard";
 
-const ExecutiveTeamIndex = async () => {
+const OperatingTeamMemberIndex = async () => {
   const client = createClient();
-  const executiveTeamMembers = await client.getAllByType("teammember");
+  const operatingTeamMembers = await client.getAllByType("operatingmember");
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-12 lg:grid-cols-4">
-      {executiveTeamMembers.map((member) => {
+      {operatingTeamMembers.map((member) => {
         return (
           <TeamMemberCard
             key={member.id}
             memberName={member.data.name}
-            memberImage={member.data.profile_image}
+            memberImage={member.data.image}
             memberPosition={member.data.designation}
             LinkedinLink={member.data.linkedinprofilelink}
-            BioLink={`/team/${member.uid}`}
+            BioLink={`/operatingteam/${member.uid}`}
           />
         );
       })}
@@ -23,4 +23,4 @@ const ExecutiveTeamIndex = async () => {
   );
 };
 
-export default ExecutiveTeamIndex;
+export default OperatingTeamMemberIndex;

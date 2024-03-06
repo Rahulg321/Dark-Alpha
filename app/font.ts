@@ -1,4 +1,4 @@
-import { Barlow_Condensed, Montserrat } from "next/font/google";
+import { Barlow_Condensed, Poppins } from "next/font/google";
 
 export const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
@@ -6,7 +6,9 @@ export const barlowCondensed = Barlow_Condensed({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
-export const montserrat = Montserrat({
+export const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-poppins",
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  fallback: ["system-ui", "arial"],
 });

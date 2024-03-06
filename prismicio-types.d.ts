@@ -255,6 +255,117 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
+type OperatingmemberDocumentDataSlicesSlice =
+  | LeftImageSliceSlice
+  | HeroSliceSlice;
+
+/**
+ * Content for OperatingMember documents
+ */
+interface OperatingmemberDocumentData {
+  /**
+   * Name field in *OperatingMember*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: operatingmember.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Designation field in *OperatingMember*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: operatingmember.designation
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  designation: prismic.KeyTextField;
+
+  /**
+   * Image field in *OperatingMember*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: operatingmember.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * LinkedinProfileLink field in *OperatingMember*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: operatingmember.linkedinprofilelink
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkedinprofilelink: prismic.LinkField;
+
+  /**
+   * Slice Zone field in *OperatingMember*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: operatingmember.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<OperatingmemberDocumentDataSlicesSlice> /**
+   * Meta Title field in *OperatingMember*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: operatingmember.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *OperatingMember*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: operatingmember.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *OperatingMember*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: operatingmember.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * OperatingMember document from Prismic
+ *
+ * - **API ID**: `operatingmember`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type OperatingmemberDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<OperatingmemberDocumentData>,
+    "operatingmember",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice =
   | OperationTeamIndexSlice
   | TextBlockSlice
@@ -471,6 +582,7 @@ export type AllDocumentTypes =
   | BlogpostDocument
   | GrowthareapointsDocument
   | HomepageDocument
+  | OperatingmemberDocument
   | PageDocument
   | TeammemberDocument;
 
@@ -1438,6 +1550,9 @@ declare module "@prismicio/client" {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      OperatingmemberDocument,
+      OperatingmemberDocumentData,
+      OperatingmemberDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { montserrat, barlowCondensed } from "./font";
+import { poppins, barlowCondensed } from "./font";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${barlowCondensed.variable}`}
+      className={`${poppins.variable} ${barlowCondensed.variable}`}
     >
       <meta
         name="google-site-verification"
