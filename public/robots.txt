@@ -1,0 +1,15 @@
+User-agent: *
+
+# Allow crawling of all public content
+Disallow: 
+
+# Disallow crawling of admin folder (if applicable)
+Disallow: /admin/
+
+# Disallow all static files 
+# (if you don't want search engines to index static assets like images)
+# Disallow: /static/
+
+# Disallow all API routes 
+# (if you have a separate API and don't want it crawled)
+Disallow: /api/
