@@ -24,7 +24,7 @@ const TextWithBackground = ({
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       backgroundImage={slice.primary.backgroundimage}
-      classname="min-h-[70vh] "
+      classname="min-h-[70vh] bg-slate-900"
     >
       <div className="big-container block-space text-primary">
         <div className="text-center">
@@ -38,11 +38,11 @@ const TextWithBackground = ({
               src={HeroLogo}
               alt="logo for dark alpha's portfolio company Hero Technologies"
             />
-            <h4>Hero Technologies</h4>
+            <h4>Hero Technologies Inc.</h4>
             <Link
               href={"https://herotechnologiesinc.com/"}
               target="_blank"
-              className="flex items-center justify-center text-yellow-500"
+              className="flex items-center justify-center text-yellow-500 transition hover:text-yellow-600"
               aria-label="Opens in a new window"
             >
               Visit Site <MdArrowOutward />

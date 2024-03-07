@@ -27,7 +27,7 @@ const FavouriteIndeustry = ({
       className="block-space"
     >
       <div className="big-container text-center">
-        <h2 className="mb-6 text-5xl">Our Favourite Industries</h2>
+        <h2 className="mb-6 text-5xl">Our Favorite Industries</h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           <FavoriteIndustryCard
             icon={<IoCartOutline />}
