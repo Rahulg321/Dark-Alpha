@@ -8,9 +8,9 @@ import Topbar from "@/components/Topbar";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
-  title: "Dark Alpha Capital🕶️",
+  title: "Dark Alpha Capital",
   description:
-    "Offical web app of dark alpha company a startup based in the US",
+    "Dark Alpha is a leading independent sponsor company in the US, specializing in private equity investments across various industries with a focus on value creation and strategic partnerships. They leverage their extensive network and expertise to identify and capitalize on unique investment opportunities, driving growth and maximizing returns for their stakeholders",
 };
 
 export default function RootLayout({

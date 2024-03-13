@@ -37,14 +37,14 @@ const TeamMemberCard = ({
         </div>
         <div className="text-center">
           <PrismicNextLink
-            className="inline-block text-xl italic transition hover:underline"
+            className="inline-block text-xl transition hover:underline"
             field={LinkedinLink}
           >
             LinkedIn
           </PrismicNextLink>
           {BioLink ? (
             <Link
-              className="ml-1 inline-block text-xl italic hover:underline"
+              className="ml-1 inline-block text-xl hover:underline"
               href={BioLink}
             >
               /Bio

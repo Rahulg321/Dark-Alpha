@@ -22,7 +22,7 @@ const OperationTeamIndex = ({
       className="block-space bg-primary"
     >
       <div className="big-container">
-        <h2 className="heading font-extrabold">Operating Partners</h2>
+        <h2 className="heading font-extrabold">Advisors</h2>
         <OperatingTeamMemberIndex />
       </div>
     </section>

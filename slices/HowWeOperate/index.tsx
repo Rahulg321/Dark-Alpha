@@ -7,9 +7,6 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
  */
 export type HowWeOperateProps = SliceComponentProps<Content.HowWeOperateSlice>;
 
-/**
- * Component for "HowWeOperate" Slices.
- */
 const HowWeOperate = ({ slice }: HowWeOperateProps): JSX.Element => {
   return (
     <>
