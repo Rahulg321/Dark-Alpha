@@ -48,9 +48,9 @@ const Capabilities = ({ slice }: CapabilitiesProps): JSX.Element => {
             <h2>Capabilities</h2>
             <span className="mt-4 block font-semibold text-gray-600">
               Beyond the horizon of traditional investment, Dark Alpha shines a
-              light on hidden potential. We're an independent sponsor startup
-              based in the US, driven by a bold vision: unlocking the full
-              potential of businesses that dare to challenge the norm.
+              light on hidden potential. We're an independent sponsor based in
+              the US, driven by a bold vision: unlocking the full potential of
+              businesses that dare to challenge the norm.
             </span>
             <span className="mt-4 block font-semibold text-gray-600">
               Explore the links provided below to learn more about our

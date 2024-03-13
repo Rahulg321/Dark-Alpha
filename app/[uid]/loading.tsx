@@ -3,7 +3,7 @@ import React from "react";
 
 const loading = () => {
   return (
-    <div className="flex items-center justify-center text-7xl">
+    <div className="flex min-h-screen items-center justify-center text-7xl">
       <LoadingSpinner />
     </div>
   );
