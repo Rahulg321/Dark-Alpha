@@ -56,7 +56,9 @@ const Capabilities = ({ slice }: CapabilitiesProps): JSX.Element => {
               market.
             </span>
             <span className="mt-4 block font-semibold text-gray-600">
-            Explore the links provided below to learn more about what we do, success stories, and insights that could shape our next strategic move.
+              Explore the links provided below to learn more about what we do,
+              success stories, and insights that could shape our
+              next strategic move.
             </span>
             <div className="mt-4">
               <div className="block w-full rounded-xl px-2 py-2 transition hover:cursor-pointer hover:bg-gray-200 hover:text-gray-600">
@@ -86,7 +88,18 @@ const Capabilities = ({ slice }: CapabilitiesProps): JSX.Element => {
                   href={"/team"}
                   className="flex items-center justify-start  font-bold hover:text-[#7a9e9f]"
                 >
-                  Advisors{" "}
+                  Team{" "}
+                  <div className="ml-2">
+                    <FaArrowRight />
+                  </div>
+                </Link>
+              </div>
+              <div className="block w-full rounded-xl px-2 py-2 transition hover:cursor-pointer hover:bg-gray-200 hover:text-gray-600">
+                <Link
+                  href={"/about-dark-alpha"}
+                  className="flex items-center justify-start  font-bold hover:text-[#7a9e9f]"
+                >
+                  About Us{" "}
                   <div className="ml-2">
                     <FaArrowRight />
                   </div>
