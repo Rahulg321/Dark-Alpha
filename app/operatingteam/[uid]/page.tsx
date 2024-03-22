@@ -21,7 +21,8 @@ export async function generateMetadata({
 }: {
   params: Params;
 }): Promise<Metadata> {
-  const client = createClient();
+  try {
+    const client = createClient();
   const page = await client
     .getByUID("operatingmember", params.uid)
     .catch(() => notFound());
@@ -30,6 +31,13 @@ export async function generateMetadata({
     title: page.data.meta_title,
     description: page.data.meta_description,
   };
+} catch (error) {
+    return {
+      title:"Could not find page",
+      description: "The page you are looking for does not exist",
+    };
+    
+  }
 }
 
 export async function generateStaticParams() {
