@@ -41,7 +41,7 @@ export default async function sitemap() {
       priority: 0.8,
     },
     {
-      url: "https://darkalphacapital.com/about",
+      url: "https://darkalphacapital.com/about-dark-alpha",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,

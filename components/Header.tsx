@@ -91,6 +91,17 @@ const Header = ({ classname }: HeaderProps) => {
               >
                 Strategy
               </Link>
+              <Link
+                className={clsx("text-2xl font-semibold", {
+                  "active-link": pathname === "/about-dark-alpha",
+                })}
+                href={"/about-dark-alpha"}
+                onClick={() => {
+                  setIsOpen(false);
+                }}
+              >
+                About
+              </Link>
 
               <Link
                 className={clsx("text-2xl font-semibold", {
@@ -172,6 +183,14 @@ function DesktopMenu() {
         href={"/criteria"}
       >
         Criteria
+      </Link>
+      <Link
+        className={clsx("text-xl font-semibold", {
+          "active-link": pathname === "/about-dark-alpha",
+        })}
+        href={"/about-dark-alpha"}
+      >
+        About
       </Link>
       <Link
         className={clsx("text-xl font-semibold", {
