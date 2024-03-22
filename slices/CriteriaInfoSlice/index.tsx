@@ -19,9 +19,9 @@ const CriteriaInfoSlice = ({ slice }: CriteriaInfoSliceProps): JSX.Element => {
     >
       <div className="big-container">
         <div className="grid-cols grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <div>
+          <div className="">
             <h2 className="mb-4 font-bold">Financial & Geographic</h2>
-            <ul className="list-disc text-base font-semibold text-gray-600">
+            <ul className="list-disc px-4 text-base font-semibold text-gray-600">
               <li>Based in North America</li>
               <li>$1 to $10 million+ of EBITDA</li>
               <li>Track record of stable earnings and cash flow generation</li>
@@ -29,7 +29,7 @@ const CriteriaInfoSlice = ({ slice }: CriteriaInfoSliceProps): JSX.Element => {
           </div>
           <div>
             <h2 className="mb-4 font-bold ">Industry</h2>
-            <ul className="list-disc text-base font-semibold text-gray-600">
+            <ul className="list-disc px-4 text-base font-semibold text-gray-600">
               <li>Long-term and stable growth drivers</li>
               <li>Fragmented industry with a large addressable market</li>
               <li>Limited cyclicality or commodity exposure</li>
@@ -38,7 +38,7 @@ const CriteriaInfoSlice = ({ slice }: CriteriaInfoSliceProps): JSX.Element => {
           </div>
           <div>
             <h2 className="mb-4 font-bold ">Business</h2>
-            <ul className="list-disc text-base font-semibold text-gray-600">
+            <ul className="list-disc px-4 text-base font-semibold text-gray-600">
               <li>Multiple levers for growth </li>
               <li>Pricing power</li>
               <li>
