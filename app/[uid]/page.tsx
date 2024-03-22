@@ -34,7 +34,14 @@ export async function generateMetadata({
     description: page.data.meta_description,
     alternates:{
       canonical:`/${params.uid}`
-    }
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: page.data.meta_title as string,
+      description: page.data.meta_description as string,
+      creator: '@rg5353070',
+      images: ['https://nextjs.org/og.png'], // Must be an absolute URL
+    },
   };
   } catch (error) {
     return {
