@@ -45,17 +45,18 @@ const Capabilities = ({ slice }: CapabilitiesProps): JSX.Element => {
         </div>
         <div className="mt-6 grid grid-cols-1 gap-6 rounded-xl px-6 py-8 shadow-md md:mt-12 md:grid-cols-2">
           <div>
-            <h2>Capabilities</h2>
+            <h2>What We Do</h2>
             <span className="mt-4 block font-semibold text-gray-600">
-              Beyond the horizon of traditional investment, Dark Alpha shines a
-              light on hidden potential. We're an independent sponsor based in
-              the US, driven by a bold vision: unlocking the full potential of
-              businesses that dare to challenge the norm.
+              Dark Alpha Capital is an investment firm focused on acquiring
+              private companies. We partner with successful businesses seeking a
+              pathway to an exit transaction. Our investors include specialized
+              financial institutions, family offices, current and former
+              entrepreneurs, with extensive experience owning, managing and
+              operating successful private companies across the lower middle
+              market.
             </span>
             <span className="mt-4 block font-semibold text-gray-600">
-              Explore the links provided below to learn more about our
-              specialized services, success stories, and insights that could
-              shape your next strategic move.
+            Explore the links provided below to learn more about what we do, success stories, and insights that could shape our next strategic move.
             </span>
             <div className="mt-4">
               <div className="block w-full rounded-xl px-2 py-2 transition hover:cursor-pointer hover:bg-gray-200 hover:text-gray-600">
