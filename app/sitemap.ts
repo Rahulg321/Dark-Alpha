@@ -11,13 +11,13 @@ export default async function sitemap() {
   // getting all team members from the CMS
   const teamMembersURLS =
     teamMembers.map((member) => ({
-      url: `${baseUrl}/${member.data.name}`,
+      url: `${baseUrl}/team/${member.data.name}`,
       lastModified: new Date(),
     })) ?? [];
 
   const operatingMembersURLS =
     operatingMembers.map((member) => ({
-      url: `${baseUrl}/${member.data.name}`,
+      url: `${baseUrl}/operatingteam/${member.data.name}`,
       lastModified: new Date(),
     })) ?? [];
 
