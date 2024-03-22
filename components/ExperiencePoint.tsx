@@ -13,7 +13,7 @@ const ExperiencePoint = ({ point, blueBackground }: ExperiencePointProps) => {
   return (
     <div className="mt-1 flex items-center gap-2">
       <div
-        className={clsx("text-[10px] font-bold text-black", {
+        className={clsx("text-[5px] font-bold text-black", {
           "text-primary": blueBackground === true,
         })}
       >
