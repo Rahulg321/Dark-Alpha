@@ -6,6 +6,7 @@ import Link from "next/link";
 import { IoIosStarOutline } from "react-icons/io";
 import { HiOutlineBuildingLibrary } from "react-icons/hi2";
 import { FaArrowRight } from "react-icons/fa";
+import { useEffect } from "react";
 
 /**
  * Props for `Capabilities`.

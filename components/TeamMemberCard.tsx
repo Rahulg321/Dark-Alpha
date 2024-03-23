@@ -32,9 +32,7 @@ const TeamMemberCard = ({
         <div className="text-center">
           <span className="block text-xl font-semibold">{memberName}</span>
         </div>
-        <div className="text-center">
-          <span className="block text-2xl font-bold">{memberPosition}</span>
-        </div>
+
         <div className="text-center">
           <PrismicNextLink
             className="inline-block text-xl transition hover:underline"
