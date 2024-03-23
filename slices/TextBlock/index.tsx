@@ -17,7 +17,7 @@ const TextBlock = ({ slice }: TextBlockProps): JSX.Element => {
       className="block-space"
     >
       <div className="narrow-container">
-        <div className="prose prose-gray md:prose-lg lg:prose-xl">
+        <div className="prose prose-lg prose-gray md:prose-xl prose-headings:mb-4 prose-h2:mt-8 prose-ul:text-base">
           <PrismicRichText field={slice.primary.main_content} />
         </div>
       </div>
