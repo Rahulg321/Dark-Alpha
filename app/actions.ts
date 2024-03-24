@@ -47,7 +47,13 @@ export async function sendEmail(formData: TContactUsSchema) {
     });
 
     console.log("data", data);
-    console.log("error in resend", error);
+
+    if (error) {
+      console.log("error in resend", error);
+      return {
+        errors: true,
+      };
+    }
 
     return {
       success: true,
