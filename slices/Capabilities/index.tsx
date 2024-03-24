@@ -111,11 +111,11 @@ const Capabilities = ({ slice }: CapabilitiesProps): JSX.Element => {
           <div>
             <h2>Contact Us</h2>
             <span className="mt-4 block font-semibold text-gray-600">
-              As a burgeoning independent sponsor company, we welcome the
-              opportunity to engage with you. Whether you seek information, have
-              proposals, or simply wish to initiate dialogue, your outreach is
-              highly valued. Connect with Dark Alpha today, and let's embark on
-              a journey toward mutually rewarding partnerships.
+              As an independent sponsor company, we welcome the opportunity to
+              engage with you. Whether you seek information, have proposals, or
+              simply wish to initiate dialogue, your outreach is highly valued.
+              Connect with Dark Alpha today, and let's embark on a journey
+              toward mutually rewarding partnerships.
             </span>
             <Link
               className="mt-4 inline-block border-2 px-6 py-2 font-semibold text-[#7a9e9f] transition hover:bg-[#7a9e9f] hover:text-white"
