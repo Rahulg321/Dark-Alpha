@@ -1,75 +1,91 @@
 "use client";
 
 import React from "react";
+import clsx from "clsx";
+import { ContactUsSchema, TContactUsSchema } from "@/app/types";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import toast from "react-hot-toast";
+import { sendEmail } from "@/app/actions";
 
 const ContactForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+    setError,
+  } = useForm<TContactUsSchema>({
+    resolver: zodResolver(ContactUsSchema),
+  });
+
+  const onSubmit = async (data: TContactUsSchema) => {
+    const response = await sendEmail(data);
+
+    if (response.errors) {
+      toast.error("Could not send message to the server");
+    }
+
+    if (response.success) {
+      toast.success("your message was sent successfully");
+    }
+
+    reset();
+  };
+
   return (
     <div>
-      <form action="" className="flex flex-col gap-2">
-        <div className="flex flex-col">
-          <label htmlFor="name" className="text-white" id="name-label">
-            Name
-          </label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            aria-labelledby="name-label"
-            placeholder=""
-            className="border-t-1 rounded-md bg-slate-500 p-4 text-xl font-semibold text-white"
-            required
-          />
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="email" className="text-white" id="email-label">
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            aria-labelledby="email-label"
-            placeholder=""
-            className="border-t-1 rounded-md bg-slate-500 p-4 text-xl font-semibold text-white"
-            required
-          />
-        </div>
-        <div className="flex flex-col">
-          <label
-            htmlFor="phoneNumber"
-            className="text-white"
-            id="phoneNumber-label"
-          >
-            Phone Number
-          </label>
-          <input
-            type="number"
-            name="phoneNumber"
-            id="phoneNumber"
-            aria-labelledby="phoneNumber-label"
-            placeholder=""
-            className="border-t-1 rounded-md bg-slate-500 p-4 text-xl font-semibold text-white"
-            required
-          />
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="comments" className="text-white" id="comment-label">
-            Additional Comments
-          </label>
-          <textarea
-            name="comments"
-            id="comments"
-            rows={10}
-            aria-labelledby="comment-label"
-            className="border-t-1 rounded-md bg-slate-500 p-4 text-xl font-semibold text-white"
-          ></textarea>
-        </div>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={clsx("flex flex-col gap-4")}
+      >
+        <input
+          {...register("name", {
+            required: "name is required",
+          })}
+          placeholder="Your name"
+          className="form-input flex-1 font-semibold text-black"
+        />
+        {errors.name && (
+          <span className="text-red-500">{`${errors.name.message}`}</span>
+        )}
+        <input
+          {...register("phoneNumber")}
+          type="number"
+          placeholder="Phone Number"
+          name="phoneNumber"
+          className="form-input flex-1 font-semibold text-black"
+        />
+        {errors.phoneNumber && (
+          <span className="text-red-500">{`${errors.phoneNumber.message}`}</span>
+        )}
+        <input
+          {...register("email")}
+          type="email"
+          placeholder="Email"
+          name="email"
+          className="form-input flex-1 font-semibold text-black"
+        />
+        {errors.email && (
+          <span className="text-red-500">{`${errors.email.message}`}</span>
+        )}
+        <textarea
+          {...register("message", {
+            required: "message is required",
+          })}
+          name="message"
+          placeholder="Your message"
+          className="form-textarea w-full font-semibold text-black"
+        ></textarea>
+        {errors.message && (
+          <span className="text-red-500">{`${errors.message.message}`}</span>
+        )}
         <button
-          aria-label="submit contact form"
+          disabled={isSubmitting}
           type="submit"
-          className="w-fit bg-accent px-6 py-2 text-white transition hover:scale-105"
+          className="text-secondary block bg-blue-600 px-4 py-2 transition hover:bg-blue-800 hover:shadow-xl"
         >
-          Send Message
+          {isSubmitting ? "Submitting" : "Submit"}
         </button>
       </form>
     </div>

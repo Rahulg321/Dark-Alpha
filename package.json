@@ -10,18 +10,25 @@
     "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
     "@next/third-parties": "^14.1.0",
     "@prismicio/client": "^7.3.1",
     "@prismicio/next": "^1.5.0",
     "@prismicio/react": "^2.7.3",
+    "@react-email/components": "^0.0.15",
+    "@react-email/tailwind": "^0.0.14",
     "@vercel/analytics": "^1.1.3",
     "@vercel/speed-insights": "^1.0.9",
     "clsx": "^2.1.0",
     "next": "^14.1.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-email": "^2.1.0",
+    "react-hook-form": "^7.51.1",
     "react-hot-toast": "^2.4.1",
-    "react-icons": "^5.0.1"
+    "react-icons": "^5.0.1",
+    "resend": "^3.2.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@slicemachine/adapter-next": "^0.3.35",
