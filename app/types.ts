@@ -1,11 +1,20 @@
 import z from "zod";
 
 export const ContactUsSchema = z.object({
-  name: z.string().refine((value) => value.trim() !== "", {
-    message: "Name is required",
+  firstName: z.string().refine((value) => value.trim() !== "", {
+    message: "First Name is required",
   }),
-  email: z.string().email(),
-  phoneNumber: z.string(),
+  lastName: z.string().refine((value) => value.trim() !== "", {
+    message: "Last Name is required",
+  }),
+  email: z
+    .string({
+      required_error: "email is required",
+    })
+    .email({}),
+  phoneNumber: z.string({
+    required_error: "phone number is required",
+  }),
   message: z.string().refine((value) => value.trim() !== "", {
     message: "Message is required",
   }),

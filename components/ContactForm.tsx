@@ -40,21 +40,31 @@ const ContactForm = () => {
         className={clsx("flex flex-col gap-4")}
       >
         <input
-          {...register("name", {
+          {...register("firstName", {
             required: "name is required",
           })}
-          placeholder="Your name"
-          className="form-input flex-1 font-semibold text-black"
+          placeholder="First name"
+          className="form-input flex-1 rounded-lg  p-4 font-semibold text-black"
         />
-        {errors.name && (
-          <span className="text-red-500">{`${errors.name.message}`}</span>
+        {errors.firstName && (
+          <span className="text-red-500">{`${errors.firstName.message}`}</span>
+        )}
+        <input
+          {...register("lastName", {
+            required: "name is required",
+          })}
+          placeholder="Last name"
+          className="form-input flex-1 p-4 font-semibold text-black"
+        />
+        {errors.lastName && (
+          <span className="text-red-500">{`${errors.lastName.message}`}</span>
         )}
         <input
           {...register("phoneNumber")}
           type="number"
           placeholder="Phone Number"
           name="phoneNumber"
-          className="form-input flex-1 font-semibold text-black"
+          className="form-input flex-1 p-4  font-semibold text-black"
         />
         {errors.phoneNumber && (
           <span className="text-red-500">{`${errors.phoneNumber.message}`}</span>
@@ -64,7 +74,7 @@ const ContactForm = () => {
           type="email"
           placeholder="Email"
           name="email"
-          className="form-input flex-1 font-semibold text-black"
+          className="form-input flex-1 p-4  font-semibold text-black"
         />
         {errors.email && (
           <span className="text-red-500">{`${errors.email.message}`}</span>
@@ -75,7 +85,7 @@ const ContactForm = () => {
           })}
           name="message"
           placeholder="Your message"
-          className="form-textarea w-full font-semibold text-black"
+          className="form-textarea w-full  p-4 font-semibold text-black"
         ></textarea>
         {errors.message && (
           <span className="text-red-500">{`${errors.message.message}`}</span>
@@ -83,7 +93,7 @@ const ContactForm = () => {
         <button
           disabled={isSubmitting}
           type="submit"
-          className="text-secondary block bg-blue-600 px-4 py-2 transition hover:bg-blue-800 hover:shadow-xl"
+          className="text-secondary block bg-blue-600 px-4 py-2 text-white transition  hover:bg-blue-800 hover:shadow-xl"
         >
           {isSubmitting ? "Submitting" : "Submit"}
         </button>

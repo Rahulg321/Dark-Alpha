@@ -13,8 +13,6 @@ export async function sendEmail(formData: TContactUsSchema) {
     const validatedData = ContactUsSchema.safeParse(formData);
     let zodErrors = {};
 
-    console.log("In server action", formData);
-
     if (!validatedData.success) {
       validatedData.error.issues.forEach(
         (issue) =>
@@ -27,14 +25,22 @@ export async function sendEmail(formData: TContactUsSchema) {
       return { errors: true, zodErrors };
     }
 
+    const data = await resend.contacts.create({
+      email: formData.email,
+      firstName: formData.firstName,
+      lastName: formData.firstName,
+      unsubscribed: false,
+      audienceId: "c5cc6fe0-5068-49e7-ae71-259d875fa76a",
+    });
+
     await resend.emails.send({
-      from: "Destiny Aigbe <onboarding@resend.dev>",
+      from: `${formData.firstName} ${formData.lastName} <onboarding@resend.dev>`,
       to: "info@darkalphacapital.com",
-      subject: `Contact Inquiry from ${formData.name}`,
+      subject: `Contact Inquiry from ${formData.firstName} ${formData.lastName}`,
       reply_to: formData.email,
       react: React.createElement(ContactFormEmail, {
         message: formData.message,
-        name: formData.name,
+        name: formData.firstName,
         email: formData.email,
         phoneNumber: formData.phoneNumber,
       }),
