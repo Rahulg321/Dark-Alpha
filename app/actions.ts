@@ -25,16 +25,16 @@ export async function sendEmail(formData: TContactUsSchema) {
       return { errors: true, zodErrors };
     }
 
-    const data = await resend.contacts.create({
+    await resend.contacts.create({
       email: formData.email,
       firstName: formData.firstName,
       lastName: formData.firstName,
       unsubscribed: false,
-      audienceId: "c5cc6fe0-5068-49e7-ae71-259d875fa76a",
+      audienceId: "27ff6a9c-b6bc-43f8-8714-7eb68004945d",
     });
 
-    await resend.emails.send({
-      from: `${formData.firstName} ${formData.lastName} <onboarding@resend.dev>`,
+    const { data, error } = await resend.emails.send({
+      from: `${formData.firstName} ${formData.lastName} <info@darkalphacapital.com>`,
       to: "info@darkalphacapital.com",
       subject: `Contact Inquiry from ${formData.firstName} ${formData.lastName}`,
       reply_to: formData.email,
@@ -45,6 +45,9 @@ export async function sendEmail(formData: TContactUsSchema) {
         phoneNumber: formData.phoneNumber,
       }),
     });
+
+    console.log("data", data);
+    console.log("error in resend", error);
 
     return {
       success: true,

@@ -61,9 +61,7 @@ const ContactForm = () => {
         )}
         <input
           {...register("phoneNumber")}
-          type="number"
           placeholder="Phone Number"
-          name="phoneNumber"
           className="form-input flex-1 p-4  font-semibold text-black"
         />
         {errors.phoneNumber && (
