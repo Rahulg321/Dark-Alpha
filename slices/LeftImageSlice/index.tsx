@@ -48,7 +48,7 @@ const LeftImageSlice = ({ slice }: LeftImageSliceProps): JSX.Element => {
           </div>
 
           <div className="basis-1/2 md:basis-2/3">
-            <div className="prose  md:prose-lg lg:prose-xl">
+            <div className="prose prose-lg prose-gray md:prose-xl prose-headings:mb-4 prose-h2:mt-8 prose-ul:text-base">
               <PrismicRichText field={slice.primary.description} />
             </div>
             {slice.primary.showlearnmorebutton ? (
