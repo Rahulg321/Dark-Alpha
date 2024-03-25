@@ -6,7 +6,7 @@ import Link from "next/link";
 
 type TeamMemberCardProps = {
   memberName: KeyTextField;
-  memberPosition: KeyTextField;
+  memberPosition?: KeyTextField;
   memberImage: ImageField;
   classname?: string;
   LinkedinLink: LinkField;
@@ -31,6 +31,7 @@ const TeamMemberCard = ({
       <div className="mt-2">
         <div className="text-center">
           <span className="block text-xl font-semibold">{memberName}</span>
+          <span className="block text-xl font-semibold">{memberPosition}</span>
         </div>
 
         <div className="text-center">

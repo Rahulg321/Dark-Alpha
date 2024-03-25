@@ -13,7 +13,6 @@ const OperatingTeamMemberIndex = async () => {
             key={member.id}
             memberName={member.data.name}
             memberImage={member.data.image}
-            memberPosition={member.data.designation}
             LinkedinLink={member.data.linkedinprofilelink}
             BioLink={`/operatingteam/${member.uid}`}
           />

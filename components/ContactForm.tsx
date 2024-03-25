@@ -44,7 +44,7 @@ const ContactForm = () => {
             required: "name is required",
           })}
           placeholder="First name"
-          className="form-input flex-1 rounded-lg  p-4 font-semibold text-black"
+          className="form-input flex-1  p-4 font-semibold text-black"
         />
         {errors.firstName && (
           <span className="text-red-500">{`${errors.firstName.message}`}</span>
