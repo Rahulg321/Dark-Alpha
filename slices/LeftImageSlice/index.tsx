@@ -19,7 +19,6 @@ export type LeftImageSliceProps =
 const LeftImageSlice = ({ slice }: LeftImageSliceProps): JSX.Element => {
   const ImageShouldBeLeft = slice.primary.image_left;
   const ImageIsCircle = slice.primary.image_circle;
-  console.log(ImageIsCircle);
 
   return (
     <section
