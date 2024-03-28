@@ -7,15 +7,9 @@ import {
 } from "@prismicio/react";
 import clsx from "clsx";
 
-/**
- * Props for `LeftImageSlice`.
- */
 export type LeftImageSliceProps =
   SliceComponentProps<Content.LeftImageSliceSlice>;
 
-/**
- * Component for "LeftImageSlice" Slices.
- */
 const LeftImageSlice = ({ slice }: LeftImageSliceProps): JSX.Element => {
   const ImageShouldBeLeft = slice.primary.image_left;
   const ImageIsCircle = slice.primary.image_circle;
