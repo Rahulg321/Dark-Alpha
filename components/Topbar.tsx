@@ -10,9 +10,13 @@ const Topbar = () => {
         <div className="cursor-pointer text-xl transition hover:text-white">
           <FaFacebookSquare />
         </div>
-        <div className="cursor-pointer text-xl transition hover:text-white">
+        <Link
+          className="cursor-pointer text-xl transition hover:text-white"
+          href={"https://www.linkedin.com/company/dark-alpha-capital"}
+          target="_blank"
+        >
           <FaLinkedin />
-        </div>
+        </Link>
       </div>
       <div className="flex gap-4">
         <div>
