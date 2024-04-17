@@ -20,7 +20,7 @@ const HowWeOperate = ({ slice }: HowWeOperateProps): JSX.Element => {
             <h1 className="text-center mb-8  font-semibold text-accent">
               INVESTMENT STRATEGY
             </h1>
-            <div className="prose prose-lg prose-gray md:prose-xl prose-headings:mb-4 prose-h2:mt-8 prose-ul:text-base">
+            <div className="prose prose-lg prose-gray md:prose-xl prose-headings:mb-4 prose-h2:mt-8 prose-ul:text-base text-balance">
               <PrismicRichText field={slice.primary.strategy_content} />
             </div>
           </div>
