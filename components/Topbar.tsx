@@ -22,6 +22,15 @@ const Topbar = () => {
         <div>
           <Link
             className="bg-gray-800 px-2 py-1 text-sm font-semibold text-white transition hover:bg-gray-700"
+            href="/FactSheet.pdf"
+            target="_blank"
+          >
+            Download Fact Sheet
+          </Link>
+        </div>
+        <div>
+          <Link
+            className="bg-gray-800 px-2 py-1 text-sm font-semibold text-white transition hover:bg-gray-700"
             href="https://calendly.com/darkalphacapital"
             target="_blank"
           >
