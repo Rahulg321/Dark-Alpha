@@ -32,7 +32,7 @@ const ExecutiveTeamIndex = async () => {
   });
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-12 lg:grid-cols-4">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-12 lg:grid-cols-3">
       {managingPartners.map((member) => {
         return (
           <TeamMemberCard

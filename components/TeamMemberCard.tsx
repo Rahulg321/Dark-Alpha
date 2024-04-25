@@ -25,7 +25,7 @@ const TeamMemberCard = ({
     <div
       className={clsx("p-4 transition duration-300 hover:shadow-xl", classname)}
     >
-      <div className="aspect-h-1 aspect-w-1 relative">
+      <div className="aspect-h-4 aspect-w-3 relative">
         <PrismicNextImage field={memberImage} fill className=" object-cover" />
       </div>
       <div className="mt-2">
