@@ -11,7 +11,7 @@ const Footer = () => {
     },
     {
       link: "/team",
-      label: "Advisors",
+      label: "Team",
     },
     {
       link: "/strategy",
