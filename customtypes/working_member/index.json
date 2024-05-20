@@ -1,49 +1,43 @@
 {
   "format": "page",
-  "id": "blogpost",
-  "label": "Blogpost",
+  "id": "working_member",
+  "label": "Working Member",
   "repeatable": true,
   "status": true,
   "json": {
     "Main": {
-      "title": {
-        "type": "Text",
-        "config": {
-          "label": "Title",
-          "placeholder": ""
-        }
-      },
-      "author": {
-        "type": "Text",
-        "config": {
-          "label": "Author",
-          "placeholder": ""
-        }
-      },
       "uid": {
         "config": {
           "label": "UID"
         },
         "type": "UID"
       },
-      "created_at": {
-        "type": "Date",
-        "config": {
-          "label": "Created at",
-          "placeholder": ""
-        }
-      },
-      "description": {
+      "name": {
         "type": "Text",
         "config": {
-          "label": "Description",
+          "label": "Name",
           "placeholder": ""
         }
       },
-      "featured_image": {
+      "linkedinprofilelink": {
+        "type": "Link",
+        "config": {
+          "label": "LinkedInProfileLink",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "designation": {
+        "type": "Text",
+        "config": {
+          "label": "Designation",
+          "placeholder": ""
+        }
+      },
+      "profile_image": {
         "type": "Image",
         "config": {
-          "label": "Featured Image",
+          "label": "Profile Image",
           "constraint": {},
           "thumbnails": []
         }
@@ -53,7 +47,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "blog_text_block": {
+            "left_image_slice": {
               "type": "SharedSlice"
             },
             "hero_slice": {

@@ -7,6 +7,7 @@ import { GiHealthNormal } from "react-icons/gi";
 import { SlEnergy } from "react-icons/sl";
 import { IoAirplaneOutline } from "react-icons/io5";
 import { MdBusinessCenter } from "react-icons/md";
+import { IoAirplane } from "react-icons/io5";
 
 /**
  * Props for `FavouriteIndeustry`.
@@ -40,6 +41,14 @@ const FavouriteIndeustry = ({
           <FavoriteIndustryCard
             icon={<GiHealthNormal />}
             heading="Healthcare"
+          />
+          <FavoriteIndustryCard
+            icon={<IoAirplaneOutline />}
+            heading="Aerospace & Defense"
+          />
+          <FavoriteIndustryCard
+            icon={<MdFactory />}
+            heading="Industrial Services"
           />
         </div>
       </div>

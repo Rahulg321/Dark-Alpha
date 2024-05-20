@@ -1,26 +1,28 @@
-import BlogIndex from "@/components/BlogIndex";
+import CareerIndex from "@/components/CareerIndex";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { Suspense } from "react";
 
 /**
- * Props for `BlogContentIndex`.
+ * Props for `CareerContentIndex`.
  */
-export type BlogContentIndexProps =
-  SliceComponentProps<Content.BlogContentIndexSlice>;
+export type CareerContentIndexProps =
+  SliceComponentProps<Content.CareerContentIndexSlice>;
 
 /**
- * Component for "BlogContentIndex" Slices.
+ * Component for "CareerContentIndex" Slices.
  */
-const BlogContentIndex = ({ slice }: BlogContentIndexProps): JSX.Element => {
+const CareerContentIndex = ({
+  slice,
+}: CareerContentIndexProps): JSX.Element => {
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="block-space narrow-container"
     >
-      <h1 className="mb-6 text-center md:mb-8 lg:mb-12">All Posts</h1>
+      <h1 className="mb-6 text-center lg:mb-12">Open Roles</h1>
       <Suspense
         fallback={
           <div className="text-center" role="progressbar">
@@ -28,10 +30,10 @@ const BlogContentIndex = ({ slice }: BlogContentIndexProps): JSX.Element => {
           </div>
         }
       >
-        <BlogIndex />
+        <CareerIndex />
       </Suspense>
     </section>
   );
 };
 
-export default BlogContentIndex;
+export default CareerContentIndex;

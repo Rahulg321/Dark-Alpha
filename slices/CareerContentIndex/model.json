@@ -1,0 +1,16 @@
+{
+  "id": "career_content_index",
+  "type": "SharedSlice",
+  "name": "CareerContentIndex",
+  "description": "CareerContentIndex",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

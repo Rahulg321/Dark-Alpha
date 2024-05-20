@@ -19,7 +19,7 @@ const OperationTeamIndex = ({
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="block-space bg-primary"
+      className="block-space"
     >
       <div className="big-container">
         <h2 className="heading font-extrabold">Operating Partners</h2>

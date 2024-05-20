@@ -10,6 +10,41 @@ type HeaderProps = {
   classname?: string;
 };
 
+const navbar = [
+  {
+    navlabel: "Home",
+    navlink: "/home",
+  },
+  {
+    navlabel: "Team",
+    navlink: "/team",
+  },
+  {
+    navlabel: "Blog",
+    navlink: "/blog",
+  },
+  {
+    navlabel: "Careers",
+    navlink: "/careers",
+  },
+  {
+    navlabel: "Strategy",
+    navlink: "/strategy",
+  },
+  {
+    navlabel: "Criteria",
+    navlink: "/criteria",
+  },
+  {
+    navlabel: "About",
+    navlink: "/about-dark-alpha",
+  },
+  {
+    navlabel: "Contact",
+    navlink: "/contact",
+  },
+];
+
 const Header = ({ classname }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
@@ -151,55 +186,19 @@ function DesktopMenu() {
   const pathname = usePathname();
   return (
     <div className="hidden gap-4 md:flex">
-      <Link
-        className={clsx("text-xl font-semibold", {
-          "active-link": pathname === "/home",
-        })}
-        href={"/home"}
-      >
-        Home
-      </Link>
-      <Link
-        className={clsx("text-xl font-semibold", {
-          "active-link": pathname === "/team",
-        })}
-        href={"/team"}
-      >
-        Team
-      </Link>
-      <Link
-        className={clsx("text-xl font-semibold", {
-          "active-link": pathname === "/strategy",
-        })}
-        href={"/strategy"}
-      >
-        Strategy
-      </Link>
-
-      <Link
-        className={clsx("text-xl font-semibold", {
-          "active-link": pathname === "/criteria",
-        })}
-        href={"/criteria"}
-      >
-        Criteria
-      </Link>
-      <Link
-        className={clsx("text-xl font-semibold", {
-          "active-link": pathname === "/about-dark-alpha",
-        })}
-        href={"/about-dark-alpha"}
-      >
-        About
-      </Link>
-      <Link
-        className={clsx("text-xl font-semibold", {
-          "active-link": pathname === "/contact",
-        })}
-        href={"/contact"}
-      >
-        Contact
-      </Link>
+      {navbar.map((e, index) => {
+        return (
+          <Link
+            className={clsx("text-xl font-semibold", {
+              "active-link": pathname === e.navlink,
+            })}
+            href={e.navlink}
+            key={index}
+          >
+            {e.navlabel}
+          </Link>
+        );
+      })}
     </div>
   );
 }

@@ -4,22 +4,33 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type BlogpostDocumentDataSlicesSlice = TextBlockSlice;
+type BlogpostDocumentDataSlicesSlice = BlogTextBlockSlice | HeroSliceSlice;
 
 /**
  * Content for Blogpost documents
  */
 interface BlogpostDocumentData {
   /**
-   * Heading field in *Blogpost*
+   * Title field in *Blogpost*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: blogpost.heading
+   * - **API ID Path**: blogpost.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  heading: prismic.KeyTextField;
+  title: prismic.KeyTextField;
+
+  /**
+   * Author field in *Blogpost*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  author: prismic.KeyTextField;
 
   /**
    * Created at field in *Blogpost*
@@ -44,15 +55,15 @@ interface BlogpostDocumentData {
   description: prismic.KeyTextField;
 
   /**
-   * Hero Image field in *Blogpost*
+   * Featured Image field in *Blogpost*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: blogpost.hero_image
+   * - **API ID Path**: blogpost.featured_image
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  hero_image: prismic.ImageField<never>;
+  featured_image: prismic.ImageField<never>;
 
   /**
    * Slice Zone field in *Blogpost*
@@ -112,6 +123,122 @@ export type BlogpostDocument<Lang extends string = string> =
     "blogpost",
     Lang
   >;
+
+type CareerDocumentDataSlicesSlice = CareerContentIndexSlice;
+
+/**
+ * Content for Career documents
+ */
+interface CareerDocumentData {
+  /**
+   * Title field in *Career*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: career.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Department field in *Career*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: career.department
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  department: prismic.KeyTextField;
+
+  /**
+   * Pay Range field in *Career*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: career.pay_range
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  pay_range: prismic.KeyTextField;
+
+  /**
+   * Description field in *Career*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: career.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Small Description field in *Career*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: career.small_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_description: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Career*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: career.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CareerDocumentDataSlicesSlice> /**
+   * Meta Title field in *Career*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: career.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Career*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: career.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Career*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: career.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Career document from Prismic
+ *
+ * - **API ID**: `career`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CareerDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<CareerDocumentData>, "career", Lang>;
 
 /**
  * Item in *GrowthAreaPoints → Product and Engineering*
@@ -367,6 +494,8 @@ export type OperatingmemberDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | WorkingTeamIndexSlice
+  | CareerContentIndexSlice
   | OperationTeamIndexSlice
   | TextBlockSlice
   | CriteriaInfoSliceSlice
@@ -578,13 +707,126 @@ export type TeammemberDocument<Lang extends string = string> =
     Lang
   >;
 
+type WorkingMemberDocumentDataSlicesSlice =
+  | LeftImageSliceSlice
+  | HeroSliceSlice;
+
+/**
+ * Content for Working Member documents
+ */
+interface WorkingMemberDocumentData {
+  /**
+   * Name field in *Working Member*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: working_member.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * LinkedInProfileLink field in *Working Member*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: working_member.linkedinprofilelink
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkedinprofilelink: prismic.LinkField;
+
+  /**
+   * Designation field in *Working Member*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: working_member.designation
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  designation: prismic.KeyTextField;
+
+  /**
+   * Profile Image field in *Working Member*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: working_member.profile_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  profile_image: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Working Member*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: working_member.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<WorkingMemberDocumentDataSlicesSlice> /**
+   * Meta Title field in *Working Member*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: working_member.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Working Member*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: working_member.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Working Member*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: working_member.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Working Member document from Prismic
+ *
+ * - **API ID**: `working_member`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type WorkingMemberDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<WorkingMemberDocumentData>,
+    "working_member",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | BlogpostDocument
+  | CareerDocument
   | GrowthareapointsDocument
   | HomepageDocument
   | OperatingmemberDocument
   | PageDocument
-  | TeammemberDocument;
+  | TeammemberDocument
+  | WorkingMemberDocument;
 
 /**
  * Default variation for BlogContentIndex Slice
@@ -617,6 +859,71 @@ export type BlogContentIndexSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *BlogTextBlock → Primary*
+ */
+export interface BlogTextBlockSliceDefaultPrimary {
+  /**
+   * Title field in *BlogTextBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_text_block.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Date Published field in *BlogTextBlock → Primary*
+   *
+   * - **Field Type**: Timestamp
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_text_block.primary.date_published
+   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   */
+  date_published: prismic.TimestampField;
+
+  /**
+   * Content field in *BlogTextBlock → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_text_block.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for BlogTextBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogTextBlockSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BlogTextBlockSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BlogTextBlock*
+ */
+type BlogTextBlockSliceVariation = BlogTextBlockSliceDefault;
+
+/**
+ * BlogTextBlock Shared Slice
+ *
+ * - **API ID**: `blog_text_block`
+ * - **Description**: BlogTextBlock
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogTextBlockSlice = prismic.SharedSlice<
+  "blog_text_block",
+  BlogTextBlockSliceVariation
+>;
+
+/**
  * Default variation for Capabilities Slice
  *
  * - **API ID**: `default`
@@ -644,6 +951,36 @@ type CapabilitiesSliceVariation = CapabilitiesSliceDefault;
 export type CapabilitiesSlice = prismic.SharedSlice<
   "capabilities",
   CapabilitiesSliceVariation
+>;
+
+/**
+ * Default variation for CareerContentIndex Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CareerContentIndexSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *CareerContentIndex*
+ */
+type CareerContentIndexSliceVariation = CareerContentIndexSliceDefault;
+
+/**
+ * CareerContentIndex Shared Slice
+ *
+ * - **API ID**: `career_content_index`
+ * - **Description**: CareerContentIndex
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CareerContentIndexSlice = prismic.SharedSlice<
+  "career_content_index",
+  CareerContentIndexSliceVariation
 >;
 
 /**
@@ -1530,6 +1867,36 @@ export type TextWithBackgroundSlice = prismic.SharedSlice<
   TextWithBackgroundSliceVariation
 >;
 
+/**
+ * Default variation for WorkingTeamIndex Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WorkingTeamIndexSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *WorkingTeamIndex*
+ */
+type WorkingTeamIndexSliceVariation = WorkingTeamIndexSliceDefault;
+
+/**
+ * WorkingTeamIndex Shared Slice
+ *
+ * - **API ID**: `working_team_index`
+ * - **Description**: WorkingTeamIndex
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WorkingTeamIndexSlice = prismic.SharedSlice<
+  "working_team_index",
+  WorkingTeamIndexSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1543,6 +1910,9 @@ declare module "@prismicio/client" {
       BlogpostDocument,
       BlogpostDocumentData,
       BlogpostDocumentDataSlicesSlice,
+      CareerDocument,
+      CareerDocumentData,
+      CareerDocumentDataSlicesSlice,
       GrowthareapointsDocument,
       GrowthareapointsDocumentData,
       GrowthareapointsDocumentDataProductAndEngineeringItem,
@@ -1559,13 +1929,23 @@ declare module "@prismicio/client" {
       TeammemberDocument,
       TeammemberDocumentData,
       TeammemberDocumentDataSlicesSlice,
+      WorkingMemberDocument,
+      WorkingMemberDocumentData,
+      WorkingMemberDocumentDataSlicesSlice,
       AllDocumentTypes,
       BlogContentIndexSlice,
       BlogContentIndexSliceVariation,
       BlogContentIndexSliceDefault,
+      BlogTextBlockSlice,
+      BlogTextBlockSliceDefaultPrimary,
+      BlogTextBlockSliceVariation,
+      BlogTextBlockSliceDefault,
       CapabilitiesSlice,
       CapabilitiesSliceVariation,
       CapabilitiesSliceDefault,
+      CareerContentIndexSlice,
+      CareerContentIndexSliceVariation,
+      CareerContentIndexSliceDefault,
       ContactFormSectionSlice,
       ContactFormSectionSliceDefaultPrimary,
       ContactFormSectionSliceVariation,
@@ -1623,6 +2003,9 @@ declare module "@prismicio/client" {
       TextWithBackgroundSliceDefaultPrimary,
       TextWithBackgroundSliceVariation,
       TextWithBackgroundSliceDefault,
+      WorkingTeamIndexSlice,
+      WorkingTeamIndexSliceVariation,
+      WorkingTeamIndexSliceDefault,
     };
   }
 }

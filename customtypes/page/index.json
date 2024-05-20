@@ -25,6 +25,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "working_team_index": {
+              "type": "SharedSlice"
+            },
+            "career_content_index": {
+              "type": "SharedSlice"
+            },
             "operation_team_index": {
               "type": "SharedSlice"
             },

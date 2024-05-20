@@ -5,6 +5,8 @@ import Link from "next/link";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import * as prismic from "@prismicio/client";
+import Head from "next/head";
 
 type Params = { uid: string };
 
@@ -14,21 +16,31 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID("blogpost", params.uid)
     .catch(() => notFound());
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: page.data.title as string,
+    author: {
+      "@type": "Person",
+      name: page.data.author,
+      // The full URL must be provided, including the website's domain.
+      url: new URL("https://www.darkalphacapital.com/team/destiny-aigbe"),
+    },
+    image: prismic.asImageSrc(page.data.featured_image),
+    datePublished: page.first_publication_date,
+    dateModified: page.last_publication_date,
+  };
+
   return (
-    <article className="narrow-container">
-      <div className="mt-2">
-        <Link
-          href="/blogs"
-          className="flex items-center gap-1 text-xl text-black transition hover:underline"
-        >
-          <FaArrowLeftLong />
-          Go Back
-        </Link>
-      </div>
-      <div className="block-space">
-        <SliceZone slices={page.data.slices} components={components} />
-      </div>
-    </article>
+    <>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      </Head>
+      <SliceZone slices={page.data.slices} components={components} />;
+    </>
   );
 }
 

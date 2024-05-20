@@ -4,7 +4,9 @@ import dynamic from "next/dynamic";
 
 export const components = {
   blog_content_index: dynamic(() => import("./BlogContentIndex")),
+  blog_text_block: dynamic(() => import("./BlogTextBlock")),
   capabilities: dynamic(() => import("./Capabilities")),
+  career_content_index: dynamic(() => import("./CareerContentIndex")),
   contact_form_section: dynamic(() => import("./ContactFormSection")),
   contact_hero: dynamic(() => import("./ContactHero")),
   criteria_info_slice: dynamic(() => import("./CriteriaInfoSlice")),
@@ -20,4 +22,5 @@ export const components = {
   team_index: dynamic(() => import("./TeamIndex")),
   text_block: dynamic(() => import("./TextBlock")),
   text_with_background: dynamic(() => import("./TextWithBackground")),
+  working_team_index: dynamic(() => import("./WorkingTeamIndex")),
 };

@@ -1,67 +1,51 @@
-import { DateField, ImageField, KeyTextField } from "@prismicio/client";
+import {
+  Content,
+  DateField,
+  ImageField,
+  KeyTextField,
+} from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import Link from "next/link";
 import React from "react";
 
 type BlogCardProps = {
-  title: KeyTextField;
-  uid: string;
-  description: KeyTextField;
-  heroImg: ImageField;
-  createdAt: DateField;
+  post: Content.BlogpostDocument;
 };
 
-const BlogCard = ({
-  title,
-  uid,
-  description,
-  heroImg,
-  createdAt,
-}: BlogCardProps) => {
-  const formattedDate = convertDateToDayMonthYear(createdAt);
+const BlogCard = ({ post }: BlogCardProps) => {
+  const { title, featured_image, description } = post.data;
+  const formattedDate = formatDate(post.data.created_at);
   return (
-    <div className="mt-12 flex flex-col gap-8 md:flex-row">
-      <div className="basis-1/3">
-        <div className="aspect-h-1 aspect-w-1 relative">
-          <PrismicNextImage field={heroImg} fill className="object-cover" />
-        </div>
-      </div>
-      <div className="basis-2/3">
-        <span className="text-xl font-bold italic">{formattedDate}</span>
-        <h2 className="my-2 font-extrabold md:my-4">{title}</h2>
-        <span className="block text-base font-semibold text-gray-600">
-          {description}
-        </span>
-        <Link
-          href={`/blog/${uid}`}
-          className="mt-2 inline-block bg-black px-4 py-3 text-white transition-all hover:border hover:border-black hover:bg-white  hover:font-bold hover:text-black"
-        >
-          Read More
-        </Link>
-      </div>
+    <div className="mb-12 text-balance">
+      <h2 className="mb-2 text-[#165679]">{title}</h2>
+      <span className="mb-2 block font-semibold md:text-lg">
+        {formattedDate}
+      </span>
+      <span className="mb-4 block text-lg md:text-xl">{description}</span>
+      <Link
+        href={`/blog/${post.uid}`}
+        className="block text-xl font-semibold text-[#0f879f]"
+      >
+        Read More
+      </Link>
     </div>
   );
 };
 
 export default BlogCard;
 
-function convertDateToDayMonthYear(dateString: string | DateField) {
-  // Validate input date string format (optional)
-  const regex = /^\d{4}-\d{2}-\d{2}$/;
-  if (!regex.test(dateString as string)) {
-    throw new Error(
-      "Invalid date format. Please provide a date in YYYY-MM-DD format.",
-    );
-  }
+export function formatDate(dateStr: DateField): string {
+  if (!dateStr) return "";
+  const date = new Date(dateStr);
 
-  // Create a Date object from the string
-  const date = new Date(dateString as string);
+  // Options for formatting
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
 
-  // Get day, month name (full word), and year
-  const day = date.getDate();
-  const month = date.toLocaleString("en-US", { month: "long" }); // Use longer month name
-  const year = date.getFullYear();
-
-  // Format the output string
-  return `${day} ${month} ${year}`;
+  // Format the date
+  return new Intl.DateTimeFormat("en-US", options).format(date);
 }

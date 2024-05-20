@@ -2,10 +2,54 @@
 
 import { Resend } from "resend";
 import React from "react";
-import { ContactUsSchema, TContactUsSchema } from "./types";
+import { ContactUsSchema, TCareerFormSchema, TContactUsSchema } from "./types";
 import ContactFormEmail from "@/components/emails/ContactFormEmail";
+import { KeyTextField } from "@prismicio/client";
+import CareerApplicationEmail from "@/components/emails/CareerApplicationEmail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+function readFileAsString(file: File) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+    reader.readAsText(file);
+  });
+}
+
+export async function sendApplication(
+  formdata: TCareerFormSchema,
+  postName: string | KeyTextField,
+) {
+  const name = formdata.firstName + " " + formdata.lastName;
+  const phone = formdata.contactNumber;
+  const email = formdata.email;
+
+  const { data, error } = await resend.emails.send({
+    from: `Dark Alpha Capital <info@darkalphacapital.com>`,
+    to: ["rg5353070@gmail.com"],
+    subject: "sending resume from dark alpha capital",
+    react: React.createElement(CareerApplicationEmail, {
+      name: name,
+      email: email,
+      phoneNumber: phone as string,
+      postName: postName,
+    }),
+  });
+
+  if (error) {
+    // could not send email
+    return {
+      errors: true,
+    };
+  }
+
+  // email was sent successfully
+  return {
+    success: true,
+  };
+}
 
 export async function sendEmail(formData: TContactUsSchema) {
   try {

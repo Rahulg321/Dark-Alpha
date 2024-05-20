@@ -7,6 +7,7 @@ export default async function sitemap() {
 
   const teamMembers = await client.getAllByType("teammember");
   const operatingMembers = await client.getAllByType("operatingmember");
+  const working_members = await client.getAllByType("working_member");
 
   // getting all team members from the CMS
   const teamMembersURLS =
@@ -21,50 +22,69 @@ export default async function sitemap() {
       lastModified: new Date(),
     })) ?? [];
 
+  const workingMembersURLS =
+    working_members.map((member) => ({
+      url: `${baseUrl}/working-team/${member.data.name}`,
+      lastModified: new Date(),
+    })) ?? [];
+
   return [
     {
-      url: "https://darkalphacapital.com",
+      url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: "https://darkalphacapital.com/home",
+      url: `${baseUrl}/home`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://darkalphacapital.com/criteria",
+      url: `${baseUrl}/criteria`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://darkalphacapital.com/about-dark-alpha",
+      url: `${baseUrl}/about-dark-alpha`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://darkalphacapital.com/team",
+      url: `${baseUrl}/team`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://darkalphacapital.com/strategy",
+      url: `${baseUrl}/strategy`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://darkalphacapital.com/contact",
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/careers`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     ...teamMembersURLS,
     ...operatingMembersURLS,
+    ...workingMembersURLS,
   ];
 }

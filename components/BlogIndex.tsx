@@ -10,14 +10,7 @@ const BlogIndex = async () => {
   return (
     <div className="">
       {blogposts.map((item, index) => (
-        <BlogCard
-          key={index}
-          title={item.data.heading}
-          uid={item.uid}
-          description={item.data.description}
-          heroImg={item.data.hero_image}
-          createdAt={item.data.created_at}
-        />
+        <BlogCard key={index} post={item} />
       ))}
     </div>
   );

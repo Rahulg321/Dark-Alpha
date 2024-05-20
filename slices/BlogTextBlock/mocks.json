@@ -1,0 +1,30 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Minim commodo voluptate aliquip non tempor reprehenderit elit veniam irure sint culpa dolor culpa aliquip voluptate. Id veniam elit deserunt laborum anim qui cupidatat deserunt labore labore enim officia voluptate."
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "wore",
+				"type": "Text"
+			},
+			"date_published": {
+				"__TYPE__": "FieldContent",
+				"type": "Timestamp",
+				"value": "2012-04-06T07:42:41Z"
+			}
+		},
+		"items": []
+	}
+]

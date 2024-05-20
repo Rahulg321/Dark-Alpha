@@ -25,6 +25,7 @@ const BackgroundImageSection = ({
         className="trasition absolute left-0 right-0  aspect-1 object-cover opacity-50  duration-300 ease-in-out "
         field={backgroundImage}
         fill
+        priority
       />
     </section>
   );

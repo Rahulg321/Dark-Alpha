@@ -7,6 +7,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Topbar from "@/components/Topbar";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "react-hot-toast";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://darkalphacapital.com"),
@@ -28,15 +31,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${poppins.variable} ${barlowCondensed.variable}`}
-    >
+    <html lang="en" className={``}>
       <meta
         name="google-site-verification"
         content="8pP_lJBKWWCw5FpUWOGsVYea4jHoZ4bVNitNrYCI_EU"
       />
-      <body>
+      <body className={inter.className}>
         <main className="parent-container bg-background">
           <Topbar />
           {children}

@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "blogpost",
-  "label": "Blogpost",
+  "id": "career",
+  "label": "Career",
   "repeatable": true,
   "status": true,
   "json": {
@@ -13,39 +13,40 @@
           "placeholder": ""
         }
       },
-      "author": {
-        "type": "Text",
-        "config": {
-          "label": "Author",
-          "placeholder": ""
-        }
-      },
       "uid": {
         "config": {
           "label": "UID"
         },
         "type": "UID"
       },
-      "created_at": {
-        "type": "Date",
+      "department": {
+        "type": "Text",
         "config": {
-          "label": "Created at",
+          "label": "Department",
+          "placeholder": ""
+        }
+      },
+      "pay_range": {
+        "type": "Text",
+        "config": {
+          "label": "Pay Range",
           "placeholder": ""
         }
       },
       "description": {
-        "type": "Text",
+        "type": "StructuredText",
         "config": {
           "label": "Description",
-          "placeholder": ""
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "featured_image": {
-        "type": "Image",
+      "small_description": {
+        "type": "Text",
         "config": {
-          "label": "Featured Image",
-          "constraint": {},
-          "thumbnails": []
+          "label": "Small Description",
+          "placeholder": ""
         }
       },
       "slices": {
@@ -53,10 +54,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "blog_text_block": {
-              "type": "SharedSlice"
-            },
-            "hero_slice": {
+            "career_content_index": {
               "type": "SharedSlice"
             }
           }

@@ -136,3 +136,7 @@ h6 {
 nav:hover ~ .cursor-circle {
   transform: scale(3); /* Scale up on hover */
 }
+
+.modal::backdrop {
+  background: rgb(0 0 0 / 0.5);
+}
