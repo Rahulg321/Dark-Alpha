@@ -1,5 +1,6 @@
 "use server";
 
+import { put } from "@vercel/blob";
 import { Resend } from "resend";
 import React from "react";
 import { ContactUsSchema, TCareerFormSchema, TContactUsSchema } from "./types";
@@ -18,41 +19,49 @@ function readFileAsString(file: File) {
   });
 }
 
-export async function sendApplication(
-  formdata: TCareerFormSchema,
-  postName: string | KeyTextField,
-) {
-  const name = formdata.firstName + " " + formdata.lastName;
-  const phone = formdata.contactNumber;
-  const email = formdata.email;
+export async function sendApplication(formData: FormData) {
+  const name = formData.get("name") as string;
+  const phoneNumber = formData.get("phonenumber") as string;
+  const imageFile = formData.get("resume") as File;
+  const blob = await put(imageFile.name, imageFile, {
+    access: "public",
+  });
+
+  console.log("name is ", name);
+  console.log("successfully uploaded blob", blob);
+  const { url, downloadUrl, pathname, contentType } = blob;
 
   const { data, error } = await resend.emails.send({
     from: `Dark Alpha Capital <info@darkalphacapital.com>`,
-    to: [
-      "careers@darkalphacapital.com",
-      "da@darkalphacapital.com",
-      "rg5353070@gmail.com",
-    ],
+    to: ["rg5353070@gmail.com", "info@darkalphacapital.com"],
     subject: "sending resume from dark alpha capital",
     react: React.createElement(CareerApplicationEmail, {
-      name: name,
-      email: email,
-      phoneNumber: phone as string,
-      postName: postName,
+      name,
+      phonenumber: phoneNumber,
     }),
+    attachments: [
+      {
+        filename: pathname,
+        path: url,
+      },
+    ],
   });
 
   if (error) {
+    console.log("could not send email");
     // could not send email
     return {
-      errors: true,
+      error: {
+        name: "There was an error with this name",
+        email: "There was an error with this email",
+      },
+      message: "Failed submission",
     };
   }
 
   // email was sent successfully
-  return {
-    success: true,
-  };
+  console.log("email was sent successfully");
+  return { error: null, message: `Application was sent succesfully` };
 }
 
 export async function sendEmail(formData: TContactUsSchema) {

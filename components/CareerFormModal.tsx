@@ -3,14 +3,22 @@
 import { Content } from "@prismicio/client";
 import React, { useEffect, useRef, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
-import CareerForm from "./CareerForm";
+import { SubmitButton } from "./Button";
+import { sendApplication } from "@/app/actions";
+import { useFormState } from "react-dom";
+import toast from "react-hot-toast";
 
 type CareerFormModalProps = {
   post: Content.CareerDocument;
 };
 
+const initialState = {
+  success: false,
+};
+
 const CareerFormModal = ({ post }: CareerFormModalProps) => {
   const modal = useRef<HTMLDialogElement | null>(null);
+
   return (
     <>
       <button
@@ -36,7 +44,58 @@ const CareerFormModal = ({ post }: CareerFormModalProps) => {
         </div>
         <h2>Apply Now</h2>
         <h2 className="mb-6">{post.data.title}</h2>
-        <CareerForm postName={post.data.title} />
+        <form
+          action={async (formData) => {
+            const response = await sendApplication(formData);
+            if (response.error) {
+              toast.error(response.message);
+            } else {
+              toast.success(response.message);
+              modal.current?.close();
+            }
+          }}
+          className="flex flex-col"
+          method="dialog"
+        >
+          <div className="mb-2 flex flex-col">
+            <label htmlFor="name" className="font-semibold">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className="form-input"
+              required
+            />
+          </div>
+          <div className="mb-2 flex flex-col">
+            <label htmlFor="phonenumber" className="font-semibold">
+              Phone Number
+            </label>
+            <input
+              type="text"
+              id="phonenumber"
+              name="phonenumber"
+              className="form-input"
+              required
+            />
+          </div>
+          <div className="mb-2 flex flex-col">
+            <label htmlFor="resume" className="font-semibold">
+              Resume
+            </label>
+            <input
+              type="file"
+              id="resume"
+              name="resume"
+              placeholder="resume"
+              className="form-input"
+              required
+            />
+          </div>
+          <SubmitButton />
+        </form>
       </dialog>
     </>
   );

@@ -14,35 +14,27 @@ import { Tailwind } from "@react-email/tailwind";
 import { KeyTextField } from "@prismicio/client";
 
 type CareerApplicationEmailProps = {
-  email: string;
   name: string;
-  phoneNumber: string;
-  postName: string | KeyTextField;
+  phonenumber: string;
 };
 
 const CareerApplicationEmail = ({
-  email,
   name,
-  phoneNumber,
-  postName,
+  phonenumber,
 }: CareerApplicationEmailProps) => {
   return (
     <Html>
       <Head />
-      <Preview>Application for Job Posting of {postName as string}</Preview>
       <Tailwind>
         <Body className="bg-static text-text">
           <Container>
             <Section className="my-10 rounded-md border px-10 py-4">
               <Heading className="leading-tight">
-                Received the following message from {name}
+                Applicants Name is {name}
               </Heading>
               <Hr />
-              <Heading className="leading-loose">
-                The applicants wants to apply for {postName}
-              </Heading>
-              <Text>The applicants email is {email}</Text>
-              <Text>This applicants phone number is {phoneNumber}</Text>
+              <Text>The applicants phone number === {phonenumber}</Text>
+              <Text>The applicants resume is attached below for reference</Text>
             </Section>
           </Container>
         </Body>

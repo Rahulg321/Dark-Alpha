@@ -1,10 +1,6 @@
 import z from "zod";
 
 const MAX_UPLOAD_SIZE = 1024 * 1024 * 5; // 5MB
-const ACCEPTED_FILE_TYPES = [
-  "application/pdf",
-  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-];
 
 export const ContactUsSchema = z.object({
   firstName: z.string().refine((value) => value.trim() !== "", {
@@ -28,24 +24,32 @@ export const ContactUsSchema = z.object({
 
 export type TContactUsSchema = z.infer<typeof ContactUsSchema>;
 export const CareerFormSchema = z.object({
-  firstName: z
+  name: z
     .string()
     .trim()
     .refine((value) => value !== "", {
-      message: "First Name is required",
+      message: "Name is required",
     }),
-  lastName: z
+  contactNumber: z
     .string()
     .trim()
     .refine((value) => value !== "", {
-      message: "Last Name is required",
-    }),
-  email: z
-    .string({
-      required_error: "Email is required",
-    })
-    .email(),
-  contactNumber: z.string().trim().optional(), // Optional contact number
+      message: "Contact Number is required",
+    }), // Optional contact number
+  resume: z
+    .instanceof(File)
+    .refine((file) => {
+      return !file || file.size <= MAX_UPLOAD_SIZE;
+    }, "File size must be less than 5MB")
+    .refine((file) => {
+      return ACCEPTED_FILE_TYPES.includes(file.type);
+    }, "File must be of pdf or docx"),
 });
 
 export type TCareerFormSchema = z.infer<typeof CareerFormSchema>;
+
+const ACCEPTED_FILE_TYPES = [
+  "image/png",
+  "application/pdf",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+];
