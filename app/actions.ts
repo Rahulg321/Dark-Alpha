@@ -3,21 +3,11 @@
 import { put } from "@vercel/blob";
 import { Resend } from "resend";
 import React from "react";
-import { ContactUsSchema, TCareerFormSchema, TContactUsSchema } from "./types";
+import { ContactUsSchema, TContactUsSchema } from "./types";
 import ContactFormEmail from "@/components/emails/ContactFormEmail";
-import { KeyTextField } from "@prismicio/client";
 import CareerApplicationEmail from "@/components/emails/CareerApplicationEmail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-
-function readFileAsString(file: File) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-    reader.readAsText(file);
-  });
-}
 
 export async function sendApplication(formData: FormData) {
   const name = formData.get("name") as string;

@@ -1,11 +1,10 @@
 "use client";
 
 import { Content } from "@prismicio/client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { SubmitButton } from "./Button";
 import { sendApplication } from "@/app/actions";
-import { useFormState } from "react-dom";
 import toast from "react-hot-toast";
 
 type CareerFormModalProps = {
