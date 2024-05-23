@@ -33,7 +33,11 @@ export async function sendApplication(formData: FormData) {
 
   const { data, error } = await resend.emails.send({
     from: `Dark Alpha Capital <info@darkalphacapital.com>`,
-    to: ["rg5353070@gmail.com", "info@darkalphacapital.com"],
+    to: [
+      "rg5353070@gmail.com",
+      "info@darkalphacapital.com",
+      "careers@darkalphacapital.com",
+    ],
     subject: "sending resume from dark alpha capital",
     react: React.createElement(CareerApplicationEmail, {
       name,
