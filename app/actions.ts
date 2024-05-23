@@ -6,17 +6,21 @@ import React from "react";
 import { ContactUsSchema, TContactUsSchema } from "./types";
 import ContactFormEmail from "@/components/emails/ContactFormEmail";
 import CareerApplicationEmail from "@/components/emails/CareerApplicationEmail";
+import { KeyTextField } from "@prismicio/client";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendApplication(formData: FormData) {
+export async function sendApplication(
+  formData: FormData,
+  position: KeyTextField | string,
+) {
   const name = formData.get("name") as string;
   const phoneNumber = formData.get("phonenumber") as string;
   const imageFile = formData.get("resume") as File;
+
   const blob = await put(imageFile.name, imageFile, {
     access: "public",
   });
-
   console.log("name is ", name);
   console.log("successfully uploaded blob", blob);
   const { url, downloadUrl, pathname, contentType } = blob;
@@ -32,6 +36,7 @@ export async function sendApplication(formData: FormData) {
     react: React.createElement(CareerApplicationEmail, {
       name,
       phonenumber: phoneNumber,
+      position,
     }),
     attachments: [
       {

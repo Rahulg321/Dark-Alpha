@@ -45,7 +45,7 @@ const CareerFormModal = ({ post }: CareerFormModalProps) => {
         <h2 className="mb-6">{post.data.title}</h2>
         <form
           action={async (formData) => {
-            const response = await sendApplication(formData);
+            const response = await sendApplication(formData, post.data.title);
             if (response.error) {
               toast.error(response.message);
             } else {

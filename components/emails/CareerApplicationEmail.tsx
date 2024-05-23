@@ -16,11 +16,13 @@ import { KeyTextField } from "@prismicio/client";
 type CareerApplicationEmailProps = {
   name: string;
   phonenumber: string;
+  position: string | KeyTextField;
 };
 
 const CareerApplicationEmail = ({
   name,
   phonenumber,
+  position,
 }: CareerApplicationEmailProps) => {
   return (
     <Html>
@@ -29,6 +31,10 @@ const CareerApplicationEmail = ({
         <Body className="bg-static text-text">
           <Container>
             <Section className="my-10 rounded-md border px-10 py-4">
+              <Heading className="leading-tight">
+                Job Posting for {position}
+              </Heading>
+              <Hr />
               <Heading className="leading-tight">
                 Applicants Name is {name}
               </Heading>
