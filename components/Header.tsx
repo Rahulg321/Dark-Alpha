@@ -82,73 +82,22 @@ const Header = ({ classname }: HeaderProps) => {
               >
                 <MdClose />
               </button>
-              <Link
-                className={clsx("text-2xl font-semibold", {
-                  "active-link": pathname === "/home",
-                })}
-                href={"/home"}
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-              >
-                Home
-              </Link>
-              <Link
-                className={clsx("text-2xl font-semibold", {
-                  "active-link": pathname === "/team",
-                })}
-                href={"/team"}
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-              >
-                Team
-              </Link>
-              <Link
-                className={clsx("text-2xl font-semibold", {
-                  "active-link": pathname === "/criteria",
-                })}
-                href={"/criteria"}
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-              >
-                Criteria
-              </Link>
-              <Link
-                className={clsx("text-2xl font-semibold", {
-                  "active-link": pathname === "/strategy",
-                })}
-                href={"/strategy"}
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-              >
-                Strategy
-              </Link>
-              <Link
-                className={clsx("text-2xl font-semibold", {
-                  "active-link": pathname === "/about-dark-alpha",
-                })}
-                href={"/about-dark-alpha"}
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-              >
-                About
-              </Link>
-
-              <Link
-                className={clsx("text-2xl font-semibold", {
-                  "active-link": pathname === "/contact",
-                })}
-                href={"/contact"}
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-              >
-                Contact
-              </Link>
+              {navbar.map((e) => {
+                return (
+                  <Link
+                    href={e.navlink}
+                    key={e.navlabel}
+                    className={clsx("text-2xl font-semibold", {
+                      "active-link": pathname === e.navlink,
+                    })}
+                    onClick={() => {
+                      setIsOpen(false);
+                    }}
+                  >
+                    {e.navlabel}
+                  </Link>
+                );
+              })}
             </div>
             <DesktopMenu />
           </ul>

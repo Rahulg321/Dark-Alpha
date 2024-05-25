@@ -21,7 +21,7 @@ const Topbar = () => {
       <div className="flex flex-col gap-4 md:flex-row">
         <div>
           <Link
-            className="bg-gray-800 px-2 py-1 text-sm font-semibold text-white transition hover:bg-gray-700"
+            className="bg-gray-800 px-2 py-1 text-sm font-semibold uppercase text-white transition hover:bg-gray-700"
             href="/FactSheet.pdf"
             target="_blank"
           >

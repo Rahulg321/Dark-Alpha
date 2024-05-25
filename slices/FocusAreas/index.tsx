@@ -10,6 +10,8 @@ import { GiHealthNormal } from "react-icons/gi";
 import { IoMdAirplane } from "react-icons/io";
 import { MdHomeRepairService } from "react-icons/md";
 import { MdHealthAndSafety } from "react-icons/md";
+import { IoAirplane } from "react-icons/io5";
+import { MdFactory } from "react-icons/md";
 
 /**
  * Props for `FocusAreas`.
@@ -38,6 +40,11 @@ const FocusAreas = ({ slice }: FocusAreasProps): JSX.Element => {
             heading="Business Services"
           />
           <FocusAreaCard icon={<MdHealthAndSafety />} heading="Health Care" />
+          <FocusAreaCard
+            icon={<IoAirplane />}
+            heading="Aerospace and Defense"
+          />
+          <FocusAreaCard icon={<MdFactory />} heading="Industrial Services" />
         </div>
       </div>
     </section>
