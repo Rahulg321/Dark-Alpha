@@ -41,8 +41,8 @@ const CareerFormModal = ({ post }: CareerFormModalProps) => {
         >
           <RxCross1 />
         </div>
-        <h2>Apply Now</h2>
-        <h3 className="mb-6">{post.data.title}</h3>
+        <h2 className="text-[#165679]">Apply Now</h2>
+        <h3 className="mb-1">{post.data.title}</h3>
         <h4 className="mb-6">{post.data.department}</h4>
         <form
           action={async (formData) => {
