@@ -20,7 +20,7 @@ const navbar = [
     navlink: "/team",
   },
   {
-    navlabel: "Blog",
+    navlabel: "Media",
     navlink: "/blog",
   },
   {

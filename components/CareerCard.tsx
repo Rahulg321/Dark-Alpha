@@ -10,6 +10,7 @@ const CareerCard = ({ post }: { post: Content.CareerDocument }) => {
   return (
     <div className="mb-10">
       <h2 className="mb-2 text-[#165679]">{post.data.title}</h2>
+      <h3 className="mb-2 text-[#165679]">{post.data.department}</h3>
       <span className="mb-2 block font-semibold md:text-lg">
         {post.data.small_description}
       </span>
