@@ -54,6 +54,30 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "text_block": {
+              "type": "SharedSlice"
+            },
+            "working_team_index": {
+              "type": "SharedSlice"
+            },
+            "criteria_info_slice": {
+              "type": "SharedSlice"
+            },
+            "firm_overview": {
+              "type": "SharedSlice"
+            },
+            "blog_content_index": {
+              "type": "SharedSlice"
+            },
+            "favourite_indeustry": {
+              "type": "SharedSlice"
+            },
+            "blog_text_block": {
+              "type": "SharedSlice"
+            },
+            "hero_slice": {
+              "type": "SharedSlice"
+            },
             "career_content_index": {
               "type": "SharedSlice"
             }

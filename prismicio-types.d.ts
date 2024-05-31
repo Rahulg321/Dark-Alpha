@@ -66,6 +66,17 @@ interface BlogpostDocumentData {
   featured_image: prismic.ImageField<never>;
 
   /**
+   * something field in *Blogpost*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.something
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  something: prismic.RichTextField;
+
+  /**
    * Slice Zone field in *Blogpost*
    *
    * - **Field Type**: Slice Zone
@@ -124,7 +135,16 @@ export type BlogpostDocument<Lang extends string = string> =
     Lang
   >;
 
-type CareerDocumentDataSlicesSlice = CareerContentIndexSlice;
+type CareerDocumentDataSlicesSlice =
+  | TextBlockSlice
+  | WorkingTeamIndexSlice
+  | CriteriaInfoSliceSlice
+  | FirmOverviewSlice
+  | BlogContentIndexSlice
+  | FavouriteIndeustrySlice
+  | BlogTextBlockSlice
+  | HeroSliceSlice
+  | CareerContentIndexSlice;
 
 /**
  * Content for Career documents
