@@ -9,10 +9,11 @@ const CareerCard = ({ post }: { post: Content.CareerDocument }) => {
   const { title, small_description } = data;
 
   return (
-    <div className="mb-10 flex items-center justify-between">
+    <div className="mb-10">
       <div className="">
         <h2 className="mb-2 text-[#165679]">{post.data.title}</h2>
         <h4 className="mb-2">{post.data.department}</h4>
+        <p>{post.data.small_description}</p>
       </div>
       <div>
         {/* <Link
