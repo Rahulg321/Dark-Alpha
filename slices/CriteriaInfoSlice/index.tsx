@@ -22,8 +22,8 @@ const CriteriaInfoSlice = ({ slice }: CriteriaInfoSliceProps): JSX.Element => {
           <div className="">
             <h2 className="mb-4 font-bold">Financial & Geographic</h2>
             <ul className="list-disc px-4 text-base font-semibold text-gray-600">
-              <li>Based in North America</li>
-              <li>$3 million+ of EBITDA</li>
+              <li>Based in United States of America</li>
+              <li>$1 million+ of EBITDA</li>
               <li>Track record of stable earnings and cash flow generation</li>
             </ul>
           </div>
