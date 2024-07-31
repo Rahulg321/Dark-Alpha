@@ -20,7 +20,7 @@ const WorkingTeamIndex = ({ slice }: WorkingTeamIndexProps): JSX.Element => {
       className="block-space bg-primary"
     >
       <div className="big-container">
-        <h1 className="heading font-extrabold">Working Team</h1>
+        <h1 className="heading font-extrabold">Staff</h1>
         <WorkingTeamIndexCards />
       </div>
     </section>
