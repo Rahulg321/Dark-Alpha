@@ -64,6 +64,11 @@ const Footer = () => {
         <div className="flex flex-col justify-between py-6 md:flex-row">
           <div className="flex flex-col">
             <span className="text-gray-400 transition hover:text-white">
+              Dark Alpha Capital operates as an independent sponsor and is not a
+              registered broker-dealer; we do not solicit securities or provide
+              investment advice
+            </span>
+            <span className="text-gray-400 transition hover:text-white">
               &copy; All Rights Reserved - {currentYear} Dark Alpha Capital LLC
             </span>
           </div>
