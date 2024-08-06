@@ -62,7 +62,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col justify-between py-6 md:flex-row">
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-4">
             <span className="text-gray-400 transition hover:text-white">
               Dark Alpha Capital operates as an independent sponsor and is not a
               registered broker-dealer; we do not solicit securities or provide
