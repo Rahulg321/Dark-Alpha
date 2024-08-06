@@ -55,18 +55,7 @@ const ExecutiveTeamIndex = async () => {
           />
         );
       })}
-      {vicePresidents.map((member) => {
-        return (
-          <TeamMemberCard
-            key={member.id}
-            memberName={member.data.name}
-            memberImage={member.data.profile_image}
-            memberPosition={member.data.designation}
-            LinkedinLink={member.data.linkedinprofilelink}
-            BioLink={`/team/${member.uid}`}
-          />
-        );
-      })}
+
       {managingDirectors.map((member) => {
         return (
           <TeamMemberCard
@@ -79,6 +68,19 @@ const ExecutiveTeamIndex = async () => {
           />
         );
       })}
+      {vicePresidents.map((member) => {
+        return (
+          <TeamMemberCard
+            key={member.id}
+            memberName={member.data.name}
+            memberImage={member.data.profile_image}
+            memberPosition={member.data.designation}
+            LinkedinLink={member.data.linkedinprofilelink}
+            BioLink={`/team/${member.uid}`}
+          />
+        );
+      })}
+
       {principals.map((member) => {
         return (
           <TeamMemberCard
