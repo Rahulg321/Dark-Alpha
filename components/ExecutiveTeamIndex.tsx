@@ -68,7 +68,8 @@ const ExecutiveTeamIndex = async () => {
           />
         );
       })}
-      {vicePresidents.map((member) => {
+
+      {principals.map((member) => {
         return (
           <TeamMemberCard
             key={member.id}
@@ -81,7 +82,7 @@ const ExecutiveTeamIndex = async () => {
         );
       })}
 
-      {principals.map((member) => {
+      {vicePresidents.map((member) => {
         return (
           <TeamMemberCard
             key={member.id}
