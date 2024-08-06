@@ -19,12 +19,12 @@ const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       backgroundImage={slice.primary.background_image}
-      classname={clsx("min-h-screen")}
+      classname={clsx("min-h-[100dvh]")}
     >
       <Header />
       <div className="big-container">
         <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div>
+          <div className="content-center">
             <h1 className="text-primary">{slice.primary.heading}</h1>
             <span className="mt-2 block text-primary md:mt-4">
               {slice.primary.tagline}
@@ -39,9 +39,8 @@ const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
                 SET AN APPOINTMENT
               </Link>
             </div>
-
-            <div></div>
           </div>
+          <div></div>
         </div>
       </div>
     </BackgroundImageSection>

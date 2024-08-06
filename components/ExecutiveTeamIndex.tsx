@@ -15,14 +15,30 @@ const ExecutiveTeamIndex = async () => {
     ],
   });
 
+  const vicePresidents = await client.getAllByType("teammember", {
+    orderings: {
+      field: "document.first_publication_date",
+      direction: "asc",
+    },
+    filters: [prismic.filter.at("my.teammember.designation", "Vice President")],
+  });
+
   const managingDirectors = await client.getAllByType("teammember", {
     orderings: {
       field: "document.first_publication_date",
       direction: "asc",
     },
     filters: [
-      prismic.filter.not("my.teammember.designation", "Managing Partner"),
+      prismic.filter.at("my.teammember.designation", "Managing Director"),
     ],
+  });
+
+  const principals = await client.getAllByType("teammember", {
+    orderings: {
+      field: "document.first_publication_date",
+      direction: "asc",
+    },
+    filters: [prismic.filter.at("my.teammember.designation", "Principal")],
   });
 
   return (
@@ -39,7 +55,31 @@ const ExecutiveTeamIndex = async () => {
           />
         );
       })}
+      {vicePresidents.map((member) => {
+        return (
+          <TeamMemberCard
+            key={member.id}
+            memberName={member.data.name}
+            memberImage={member.data.profile_image}
+            memberPosition={member.data.designation}
+            LinkedinLink={member.data.linkedinprofilelink}
+            BioLink={`/team/${member.uid}`}
+          />
+        );
+      })}
       {managingDirectors.map((member) => {
+        return (
+          <TeamMemberCard
+            key={member.id}
+            memberName={member.data.name}
+            memberImage={member.data.profile_image}
+            memberPosition={member.data.designation}
+            LinkedinLink={member.data.linkedinprofilelink}
+            BioLink={`/team/${member.uid}`}
+          />
+        );
+      })}
+      {principals.map((member) => {
         return (
           <TeamMemberCard
             key={member.id}
