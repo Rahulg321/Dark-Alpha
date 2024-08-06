@@ -19,15 +19,13 @@ const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       backgroundImage={slice.primary.background_image}
-      classname={clsx("min-h-[90vh]")}
+      classname={clsx("min-h-screen")}
     >
       <Header />
       <div className="big-container">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div>
-            <h1 className="text-primary md:text-4xl lg:text-6xl">
-              {slice.primary.heading}
-            </h1>
+            <h1 className="text-primary">{slice.primary.heading}</h1>
             <span className="mt-2 block text-primary md:mt-4">
               {slice.primary.tagline}
             </span>
