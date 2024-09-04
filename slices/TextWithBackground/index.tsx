@@ -31,24 +31,6 @@ const TextWithBackground = ({
           <h2 className="text-primary">{slice.primary.heading}</h2>
           <h4 className="mt-2 block ">{slice.primary.tagline}</h4>
         </div>
-
-        <div className="mt-6 flex">
-          <div className="text-center">
-            <Image
-              src={HeroLogo}
-              alt="logo for dark alpha's portfolio company Hero Technologies"
-            />
-            <h4>Hero Technologies Inc.</h4>
-            <Link
-              href={"https://herotechnologiesinc.com/"}
-              target="_blank"
-              className="flex items-center justify-center text-yellow-500 transition hover:text-yellow-600"
-              aria-label="Opens in a new window"
-            >
-              Visit Site <MdArrowOutward />
-            </Link>
-          </div>
-        </div>
       </div>
     </TextBackgroundImage>
   );
