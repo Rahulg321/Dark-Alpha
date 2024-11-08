@@ -7,6 +7,7 @@ import { ContactUsSchema, TContactUsSchema } from "./types";
 import ContactFormEmail from "@/components/emails/ContactFormEmail";
 import CareerApplicationEmail from "@/components/emails/CareerApplicationEmail";
 import { KeyTextField } from "@prismicio/client";
+import SuccessfulApplicationEmail from "@/components/emails/SuccessfullApplicationEmail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -15,6 +16,7 @@ export async function sendApplication(
   position: KeyTextField | string,
 ) {
   const name = formData.get("name") as string;
+  const sendersEmail = formData.get("email") as string;
   const phoneNumber = formData.get("phonenumber") as string;
   const imageFile = formData.get("resume") as File;
 
@@ -60,6 +62,32 @@ export async function sendApplication(
 
   // email was sent successfully
   console.log("email was sent successfully");
+
+  const { data: data1, error: error1 } = await resend.emails.send({
+    from: `Dark Alpha Capital <info@darkalphacapital.com>`,
+    to: sendersEmail,
+    subject: "Thanks for Applying to Dark Alpha Capital!!",
+    react: React.createElement(SuccessfulApplicationEmail, {
+      name,
+      phonenumber: phoneNumber,
+      position,
+    }),
+  });
+
+  if (error1) {
+    console.log("could not send email");
+    // could not send email
+    return {
+      error: {
+        name: "There was an error with this name",
+        email: "There was an error with this email",
+      },
+      message: "Failed submission",
+    };
+  }
+
+  // email was sent successfully
+  console.log("email to applicant was sent successfully");
   return { error: null, message: `Application was sent succesfully` };
 }
 

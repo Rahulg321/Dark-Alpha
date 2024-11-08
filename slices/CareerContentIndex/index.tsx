@@ -1,5 +1,6 @@
 import CareerIndex from "@/components/CareerIndex";
 import LoadingSpinner from "@/components/LoadingSpinner";
+import CareerCardSkeleton from "@/components/Skeletons/CareerCardSkeleton";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { Suspense } from "react";
@@ -25,8 +26,11 @@ const CareerContentIndex = ({
       <h1 className="mb-6 text-center lg:mb-12">Open Roles</h1>
       <Suspense
         fallback={
-          <div className="text-center" role="progressbar">
-            <LoadingSpinner />
+          <div className="grid grid-cols-1 space-y-4">
+            <CareerCardSkeleton />
+            <CareerCardSkeleton />
+            <CareerCardSkeleton />
+            <CareerCardSkeleton />
           </div>
         }
       >

@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Topbar from "@/components/Topbar";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Toaster } from "react-hot-toast";
+import { Toaster } from "@/components/ui/toaster";
 import { Inter } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
@@ -46,7 +46,7 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights />
           <Footer />
-          <Toaster position="top-center" />
+          <Toaster />
         </main>
       </body>
       <GoogleAnalytics gaId="G-5G1295D70P" />
