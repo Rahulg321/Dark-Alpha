@@ -14,14 +14,14 @@ const ExperiencePoint = ({ point, blueBackground }: ExperiencePointProps) => {
     <div className="mt-1 flex items-center gap-2">
       <div
         className={clsx("text-[5px] font-bold text-black", {
-          "text-primary": blueBackground === true,
+          "text-white": blueBackground === true,
         })}
       >
         <FaCircle />
       </div>
       <span
         className={clsx("font-semibold text-gray-600", {
-          "text-primary": blueBackground === true,
+          "text-white": blueBackground === true,
         })}
       >
         {point}

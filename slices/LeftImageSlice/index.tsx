@@ -18,8 +18,8 @@ const LeftImageSlice = ({ slice }: LeftImageSliceProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={clsx("block-space ", {
-        "bg-primary": ImageShouldBeLeft === true,
+      className={clsx("block-space bg-mainBlue", {
+        "bg-mainWhite": ImageShouldBeLeft === true,
       })}
     >
       <div className="big-container">
@@ -45,7 +45,7 @@ const LeftImageSlice = ({ slice }: LeftImageSliceProps): JSX.Element => {
               <PrismicRichText field={slice.primary.description} />
             </div>
             {slice.primary.showlearnmorebutton ? (
-              <div className="mt-4 w-fit bg-accent px-6 py-2 font-semibold text-white transition hover:border-2 hover:bg-primary hover:text-black">
+              <div className="bg-mainButtonAccent hover:bg-mainWhite mt-4 w-fit px-6 py-2 font-semibold text-white transition hover:border-2  hover:text-black">
                 <PrismicLink field={slice.primary.page_link}>
                   Learn More
                 </PrismicLink>

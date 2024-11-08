@@ -25,7 +25,7 @@ const FavouriteIndeustry = ({
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="block-space"
+      className="block-space bg-mainBlue"
     >
       <div className="big-container text-center">
         <h2 className="mb-6 text-5xl">Our Favorite Industries</h2>
@@ -55,23 +55,23 @@ const FavouriteIndeustry = ({
       <div className="narrow-container mt-8">
         <div>
           <h2>
-            We know what it feels like to sell a business, so we've made it as
-            easy as possible for you.
+            We know what it feels like to sell a business, so we&apos;ve made it
+            as easy as possible for you.
           </h2>
           <div className="mt-4">
             <p>
-              You've worked hard to build your business, and you have choices.
-              You can work with another private equity and go through the
-              typical process or consider the Dark Alpha alternative–which is
-              built on trust, professional respect, and thoughtful guidance for
-              continued value creation.
+              You&apos;ve worked hard to build your business, and you have
+              choices. You can work with another private equity and go through
+              the typical process or consider the Dark Alpha alternative–which
+              is built on trust, professional respect, and thoughtful guidance
+              for continued value creation.
             </p>
             <p>
               Whatever your motives are to sell your business–or seek an
               investment–the process should be painless and straightforward.
               Whether you would like to stay with the business going forward or
-              move to your next venture, we're committed to being true partners
-              in the journey ahead.
+              move to your next venture, we&apos;re committed to being true
+              partners in the journey ahead.
             </p>
           </div>
         </div>
@@ -97,7 +97,7 @@ const FavouriteIndeustry = ({
             <span className="my-4 block text-xl font-bold">Next 5 years</span>
             <span className="block font-semibold text-gray-400">
               Your business is a reporting machine, your employees are unhappy,
-              and you're locked into unreasonable earn-outs.
+              and you&apos;re locked into unreasonable earn-outs.
             </span>
           </div>
           <div className="bg-yellow-300 px-4 py-6">
@@ -126,15 +126,15 @@ const FavouriteIndeustry = ({
           <h4 className="mt-2 md:mt-6">Business Statement</h4>
           <p>
             Send us an letter explaining your competitive advantage. Some
-            examples of the things we're looking for: A dominant brand, a large
-            and loyal community, a niche vertical, or something similar with 5+
-            years of operating history.
+            examples of the things we&apos;re looking for: A dominant brand, a
+            large and loyal community, a niche vertical, or something similar
+            with 5+ years of operating history.
           </p>
           <div className="my-2">
             <h4>Financials</h4>
             <p>
-              Share your historical financials. We're primarily looking for a
-              profitability benchmark between $1M to $10M per year.
+              Share your historical financials. We&apos;re primarily looking for
+              a profitability benchmark between $1M to $10M per year.
             </p>
           </div>
           <h4>Future Plans</h4>

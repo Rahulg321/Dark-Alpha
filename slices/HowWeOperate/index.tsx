@@ -13,11 +13,11 @@ const HowWeOperate = ({ slice }: HowWeOperateProps): JSX.Element => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="block-space bg-primary"
+        className="block-space bg-mainWhite"
       >
         <div className="narrow-container">
           <div className="text-pretty">
-            <h1 className="mb-8 text-center  font-semibold text-accent">
+            <h1 className="text-mainButtonAccent mb-8  text-center font-semibold">
               INVESTMENT STRATEGY
             </h1>
             <div className="prose prose-lg prose-gray text-balance md:prose-xl prose-headings:mb-4 prose-h2:mt-8 prose-ul:text-base">
@@ -27,7 +27,7 @@ const HowWeOperate = ({ slice }: HowWeOperateProps): JSX.Element => {
         </div>
       </section>
 
-      <section className="block-space">
+      <section className="block-space bg-mainBlue">
         <div className="big-container">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>

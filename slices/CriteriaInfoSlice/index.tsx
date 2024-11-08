@@ -15,7 +15,7 @@ const CriteriaInfoSlice = ({ slice }: CriteriaInfoSliceProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="block-space bg-primary"
+      className="block-space bg-mainWhite"
     >
       <div className="big-container">
         <div className="grid-cols grid gap-6 md:grid-cols-2 lg:grid-cols-3">

@@ -30,7 +30,9 @@ const ImpactInitiatives = ({ slice }: ImpactInitiativesProps): JSX.Element => {
           <InitiativeCard reactIcon={<FaHandHoldingDollar />}>
             <span>
               Dark Alpha{" "}
-              <strong className="text-accent">prioritizes high-growth</strong>{" "}
+              <strong className="text-mainButtonAccent">
+                prioritizes high-growth
+              </strong>{" "}
               sectors like manufacturing, business services, and healthcare,
               ensuring strategic investments aligned with future market trends
             </span>
@@ -38,7 +40,7 @@ const ImpactInitiatives = ({ slice }: ImpactInitiativesProps): JSX.Element => {
           <InitiativeCard reactIcon={<SiGooglecloud />}>
             <span>
               Dark Alpha{" "}
-              <strong className="text-accent">
+              <strong className="text-mainButtonAccent">
                 implements cutting-edge technologies
               </strong>{" "}
               such as RPA and AI to enhance operational efficiency and drive
@@ -47,7 +49,9 @@ const ImpactInitiatives = ({ slice }: ImpactInitiativesProps): JSX.Element => {
           </InitiativeCard>
           <InitiativeCard reactIcon={<GrCloudComputer />}>
             <span>
-              <strong className="text-accent">Through ERP integration,</strong>{" "}
+              <strong className="text-mainButtonAccent">
+                Through ERP integration,
+              </strong>{" "}
               Dark Alpha optimizes business workflows, fostering cohesion and
               productivity across finance, human resources, and other functions
             </span>
@@ -56,16 +60,16 @@ const ImpactInitiatives = ({ slice }: ImpactInitiativesProps): JSX.Element => {
         <div>
           <InitiativeCard reactIcon={<IoBarChartSharp />}>
             <span>
-              <strong className="text-accent">Utilizing BPO,</strong> Dark Alpha
-              refines core functions like finance and accounting, allowing
-              businesses to benefit from specialized expertise while focusing on
-              core competencies.
+              <strong className="text-mainButtonAccent">Utilizing BPO,</strong>{" "}
+              Dark Alpha refines core functions like finance and accounting,
+              allowing businesses to benefit from specialized expertise while
+              focusing on core competencies.
             </span>
           </InitiativeCard>
           <InitiativeCard reactIcon={<TbGoGame />}>
             <span>
               Dark Alpha employs{" "}
-              <strong className="text-accent">
+              <strong className="text-mainButtonAccent">
                 Lean Six Sigma methodologies
               </strong>{" "}
               for ongoing refinement, driving sustained operational gains and
@@ -75,7 +79,7 @@ const ImpactInitiatives = ({ slice }: ImpactInitiativesProps): JSX.Element => {
           <InitiativeCard reactIcon={<LiaFantasyFlightGames />}>
             <span>
               Dark Alpha{" "}
-              <strong className="text-accent">
+              <strong className="text-mainButtonAccent">
                 strategically leverages synergies
               </strong>{" "}
               between portfolio companies, harnessing shared resources and

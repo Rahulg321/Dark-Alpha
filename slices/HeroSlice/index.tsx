@@ -25,8 +25,8 @@ const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
       <div className="big-container">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="content-center">
-            <h1 className="text-primary">{slice.primary.heading}</h1>
-            <span className="mt-2 block text-primary md:mt-4">
+            <h1 className="text-primary text-white">{slice.primary.heading}</h1>
+            <span className="mt-2 block text-primary text-white md:mt-4">
               {slice.primary.tagline}
             </span>
 

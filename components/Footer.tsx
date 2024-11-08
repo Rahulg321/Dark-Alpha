@@ -32,12 +32,12 @@ const Footer = () => {
       <div className="big-container">
         <div className="flex flex-col gap-6 border-b-2 py-6 md:flex-row md:justify-between">
           <div>
-            <span className="text-2xl font-bold">Dark Alpha</span>
-            <span className="ml-8 block text-2xl">Capital</span>
+            <span className="text-2xl font-bold text-white">Dark Alpha</span>
+            <span className="ml-8 block text-2xl text-white">Capital</span>
           </div>
 
           <div className="flex flex-col">
-            <span className="text-xl font-bold">Menu</span>
+            <span className="text-xl font-bold text-white">Menu</span>
             {menuLinks.map((menu, index) => {
               return (
                 <Link
@@ -51,7 +51,7 @@ const Footer = () => {
             })}
           </div>
           <div className="flex flex-col">
-            <span className=" text-xl font-bold">Contact</span>
+            <span className=" text-xl font-bold text-white">Contact</span>
             <span className="mt-2 text-gray-400 transition hover:text-white">
               info@darkalphacapital.com
             </span>

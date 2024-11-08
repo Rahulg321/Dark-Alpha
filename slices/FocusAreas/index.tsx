@@ -26,7 +26,7 @@ const FocusAreas = ({ slice }: FocusAreasProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="block-space"
+      className="block-space bg-mainBlue"
     >
       <div className="big-container">
         <div className="text-center">

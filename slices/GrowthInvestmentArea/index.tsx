@@ -23,7 +23,7 @@ const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="block-space bg-accent text-primary"
+      className="block-space bg-mainButtonAccent text-white"
     >
       <div className="big-container">
         <h2>Growth and Value Creation Investment Areas</h2>

@@ -28,8 +28,8 @@ const TextWithBackground = ({
     >
       <div className="big-container block-space text-primary">
         <div className="text-center">
-          <h2 className="text-primary">{slice.primary.heading}</h2>
-          <h4 className="mt-2 block ">{slice.primary.tagline}</h4>
+          <h2 className="text-mainWhite">{slice.primary.heading}</h2>
+          <h4 className="text-mainWhite mt-2 block">{slice.primary.tagline}</h4>
         </div>
       </div>
     </TextBackgroundImage>

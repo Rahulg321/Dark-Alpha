@@ -8,6 +8,9 @@ import Topbar from "@/components/Topbar";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "react-hot-toast";
 import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,12 +34,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={``}>
+    <html lang="en" className={cn(GeistSans.variable)}>
       <meta
         name="google-site-verification"
         content="8pP_lJBKWWCw5FpUWOGsVYea4jHoZ4bVNitNrYCI_EU"
       />
-      <body className={inter.className}>
+      <body className="">
         <main className="parent-container bg-background">
           <Topbar />
           {children}
