@@ -19,8 +19,8 @@ const navbar = [
         navlabel: "Team",
         navlink: "/team",
         dropdown: [
+            { label: "Team", link: "/team" },
             { label: "Operating Partners", link: "/operating-team" },
-            { label: "Investment Team", link: "/team" },
         ],
     },
     {
