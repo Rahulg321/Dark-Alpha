@@ -175,14 +175,21 @@ function NameLogo({ }: {}) {
     );
 }
 
-function DesktopMenu() {
-    const pathname = usePathname();
+export function DesktopMenu() {
+    const pathname = usePathname()
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+
     return (
         <div className="hidden gap-4 md:flex">
             {navbar.map((e, index) => {
                 if (e.dropdown) {
                     return (
-                        <div key={index} className="relative group">
+                        <div
+                            key={index}
+                            className="relative"
+                            onMouseEnter={() => setHoveredIndex(index)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                        >
                             <Link
                                 className={clsx("text-xl font-semibold", {
                                     "active-link": pathname === e.navlink,
@@ -191,22 +198,24 @@ function DesktopMenu() {
                             >
                                 {e.navlabel}
                             </Link>
-                            <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                                <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                    {e.dropdown.map((item, itemIndex) => (
-                                        <Link
-                                            key={itemIndex}
-                                            href={item.link}
-                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                                            role="menuitem"
-                                        >
-                                            {item.label}
-                                        </Link>
-                                    ))}
+                            {hoveredIndex === index && (
+                                <div className="absolute left-0 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-all duration-100">
+                                    <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                        {e.dropdown.map((item, itemIndex) => (
+                                            <Link
+                                                key={itemIndex}
+                                                href={item.link}
+                                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                                role="menuitem"
+                                            >
+                                                {item.label}
+                                            </Link>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
-                    );
+                    )
                 }
                 return (
                     <Link
@@ -218,8 +227,8 @@ function DesktopMenu() {
                     >
                         {e.navlabel}
                     </Link>
-                );
+                )
             })}
         </div>
-    );
+    )
 }
