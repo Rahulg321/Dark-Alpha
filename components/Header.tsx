@@ -19,9 +19,49 @@ const navbar = [
         navlabel: "Team",
         navlink: "/team",
         dropdown: [
-            { label: "Operating Team", link: "/operating-team" },
+            { label: "Operating Partners", link: "/operating-team" },
             { label: "Investment Team", link: "/team" },
         ],
+    },
+    {
+        navlabel: "Media",
+        navlink: "/blog",
+    },
+    {
+        navlabel: "Careers",
+        navlink: "/careers",
+    },
+    {
+        navlabel: "Strategy",
+        navlink: "/strategy",
+    },
+    {
+        navlabel: "Criteria",
+        navlink: "/criteria",
+    },
+    {
+        navlabel: "About",
+        navlink: "/about-dark-alpha",
+    },
+    {
+        navlabel: "Contact",
+        navlink: "/contact",
+    },
+];
+
+
+const mobileNavLinks = [
+    {
+        navlabel: "Home",
+        navlink: "/home",
+    },
+    {
+        navlabel: "Investment Team",
+        navlink: "/team",
+    },
+    {
+        navlabel: "Operating Partners",
+        navlink: "/operating-team",
     },
     {
         navlabel: "Media",
@@ -86,41 +126,7 @@ const Header = ({ classname }: HeaderProps) => {
                             >
                                 <MdClose />
                             </button>
-                            {navbar.map((e) => {
-                                if (e.dropdown) {
-                                    return (
-                                        <div key={e.navlabel} className="relative group">
-                                            <Link
-                                                href={e.navlink}
-                                                className={clsx("text-2xl font-semibold", {
-                                                    "active-link": pathname === e.navlink,
-                                                })}
-                                                onClick={() => {
-                                                    setIsOpen(false);
-                                                }}
-                                            >
-                                                {e.navlabel}
-                                            </Link>
-                                            <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
-                                                <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                                    {e.dropdown.map((item) => (
-                                                        <Link
-                                                            key={item.label}
-                                                            href={item.link}
-                                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                                                            role="menuitem"
-                                                            onClick={() => {
-                                                                setIsOpen(false);
-                                                            }}
-                                                        >
-                                                            {item.label}
-                                                        </Link>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    );
-                                }
+                            {mobileNavLinks.map((e) => {
                                 return (
                                     <Link
                                         href={e.navlink}
