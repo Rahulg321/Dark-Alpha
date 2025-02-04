@@ -63,6 +63,13 @@ const ExecutiveTeamIndex = async () => {
       },
       filters: [prismic.filter.at("my.teammember.designation", "Principal")],
     }),
+    client.getAllByType("teammember", {
+      orderings: {
+        field: "document.first_publication_date",
+        direction: "asc",
+      },
+      filters: [prismic.filter.at("my.teammember.designation", "Associate")],
+    }),
   ];
 
   // Use Promise.all to run all queries concurrently.
@@ -73,6 +80,7 @@ const ExecutiveTeamIndex = async () => {
     seniorManagingDirectors,
     managingDirectors,
     principals,
+    associates,
   ] = await Promise.all(queries);
 
   return (
@@ -133,6 +141,16 @@ const ExecutiveTeamIndex = async () => {
       ))}
 
       {vicePresidents.map((member) => (
+        <TeamMemberCard
+          key={member.id}
+          memberName={member.data.name}
+          memberImage={member.data.profile_image}
+          memberPosition={member.data.designation}
+          LinkedinLink={member.data.linkedinprofilelink}
+          BioLink={`/team/${member.uid}`}
+        />
+      ))}
+      {associates.map((member) => (
         <TeamMemberCard
           key={member.id}
           memberName={member.data.name}
