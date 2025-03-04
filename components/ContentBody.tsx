@@ -5,7 +5,7 @@ import { components } from "@/slices";
 
 const ContentBody = ({ page }: { page: Content.BlogpostDocument }) => {
   return (
-    <article>
+    <article className="">
       <SliceZone slices={page.data.slices} components={components} />
     </article>
   );

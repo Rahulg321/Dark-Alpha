@@ -22,7 +22,7 @@ const Topbar = () => {
         <div>
           <Link
             className="bg-gray-800 px-2 py-1 text-sm font-semibold uppercase text-white transition hover:bg-gray-700"
-            href="/FactSheet.pdf"
+            href="/capital-factsheet.pdf"
             target="_blank"
           >
             Download Fact Sheet

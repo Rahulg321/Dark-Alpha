@@ -8,6 +8,7 @@ import { SlEnergy } from "react-icons/sl";
 import { IoAirplaneOutline } from "react-icons/io5";
 import { MdBusinessCenter } from "react-icons/md";
 import { IoAirplane } from "react-icons/io5";
+import { json } from "stream/consumers";
 
 /**
  * Props for `FavouriteIndeustry`.
