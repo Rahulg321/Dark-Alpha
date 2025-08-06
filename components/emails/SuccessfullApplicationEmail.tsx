@@ -39,7 +39,7 @@ const SuccessfulApplicationEmail = ({
                 We’re excited to inform you that we have received your
                 application for the <strong>{position}</strong> position. Our
                 team is carefully reviewing your qualifications, and we’re
-                thrilled to consider you for a role at our company.
+                thrilled to consider you for a role
               </Text>
               <Hr className="my-6 border-gray-300" />
               <Heading className="text-lg font-semibold text-gray-700">

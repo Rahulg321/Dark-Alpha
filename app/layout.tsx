@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: `%s | Dark Alpha Capital`,
   },
   description:
-    "Dark Alpha is a leading independent sponsor company in the US, specializing in private equity investments across various industries with a focus on value creation and strategic partnerships. They leverage their extensive network and expertise to identify and capitalize on unique investment opportunities, driving growth and maximizing returns for their stakeholders",
+    "Dark Alpha is a leading independent sponsor in the US, specializing in private equity investments across various industries with a focus on value creation and strategic partnerships. They leverage their extensive network and expertise to identify and capitalize on unique investment opportunities, driving growth and maximizing returns for their stakeholders",
   verification: {
     google:
       "google-site-verification=ORK7dRRfQetHYuTbAEjTWjlZas0uU3EDoAj7Y6J71uM",
