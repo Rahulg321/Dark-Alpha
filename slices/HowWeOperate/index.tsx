@@ -7,7 +7,7 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
  */
 export type HowWeOperateProps = SliceComponentProps<Content.HowWeOperateSlice>;
 
-const HowWeOperate = ({ slice }: HowWeOperateProps): JSX.Element => {
+const HowWeOperate = ({ slice }: HowWeOperateProps) => {
   return (
     <>
       <section
@@ -17,7 +17,7 @@ const HowWeOperate = ({ slice }: HowWeOperateProps): JSX.Element => {
       >
         <div className="narrow-container">
           <div className="text-pretty">
-            <h1 className="text-mainButtonAccent mb-8  text-center font-semibold">
+            <h1 className="mb-8 text-center  font-semibold text-mainButtonAccent">
               INVESTMENT STRATEGY
             </h1>
             <div className="prose prose-lg prose-gray text-balance md:prose-xl prose-headings:mb-4 prose-h2:mt-8 prose-ul:text-base">

@@ -3,16 +3,13 @@ import ContactFormInfoCard from "@/components/ContactFormInfoCard";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { MdEmail } from "react-icons/md";
-import { FaPhoneFlip } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import { PrismicNextImage } from "@prismicio/next";
 
 export type ContactFormSectionProps =
   SliceComponentProps<Content.ContactFormSectionSlice>;
 
-const ContactFormSection = ({
-  slice,
-}: ContactFormSectionProps): JSX.Element => {
+const ContactFormSection = ({ slice }: ContactFormSectionProps) => {
   return (
     <section
       data-slice-type={slice.slice_type}

@@ -21,7 +21,7 @@ export type FocusAreasProps = SliceComponentProps<Content.FocusAreasSlice>;
 /**
  * Component for "FocusAreas" Slices.
  */
-const FocusAreas = ({ slice }: FocusAreasProps): JSX.Element => {
+const FocusAreas = ({ slice }: FocusAreasProps) => {
   return (
     <section
       data-slice-type={slice.slice_type}

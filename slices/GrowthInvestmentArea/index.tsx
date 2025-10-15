@@ -1,7 +1,5 @@
-import { createClient } from "@/prismicio";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import { CreateClient } from "@prismicio/client";
 import ExperiencePoint from "@/components/ExperiencePoint";
 
 /**
@@ -14,11 +12,6 @@ export type GrowthInvestmentAreaProps =
  * Component for "GrowthInvestmentArea" Slices.
  */
 const GrowthInvestmentArea = async ({ slice }: GrowthInvestmentAreaProps) => {
-  const client = createClient();
-  const growthPoints = await client.getByType("growthareapoints");
-  const engineeringPoints =
-    growthPoints.results[0].data.product_and_engineering;
-  const talentPoints = growthPoints.results[0].data.team_and_talent;
   return (
     <section
       data-slice-type={slice.slice_type}

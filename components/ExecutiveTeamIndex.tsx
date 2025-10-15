@@ -4,7 +4,7 @@ import TeamMemberCard from "./TeamMemberCard";
 import * as prismic from "@prismicio/client";
 
 const ExecutiveTeamIndex = async () => {
-  const client = createClient();
+  const client = await createClient();
 
   // Create an array of all the queries, each returning a promise.
   const queries = [

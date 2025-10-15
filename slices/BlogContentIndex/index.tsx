@@ -13,7 +13,7 @@ export type BlogContentIndexProps =
 /**
  * Component for "BlogContentIndex" Slices.
  */
-const BlogContentIndex = ({ slice }: BlogContentIndexProps): JSX.Element => {
+const BlogContentIndex = ({ slice }: BlogContentIndexProps) => {
   return (
     <section
       data-slice-type={slice.slice_type}

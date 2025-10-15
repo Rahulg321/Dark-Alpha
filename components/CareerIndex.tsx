@@ -3,7 +3,7 @@ import React from "react";
 import CareerCard from "./CareerCard";
 
 const CareerIndex = async () => {
-  const client = createClient();
+  const client = await createClient();
   const careers = await client.getAllByType("career");
   return (
     <div>

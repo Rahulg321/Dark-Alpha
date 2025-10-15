@@ -1,8 +1,6 @@
-import { formatDate } from "@/components/BlogCard";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { FaPenNib } from "react-icons/fa";
-import { IoMdTimer } from "react-icons/io";
 
 /**
  * Props for `BlogTextBlock`.
@@ -13,7 +11,7 @@ export type BlogTextBlockProps =
 /**
  * Component for "BlogTextBlock" Slices.
  */
-const BlogTextBlock = ({ slice }: BlogTextBlockProps): JSX.Element => {
+const BlogTextBlock = ({ slice }: BlogTextBlockProps) => {
   return (
     <section
       data-slice-type={slice.slice_type}

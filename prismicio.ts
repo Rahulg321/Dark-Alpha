@@ -27,12 +27,31 @@ const routes: prismic.ClientConfig["routes"] = [
 ];
 
 /**
- * Creates a Prismic client for the project's repository. The client is used to
- * query content from the Prismic API.
+ * Creates a Prismic client for build-time operations (like generateStaticParams).
+ * This version doesn't check draft mode since it's not available at build time.
+ */
+export const createBuildClient = (
+  config: prismicNext.CreateClientConfig = {},
+) => {
+  return prismic.createClient(repositoryName, {
+    routes,
+    fetchOptions:
+      process.env.NODE_ENV === "production"
+        ? { next: { tags: ["prismic"] }, cache: "force-cache" }
+        : { next: { revalidate: 5 } },
+    ...config,
+  });
+};
+
+/**
+ * Creates a Prismic client for runtime operations (like page components).
+ * This version checks draft mode and enables auto-previews when needed.
  *
  * @param config - Configuration for the Prismic client.
  */
-export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
+export const createClient = async (
+  config: prismicNext.CreateClientConfig = {},
+) => {
   const client = prismic.createClient(repositoryName, {
     routes,
     fetchOptions:
@@ -42,11 +61,18 @@ export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
     ...config,
   });
 
-  prismicNext.enableAutoPreviews({
-    client,
-    previewData: config.previewData,
-    req: config.req,
-  });
+  // Check if draft mode is enabled (await the promise in Next.js 15)
+  // Import draftMode dynamically to avoid build issues
+  const { draftMode } = await import("next/headers");
+  const { isEnabled } = await draftMode();
+
+  if (isEnabled) {
+    prismicNext.enableAutoPreviews({
+      client,
+      previewData: config.previewData,
+      req: config.req,
+    });
+  }
 
   return client;
 };

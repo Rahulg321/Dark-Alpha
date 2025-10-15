@@ -10,7 +10,6 @@ import {
   Section,
   Text,
 } from "@react-email/components";
-import { Tailwind } from "@react-email/tailwind";
 
 type ContactFormEmailProps = {
   email: string;
@@ -29,21 +28,54 @@ const ContactFormEmail = ({
     <Html>
       <Head />
       <Preview>New Message from Dark Alpha Website</Preview>
-      <Tailwind>
-        <Body className="bg-static text-text">
-          <Container>
-            <Section className="my-10 rounded-md border px-10 py-4">
-              <Heading className="leading-tight">
-                Received the following message from {name}
-              </Heading>
-              <Text className="text-3xl font-bold text-black">{message}</Text>
-              <Hr />
-              <Text>This senders email is {email}</Text>
-              <Text>This senders phone number is {phoneNumber}</Text>
-            </Section>
-          </Container>
-        </Body>
-      </Tailwind>
+      <Body
+        style={{
+          backgroundColor: "#ffffff",
+          color: "#000000",
+          fontFamily: "Arial, sans-serif",
+        }}
+      >
+        <Container
+          style={{ maxWidth: "600px", margin: "0 auto", padding: "20px" }}
+        >
+          <Section
+            style={{
+              margin: "40px 0",
+              borderRadius: "8px",
+              border: "1px solid #e0e0e0",
+              padding: "20px 40px",
+            }}
+          >
+            <Heading
+              style={{
+                fontSize: "24px",
+                fontWeight: "bold",
+                marginBottom: "20px",
+                color: "#333333",
+              }}
+            >
+              Received the following message from {name}
+            </Heading>
+            <Text
+              style={{
+                fontSize: "18px",
+                fontWeight: "bold",
+                color: "#000000",
+                marginBottom: "20px",
+              }}
+            >
+              {message}
+            </Text>
+            <Hr style={{ margin: "20px 0", borderColor: "#e0e0e0" }} />
+            <Text style={{ marginBottom: "10px", fontSize: "16px" }}>
+              This senders email is {email}
+            </Text>
+            <Text style={{ fontSize: "16px" }}>
+              This senders phone number is {phoneNumber}
+            </Text>
+          </Section>
+        </Container>
+      </Body>
     </Html>
   );
 };

@@ -10,7 +10,7 @@ import clsx from "clsx";
 export type LeftImageSliceProps =
   SliceComponentProps<Content.LeftImageSliceSlice>;
 
-const LeftImageSlice = ({ slice }: LeftImageSliceProps): JSX.Element => {
+const LeftImageSlice = ({ slice }: LeftImageSliceProps) => {
   const ImageShouldBeLeft = slice.primary.image_left;
   const ImageIsCircle = slice.primary.image_circle;
 
@@ -45,7 +45,7 @@ const LeftImageSlice = ({ slice }: LeftImageSliceProps): JSX.Element => {
               <PrismicRichText field={slice.primary.description} />
             </div>
             {slice.primary.showlearnmorebutton ? (
-              <div className="bg-mainButtonAccent hover:bg-mainWhite mt-4 w-fit px-6 py-2 font-semibold text-white transition hover:border-2  hover:text-black">
+              <div className="mt-4 w-fit bg-mainButtonAccent px-6 py-2 font-semibold text-white transition hover:border-2 hover:bg-mainWhite  hover:text-black">
                 <PrismicLink field={slice.primary.page_link}>
                   Learn More
                 </PrismicLink>

@@ -1,5 +1,4 @@
 import CareerIndex from "@/components/CareerIndex";
-import LoadingSpinner from "@/components/LoadingSpinner";
 import CareerCardSkeleton from "@/components/Skeletons/CareerCardSkeleton";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
@@ -16,7 +15,7 @@ export type CareerContentIndexProps =
  */
 const CareerContentIndex = ({
   slice,
-}: CareerContentIndexProps): JSX.Element => {
+}: CareerContentIndexProps) => {
   return (
     <section
       data-slice-type={slice.slice_type}

@@ -4,11 +4,8 @@ import FavoriteIndustryCard from "@/components/FavoriteIndustryCard";
 import { IoCartOutline } from "react-icons/io5";
 import { MdFactory } from "react-icons/md";
 import { GiHealthNormal } from "react-icons/gi";
-import { SlEnergy } from "react-icons/sl";
 import { IoAirplaneOutline } from "react-icons/io5";
 import { MdBusinessCenter } from "react-icons/md";
-import { IoAirplane } from "react-icons/io5";
-import { json } from "stream/consumers";
 
 /**
  * Props for `FavouriteIndeustry`.
@@ -19,9 +16,7 @@ export type FavouriteIndeustryProps =
 /**
  * Component for "FavouriteIndeustry" Slices.
  */
-const FavouriteIndeustry = ({
-  slice,
-}: FavouriteIndeustryProps): JSX.Element => {
+const FavouriteIndeustry = ({ slice }: FavouriteIndeustryProps) => {
   return (
     <section
       data-slice-type={slice.slice_type}

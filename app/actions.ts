@@ -38,7 +38,7 @@ export async function sendApplication(
     react: React.createElement(CareerApplicationEmail, {
       name,
       phonenumber: phoneNumber,
-      position,
+      position: typeof position === "string" ? position : position || "",
     }),
     attachments: [
       {
@@ -70,7 +70,7 @@ export async function sendApplication(
     react: React.createElement(SuccessfulApplicationEmail, {
       name,
       phonenumber: phoneNumber,
-      position,
+      position: typeof position === "string" ? position : position || "",
     }),
   });
 

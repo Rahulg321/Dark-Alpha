@@ -3,8 +3,7 @@ import React from "react";
 import BlogCard from "./BlogCard";
 
 const BlogIndex = async () => {
-  //   await new Promise((resolve) => setTimeout(resolve, 3000));
-  const client = createClient();
+  const client = await createClient();
   const blogposts = await client.getAllByType("blogpost");
 
   return (

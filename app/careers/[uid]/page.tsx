@@ -2,15 +2,15 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SliceZone } from "@prismicio/react";
 
-import { createClient } from "@/prismicio";
+import { createClient, createBuildClient } from "@/prismicio";
 import { components } from "@/slices";
 
-type Params = { uid: string };
+type Params = Promise<{ uid: string }>;
 
-export default async function Page({ params }: { params: Params }) {
-  const client = createClient();
+export default async function Page({ params }: { params: Promise<Params> }) {
+  const client = await createClient();
   const page = await client
-    .getByUID("career", params.uid)
+    .getByUID("career", (await params).uid)
     .catch(() => notFound());
 
   return <SliceZone slices={page.data.slices} components={components} />;
@@ -19,11 +19,11 @@ export default async function Page({ params }: { params: Params }) {
 export async function generateMetadata({
   params,
 }: {
-  params: Params;
+  params: Promise<Params>;
 }): Promise<Metadata> {
-  const client = createClient();
+  const client = await createClient();
   const page = await client
-    .getByUID("career", params.uid)
+    .getByUID("career", (await params).uid)
     .catch(() => notFound());
 
   return {
@@ -33,7 +33,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const client = createClient();
+  const client = createBuildClient();
   const pages = await client.getAllByType("career");
 
   return pages.map((page) => {

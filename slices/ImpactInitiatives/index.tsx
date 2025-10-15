@@ -17,7 +17,7 @@ export type ImpactInitiativesProps =
 /**
  * Component for "ImpactInitiatives" Slices.
  */
-const ImpactInitiatives = ({ slice }: ImpactInitiativesProps): JSX.Element => {
+const ImpactInitiatives = ({ slice }: ImpactInitiativesProps) => {
   return (
     <section
       data-slice-type={slice.slice_type}

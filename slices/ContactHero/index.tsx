@@ -10,7 +10,7 @@ export type ContactHeroProps = SliceComponentProps<Content.ContactHeroSlice>;
 /**
  * Component for "ContactHero" Slices.
  */
-const ContactHero = ({ slice }: ContactHeroProps): JSX.Element => {
+const ContactHero = ({ slice }: ContactHeroProps) => {
   return (
     <BackgroundImageSection
       data-slice-type={slice.slice_type}

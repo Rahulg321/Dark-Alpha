@@ -9,7 +9,7 @@ export type FirmOverviewProps = SliceComponentProps<Content.FirmOverviewSlice>;
 /**
  * Component for "FirmOverview" Slices.
  */
-const FirmOverview = ({ slice }: FirmOverviewProps): JSX.Element => {
+const FirmOverview = ({ slice }: FirmOverviewProps) => {
   return (
     <section
       data-slice-type={slice.slice_type}

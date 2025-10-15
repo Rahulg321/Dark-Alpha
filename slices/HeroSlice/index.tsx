@@ -13,7 +13,7 @@ export type HeroSliceProps = SliceComponentProps<Content.HeroSliceSlice>;
 /**
  * Component for "HeroSlice" Slices.
  */
-const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
+const HeroSlice = ({ slice }: HeroSliceProps) => {
   return (
     <BackgroundImageSection
       data-slice-type={slice.slice_type}

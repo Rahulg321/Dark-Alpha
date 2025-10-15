@@ -10,7 +10,7 @@ export type CriteriaInfoSliceProps =
 /**
  * Component for "CriteriaInfoSlice" Slices.
  */
-const CriteriaInfoSlice = ({ slice }: CriteriaInfoSliceProps): JSX.Element => {
+const CriteriaInfoSlice = ({ slice }: CriteriaInfoSliceProps) => {
   return (
     <section
       data-slice-type={slice.slice_type}

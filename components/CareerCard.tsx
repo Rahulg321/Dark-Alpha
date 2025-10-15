@@ -1,8 +1,5 @@
 import { Content } from "@prismicio/client";
-import { PrismicRichText } from "@prismicio/react";
-import React, { useEffect } from "react";
-import CareerFormModal from "./CareerFormModal";
-import Link from "next/link";
+import React from "react";
 import CareerFormDialog from "./dialogs/CareerFormDialog";
 import { Badge } from "./ui/badge";
 

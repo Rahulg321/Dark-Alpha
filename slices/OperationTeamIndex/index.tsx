@@ -1,6 +1,5 @@
 import OperatingTeamMemberIndex from "@/components/OperatingTeamMemberIndex";
 import TeamCardSkeleton from "@/components/Skeletons/TeamCardSkeleton";
-import TeamMemberCard from "@/components/TeamMemberCard";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { Suspense } from "react";
@@ -14,9 +13,7 @@ export type OperationTeamIndexProps =
 /**
  * Component for "OperationTeamIndex" Slices.
  */
-const OperationTeamIndex = ({
-  slice,
-}: OperationTeamIndexProps): JSX.Element => {
+const OperationTeamIndex = ({ slice }: OperationTeamIndexProps) => {
   return (
     <section
       data-slice-type={slice.slice_type}

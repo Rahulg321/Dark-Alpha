@@ -2,41 +2,41 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SliceZone } from "@prismicio/react";
 
-import { createClient } from "@/prismicio";
+import { createClient, createBuildClient } from "@/prismicio";
 import { components } from "@/slices";
 
-type Params = { uid: string };
+type Params = Promise<{ uid: string }>;
 
-export default async function Page({ params }: { params: Params }) {
-    const client = createClient();
-    const page = await client
-        .getByUID("teammember", params.uid)
-        .catch(() => notFound());
+export default async function Page({ params }: { params: Promise<Params> }) {
+  const client = await createClient();
+  const page = await client
+    .getByUID("teammember", (await params).uid)
+    .catch(() => notFound());
 
-    return <SliceZone slices={page.data.slices} components={components} />;
+  return <SliceZone slices={page.data.slices} components={components} />;
 }
 
 export async function generateMetadata({
-    params,
+  params,
 }: {
-    params: Params;
+  params: Promise<Params>;
 }): Promise<Metadata> {
-    const client = createClient();
-    const page = await client
-        .getByUID("teammember", params.uid)
-        .catch(() => notFound());
+  const client = await createClient();
+  const page = await client
+    .getByUID("teammember", (await params).uid)
+    .catch(() => notFound());
 
-    return {
-        title: page.data.meta_title,
-        description: page.data.meta_description,
-    };
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
+  };
 }
 
 export async function generateStaticParams() {
-    const client = createClient();
-    const pages = await client.getAllByType("teammember");
+  const client = createBuildClient();
+  const pages = await client.getAllByType("teammember");
 
-    return pages.map((page) => {
-        return { uid: page.uid };
-    });
+  return pages.map((page) => {
+    return { uid: page.uid };
+  });
 }

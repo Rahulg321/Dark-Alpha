@@ -6,7 +6,6 @@ import Link from "next/link";
 import { IoIosStarOutline } from "react-icons/io";
 import { HiOutlineBuildingLibrary } from "react-icons/hi2";
 import { FaArrowRight } from "react-icons/fa";
-import { useEffect } from "react";
 
 /**
  * Props for `Capabilities`.
@@ -16,7 +15,7 @@ export type CapabilitiesProps = SliceComponentProps<Content.CapabilitiesSlice>;
 /**
  * Component for "Capabilities" Slices.
  */
-const Capabilities = ({ slice }: CapabilitiesProps): JSX.Element => {
+const Capabilities = ({ slice }: CapabilitiesProps) => {
   return (
     <section
       data-slice-type={slice.slice_type}

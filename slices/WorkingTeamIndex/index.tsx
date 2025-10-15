@@ -14,7 +14,7 @@ export type WorkingTeamIndexProps =
 /**
  * Component for "WorkingTeamIndex" Slices.
  */
-const WorkingTeamIndex = ({ slice }: WorkingTeamIndexProps): JSX.Element => {
+const WorkingTeamIndex = ({ slice }: WorkingTeamIndexProps) => {
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -44,7 +44,7 @@ const WorkingTeamIndex = ({ slice }: WorkingTeamIndexProps): JSX.Element => {
 export default WorkingTeamIndex;
 
 async function WorkingTeamIndexCards() {
-  const client = createClient();
+  const client = await createClient();
   const workingTeamMembers = await client.getAllByType("working_member");
 
   return (

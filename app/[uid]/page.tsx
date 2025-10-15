@@ -2,15 +2,15 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SliceZone } from "@prismicio/react";
 
-import { createClient } from "@/prismicio";
+import { createClient, createBuildClient } from "@/prismicio";
 import { components } from "@/slices";
 
-type Params = { uid: string };
+type Params = Promise<{ uid: string }>;
 
-export default async function Page({ params }: { params: Params }) {
-  const client = createClient();
+export default async function Page({ params }: { params: Promise<Params> }) {
+  const client = await createClient();
   const page = await client
-    .getByUID("page", params.uid)
+    .getByUID("page", (await params).uid)
     .catch(() => notFound());
 
   return <SliceZone slices={page.data.slices} components={components} />;
@@ -22,9 +22,9 @@ export async function generateMetadata({
   params: Params;
 }): Promise<Metadata> {
   try {
-    const client = createClient();
+    const client = await createClient();
     const page = await client
-      .getByUID("page", params.uid)
+      .getByUID("page", (await params).uid)
       .catch(() => notFound());
     if (!page)
       return {
@@ -36,7 +36,7 @@ export async function generateMetadata({
       title: page.data.meta_title,
       description: page.data.meta_description,
       alternates: {
-        canonical: `/${params.uid}`,
+        canonical: `/${(await params).uid}`,
       },
       twitter: {
         card: "summary_large_image",
@@ -57,7 +57,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const client = createClient();
+  const client = createBuildClient();
   const pages = await client.getAllByType("page");
 
   return pages.map((page) => {

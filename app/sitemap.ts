@@ -1,8 +1,8 @@
 import { MetadataRoute } from "next";
-import { createClient } from "@/prismicio";
+import { createBuildClient } from "@/prismicio";
 
 export default async function sitemap() {
-  const client = createClient();
+  const client = createBuildClient();
   const baseUrl = "https://www.darkalphacapital.com";
 
   const teamMembers = await client.getAllByType("teammember");
