@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { poppins, barlowCondensed } from "./font";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
@@ -7,12 +6,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Topbar from "@/components/Topbar";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "@/components/ui/toaster";
-import { Inter } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
 import { cn } from "@/lib/utils";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://darkalphacapital.com"),

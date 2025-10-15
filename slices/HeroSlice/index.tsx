@@ -19,7 +19,7 @@ const HeroSlice = ({ slice }: HeroSliceProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       backgroundImage={slice.primary.background_image}
-      classname={clsx("min-h-[100dvh]")}
+      classname={clsx("min-h-[80dvh]")}
     >
       <Header />
       <div className="big-container">
