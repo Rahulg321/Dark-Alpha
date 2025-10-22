@@ -1,54 +1,69 @@
-import { ImageField, KeyTextField, LinkField } from "@prismicio/client";
+import { Content } from "@prismicio/client";
 import React from "react";
 import clsx from "clsx";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 
 type AdvisorMemberCardProps = {
-  memberName: KeyTextField;
-  memberPosition?: KeyTextField;
-  memberImage: ImageField;
+  member: Content.OperatingmemberDocument;
   classname?: string;
-  LinkedinLink: LinkField;
-  BioLink?: string;
 };
 
-const AdvisorMemberCard = ({
-  memberName,
-  memberImage,
-  memberPosition,
-  classname,
-  LinkedinLink,
-  BioLink,
-}: AdvisorMemberCardProps) => {
+const AdvisorMemberCard = ({ member, classname }: AdvisorMemberCardProps) => {
+  // Add null checks to prevent runtime errors
+  if (!member || !member.data) {
+    return (
+      <div
+        className={clsx(
+          "p-4 transition duration-300 hover:shadow-xl",
+          classname,
+        )}
+      >
+        <div className="text-center text-gray-500">
+          <p>Member data not available</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className={clsx("p-4 transition duration-300 hover:shadow-xl", classname)}
     >
       <div className="aspect-h-1 aspect-w-1 relative">
-        <PrismicNextImage field={memberImage} fill className=" object-cover" />
+        <PrismicNextImage
+          field={member.data.image}
+          fill
+          className=" object-cover"
+        />
       </div>
       <div className="mt-2">
         <div className="text-center">
-          <span className="block text-xl font-semibold">{memberName}</span>
-          <span className="block text-xl font-semibold">{memberPosition}</span>
+          <span className="block text-xl font-semibold">
+            {member.data.name || "Name not available"}
+          </span>
+          <span className="block text-xl font-semibold">
+            {member.data.designation || "Designation not available"}
+          </span>
         </div>
 
         <div className="text-center">
-          <PrismicNextLink
-            className="inline-block text-xl transition hover:underline"
-            field={LinkedinLink}
-          >
-            LinkedIn
-          </PrismicNextLink>
-          {BioLink ? (
+          {member.data.linkedinprofilelink && (
+            <PrismicNextLink
+              className="inline-block text-xl transition hover:underline"
+              field={member.data.linkedinprofilelink}
+            >
+              LinkedIn
+            </PrismicNextLink>
+          )}
+          {member.uid && (
             <Link
               className="ml-1 inline-block text-xl hover:underline"
-              href={BioLink}
+              href={`/operating-team/${member.uid}`}
             >
               /Bio
             </Link>
-          ) : null}
+          )}
         </div>
       </div>
     </div>
