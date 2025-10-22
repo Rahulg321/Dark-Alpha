@@ -9,6 +9,13 @@ export default async function sitemap() {
   const operatingMembers = await client.getAllByType("operatingmember");
   const working_members = await client.getAllByType("working_member");
 
+  const blog = await client.getAllByType("blogpost");
+  const blogURLS =
+    blog.map((post) => ({
+      url: `${baseUrl}/blog/${post.uid}`,
+      lastModified: new Date(),
+    })) ?? [];
+
   // getting all team members from the CMS
   const teamMembersURLS =
     teamMembers.map((member) => ({
@@ -92,5 +99,6 @@ export default async function sitemap() {
     ...teamMembersURLS,
     ...operatingMembersURLS,
     ...workingMembersURLS,
+    ...blogURLS,
   ];
 }
