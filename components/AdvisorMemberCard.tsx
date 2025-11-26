@@ -13,60 +13,73 @@ const AdvisorMemberCard = ({ member, classname }: AdvisorMemberCardProps) => {
   // Add null checks to prevent runtime errors
   if (!member || !member.data) {
     return (
-      <div
+      <article
         className={clsx(
-          "p-4 transition duration-300 hover:shadow-xl",
+          "flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 shadow-sm",
           classname,
         )}
       >
-        <div className="text-center text-gray-500">
+        <div className="flex flex-1 items-center justify-center p-8 text-center text-gray-500">
           <p>Member data not available</p>
         </div>
-      </div>
+      </article>
     );
   }
 
   return (
-    <div
-      className={clsx("p-4 transition duration-300 hover:shadow-xl", classname)}
+    <article
+      className={clsx(
+        "flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 shadow-sm",
+        classname,
+      )}
     >
-      <div className="aspect-h-1 aspect-w-1 relative">
+      {/* Image */}
+      <div className="relative aspect-[3/4] w-full">
         <PrismicNextImage
           field={member.data.image}
           fill
-          className=" object-cover"
+          className="object-cover"
         />
       </div>
-      <div className="mt-2">
-        <div className="text-center">
-          <span className="block text-xl font-semibold">
+
+      {/* Content */}
+      <div className="flex flex-1 flex-col px-4 pb-4 pt-3">
+        <div className="mb-3 text-center">
+          <p className="text-lg font-semibold leading-snug text-gray-900">
             {member.data.name || "Name not available"}
-          </span>
-          <span className="block text-xl font-semibold">
-            {member.data.designation || "Designation not available"}
-          </span>
+          </p>
+          {member.data.designation && (
+            <p className="mt-1 text-sm font-medium uppercase tracking-wide text-gray-500">
+              {member.data.designation}
+            </p>
+          )}
         </div>
 
-        <div className="text-center">
+        <div className="mt-auto flex items-center justify-center gap-2 text-sm">
           {member.data.linkedinprofilelink && (
             <PrismicNextLink
-              className="inline-block text-xl transition hover:underline"
+              className="font-semibold text-[#0f879f] hover:underline"
               field={member.data.linkedinprofilelink}
             >
               LinkedIn
             </PrismicNextLink>
           )}
           {member.uid && (
-            <Link
-              className="ml-1 inline-block text-xl hover:underline"
-              href={`/operating-team/${member.uid}`}
-            >
-              /Bio
-            </Link>
+            <>
+              {member.data.linkedinprofilelink && (
+                <span className="text-gray-300">•</span>
+              )}
+              <Link
+                className="font-semibold text-[#0f879f] hover:underline"
+                href={`/operating-team/${member.uid}`}
+              >
+                Bio
+              </Link>
+            </>
           )}
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

@@ -22,36 +22,51 @@ const TeamMemberCard = ({
   BioLink,
 }: TeamMemberCardProps) => {
   return (
-    <div
-      className={clsx("p-4 transition duration-300 hover:shadow-xl", classname)}
+    <article
+      className={clsx(
+        "flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 shadow-sm",
+        classname,
+      )}
     >
-      <div className="aspect-h-4 aspect-w-3 relative">
-        <PrismicNextImage field={memberImage} fill className=" object-cover" />
+      {/* Image */}
+      <div className="relative aspect-[3/4] w-full">
+        <PrismicNextImage field={memberImage} fill className="object-cover" />
       </div>
-      <div className="mt-2">
-        <div className="text-center">
-          <span className="block text-xl font-semibold">{memberName}</span>
-          <span className="block text-xl font-semibold">{memberPosition}</span>
+
+      {/* Content */}
+      <div className="flex flex-1 flex-col px-4 pb-4 pt-3">
+        <div className="mb-3 text-center">
+          <p className="text-lg font-semibold leading-snug text-gray-900">
+            {memberName}
+          </p>
+          {memberPosition && (
+            <p className="mt-1 text-sm font-medium uppercase tracking-wide text-gray-500">
+              {memberPosition}
+            </p>
+          )}
         </div>
 
-        <div className="text-center">
+        <div className="mt-auto flex items-center justify-center gap-2 text-sm">
           <PrismicNextLink
-            className="inline-block text-xl transition hover:underline"
+            className="font-semibold text-[#0f879f] hover:underline"
             field={LinkedinLink}
           >
             LinkedIn
           </PrismicNextLink>
           {BioLink ? (
-            <Link
-              className="ml-1 inline-block text-xl hover:underline"
-              href={BioLink}
-            >
-              /Bio
-            </Link>
+            <>
+              <span className="text-gray-300">•</span>
+              <Link
+                className="font-semibold text-[#0f879f] hover:underline"
+                href={BioLink}
+              >
+                Bio
+              </Link>
+            </>
           ) : null}
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
