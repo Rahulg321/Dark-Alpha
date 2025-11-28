@@ -53,7 +53,7 @@ const TeamMemberCard = ({
           >
             LinkedIn
           </PrismicNextLink>
-          {BioLink ? (
+          {BioLink && (
             <>
               <span className="text-gray-300">•</span>
               <Link
@@ -63,7 +63,7 @@ const TeamMemberCard = ({
                 Bio
               </Link>
             </>
-          ) : null}
+          )}
         </div>
       </div>
     </article>

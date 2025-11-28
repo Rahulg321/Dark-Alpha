@@ -57,25 +57,23 @@ const AdvisorMemberCard = ({ member, classname }: AdvisorMemberCardProps) => {
 
         <div className="mt-auto flex items-center justify-center gap-2 text-sm">
           {member.data.linkedinprofilelink && (
-            <PrismicNextLink
-              className="font-semibold text-[#0f879f] hover:underline"
-              field={member.data.linkedinprofilelink}
-            >
-              LinkedIn
-            </PrismicNextLink>
+            <>
+              <PrismicNextLink
+                className="font-semibold text-[#0f879f] hover:underline"
+                field={member.data.linkedinprofilelink}
+              >
+                LinkedIn
+              </PrismicNextLink>
+              {member.uid && <span className="text-gray-300">•</span>}
+            </>
           )}
           {member.uid && (
-            <>
-              {member.data.linkedinprofilelink && (
-                <span className="text-gray-300">•</span>
-              )}
-              <Link
-                className="font-semibold text-[#0f879f] hover:underline"
-                href={`/operating-team/${member.uid}`}
-              >
-                Bio
-              </Link>
-            </>
+            <Link
+              className="font-semibold text-[#0f879f] hover:underline"
+              href={`/operating-team/${member.uid}`}
+            >
+              Bio
+            </Link>
           )}
         </div>
       </div>
