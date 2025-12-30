@@ -28,12 +28,10 @@ const TeamMemberCard = ({
         classname,
       )}
     >
-      {/* Image */}
       <div className="relative aspect-[3/4] w-full">
         <PrismicNextImage field={memberImage} fill className="object-cover" />
       </div>
 
-      {/* Content */}
       <div className="flex flex-1 flex-col px-4 pb-4 pt-3">
         <div className="mb-3 text-center">
           <p className="text-lg font-semibold leading-snug text-gray-900">
