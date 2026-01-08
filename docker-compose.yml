@@ -8,6 +8,8 @@ services:
     container_name: dark-alpha-capital
     ports:
       - "3002:3000"
+    env_file:
+      - .env
     environment:
       - NODE_ENV=production
       - PORT=3000
