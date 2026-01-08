@@ -19,14 +19,56 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd dark-alpha-capital 
-            # Use HTTPS with Personal Access Token instead of SSH
-            # Create a PAT at https://github.com/settings/tokens with 'repo' scope
-            # Add it as GH_PAT secret in your repository settings
-            git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git || true
-            git pull origin main
+            set -e  # Exit on error
+            
+            PROJECT_DIR="dark-alpha-capital"
+            REPO_URL="https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git"
+            
+            # Navigate to project directory or clone it if it doesn't exist
+            if [ ! -d "$PROJECT_DIR" ]; then
+              echo "Directory $PROJECT_DIR does not exist. Cloning repository..."
+              git clone $REPO_URL $PROJECT_DIR
+              cd $PROJECT_DIR
+            else
+              echo "Directory $PROJECT_DIR exists. Updating repository..."
+              cd $PROJECT_DIR
+              
+              # Check if it's a git repository
+              if [ ! -d ".git" ]; then
+                echo "Initializing git repository..."
+                git init
+                git remote add origin $REPO_URL || git remote set-url origin $REPO_URL
+                git fetch origin
+                git checkout -b main || git checkout main
+                git branch --set-upstream-to=origin/main main || true
+              else
+                # Update remote URL and pull latest changes
+                git remote set-url origin $REPO_URL || true
+                git fetch origin
+                git reset --hard origin/main || git pull origin main
+              fi
+            fi
+            
+            # Verify we're in the right directory with docker-compose.yml
+            if [ ! -f "docker-compose.yml" ]; then
+              echo "Error: docker-compose.yml not found in $(pwd)"
+              ls -la
+              exit 1
+            fi
+            
+            echo "Current directory: $(pwd)"
+            echo "Files in directory:"
+            ls -la
+            
             # Rebuild and restart Docker containers
-            docker-compose down
+            echo "Stopping existing containers..."
+            docker-compose down || true
+            
+            echo "Building Docker images..."
             docker-compose build --no-cache
+            
+            echo "Starting containers..."
             docker-compose up -d
+            
+            echo "Deployment completed successfully!"
       
