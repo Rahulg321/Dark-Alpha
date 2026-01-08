@@ -19,7 +19,10 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd dark-alpha-capital || git clone https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git dark-alpha-capital && cd dark-alpha-capital
+            if [ ! -d "dark-alpha-capital" ]; then
+              git clone "https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git" dark-alpha-capital
+            fi
+            cd dark-alpha-capital
             git pull origin main
             docker-compose down || true
             docker-compose build --no-cache
