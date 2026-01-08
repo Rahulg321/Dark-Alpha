@@ -59,10 +59,17 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const client = createBuildClient();
-  const pages = await client.getAllByType("blogpost");
+  try {
+    const client = createBuildClient();
+    const pages = await client.getAllByType("blogpost");
 
-  return pages.map((page) => {
-    return { uid: page.uid };
-  });
+    return pages.map((page) => {
+      return { uid: page.uid };
+    });
+  } catch (error) {
+    // If Prismic is unavailable during build, return empty array
+    // Pages will be generated on-demand at runtime
+    console.warn("Failed to generate static params for blog pages:", error);
+    return [];
+  }
 }
