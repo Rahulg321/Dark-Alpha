@@ -17,7 +17,7 @@ const TeamIndex = ({ slice }: TeamIndexProps) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="block-space bg-mainBlue"
+      className="block-space"
     >
       <div className="big-container">
         <h1 className="heading font-extrabold">Who We Are</h1>

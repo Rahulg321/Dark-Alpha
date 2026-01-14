@@ -1,167 +1,100 @@
 import { createClient } from "@/prismicio";
 import React from "react";
-import TeamMemberCard from "./TeamMemberCard";
-import * as prismic from "@prismicio/client";
+import ExecutiveTeamIndexWrapper from "./ExecutiveTeamIndexWrapper";
+import { Content } from "@prismicio/client";
 
 const ExecutiveTeamIndex = async () => {
   const client = await createClient();
 
-  // Create an array of all the queries, each returning a promise.
-  const queries = [
+  // Fetch both team members and working members concurrently
+  const [teamMembers, workingMembers] = await Promise.all([
     client.getAllByType("teammember", {
       orderings: {
         field: "document.first_publication_date",
         direction: "asc",
       },
-      filters: [
-        prismic.filter.at("my.teammember.designation", "Managing Partner"),
-      ],
     }),
-    client.getAllByType("teammember", {
+    client.getAllByType("working_member", {
       orderings: {
         field: "document.first_publication_date",
         direction: "asc",
       },
-      filters: [
-        prismic.filter.at("my.teammember.designation", "Senior Vice President"),
-      ],
     }),
-    client.getAllByType("teammember", {
-      orderings: {
-        field: "document.first_publication_date",
-        direction: "asc",
-      },
-      filters: [
-        prismic.filter.at("my.teammember.designation", "Vice President"),
-      ],
-    }),
-    client.getAllByType("teammember", {
-      orderings: {
-        field: "document.first_publication_date",
-        direction: "asc",
-      },
-      filters: [
-        prismic.filter.at(
-          "my.teammember.designation",
-          "Senior Managing Director",
-        ),
-      ],
-    }),
-    client.getAllByType("teammember", {
-      orderings: {
-        field: "document.first_publication_date",
-        direction: "asc",
-      },
-      filters: [
-        prismic.filter.at("my.teammember.designation", "Managing Director"),
-      ],
-    }),
-    client.getAllByType("teammember", {
-      orderings: {
-        field: "document.first_publication_date",
-        direction: "asc",
-      },
-      filters: [prismic.filter.at("my.teammember.designation", "Principal")],
-    }),
-    client.getAllByType("teammember", {
-      orderings: {
-        field: "document.first_publication_date",
-        direction: "asc",
-      },
-      filters: [prismic.filter.at("my.teammember.designation", "Associate")],
-    }),
+  ]);
+
+  // Define the order of designations (team member designations)
+  const designationOrder = [
+    "Managing Partner",
+    "Senior Managing Director",
+    "Senior Vice President",
+    "Managing Director",
+    "Principal",
+    "Vice President",
+    "Associate",
   ];
 
-  // Use Promise.all to run all queries concurrently.
-  const [
-    managingPartners,
-    seniorVicePresidents,
-    vicePresidents,
-    seniorManagingDirectors,
-    managingDirectors,
-    principals,
-    associates,
-  ] = await Promise.all(queries);
+  // Normalize and combine team members and working members
+  const normalizedTeamMembers = teamMembers.map((member) => ({
+    id: member.id,
+    uid: member.uid,
+    name: member.data.name || "",
+    designation: member.data.designation,
+    profile_image: member.data.profile_image,
+    linkedinprofilelink: member.data.linkedinprofilelink,
+    bioLink: `/team/${member.uid}`,
+    isWorkingMember: false,
+  }));
 
-  return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-12 lg:grid-cols-4">
-      {managingPartners.map((member) => (
-        <TeamMemberCard
-          key={member.id}
-          memberName={member.data.name}
-          memberImage={member.data.profile_image}
-          memberPosition={member.data.designation}
-          LinkedinLink={member.data.linkedinprofilelink}
-          BioLink={`/team/${member.uid}`}
-        />
-      ))}
+  const normalizedWorkingMembers = workingMembers.map((member) => ({
+    id: member.id,
+    uid: member.uid,
+    name: member.data.name || "",
+    designation: member.data.designation,
+    profile_image: member.data.profile_image,
+    linkedinprofilelink: member.data.linkedinprofilelink,
+    bioLink: `/working-team/${member.uid}`,
+    isWorkingMember: true,
+  }));
 
-      {seniorManagingDirectors.map((member) => (
-        <TeamMemberCard
-          key={member.id}
-          memberName={member.data.name}
-          memberImage={member.data.profile_image}
-          memberPosition={member.data.designation}
-          LinkedinLink={member.data.linkedinprofilelink}
-          BioLink={`/team/${member.uid}`}
-        />
-      ))}
+  // Combine all members
+  const allMembers = [...normalizedTeamMembers, ...normalizedWorkingMembers];
 
-      {seniorVicePresidents.map((member) => (
-        <TeamMemberCard
-          key={member.id}
-          memberName={member.data.name}
-          memberImage={member.data.profile_image}
-          memberPosition={member.data.designation}
-          LinkedinLink={member.data.linkedinprofilelink}
-          BioLink={`/team/${member.uid}`}
-        />
-      ))}
+  // Sort members: team members by designation order, then working members
+  const sortedMembers = allMembers.sort((a, b) => {
+    // If one is a working member and the other is not, working members come after
+    if (a.isWorkingMember && !b.isWorkingMember) {
+      return 1;
+    }
+    if (!a.isWorkingMember && b.isWorkingMember) {
+      return -1;
+    }
 
-      {managingDirectors.map((member) => (
-        <TeamMemberCard
-          key={member.id}
-          memberName={member.data.name}
-          memberImage={member.data.profile_image}
-          memberPosition={member.data.designation}
-          LinkedinLink={member.data.linkedinprofilelink}
-          BioLink={`/team/${member.uid}`}
-        />
-      ))}
+    // If both are team members, sort by designation order
+    if (!a.isWorkingMember && !b.isWorkingMember) {
+      const designationA = a.designation || "";
+      const designationB = b.designation || "";
 
-      {principals.map((member) => (
-        <TeamMemberCard
-          key={member.id}
-          memberName={member.data.name}
-          memberImage={member.data.profile_image}
-          memberPosition={member.data.designation}
-          LinkedinLink={member.data.linkedinprofilelink}
-          BioLink={`/team/${member.uid}`}
-        />
-      ))}
+      const indexA = designationOrder.indexOf(designationA);
+      const indexB = designationOrder.indexOf(designationB);
 
-      {vicePresidents.map((member) => (
-        <TeamMemberCard
-          key={member.id}
-          memberName={member.data.name}
-          memberImage={member.data.profile_image}
-          memberPosition={member.data.designation}
-          LinkedinLink={member.data.linkedinprofilelink}
-          BioLink={`/team/${member.uid}`}
-        />
-      ))}
-      {associates.map((member) => (
-        <TeamMemberCard
-          key={member.id}
-          memberName={member.data.name}
-          memberImage={member.data.profile_image}
-          memberPosition={member.data.designation}
-          LinkedinLink={member.data.linkedinprofilelink}
-          BioLink={`/team/${member.uid}`}
-        />
-      ))}
-    </div>
+      // If designation is not in the order array, put it at the end
+      if (indexA === -1 && indexB === -1) return 0;
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+
+      return indexA - indexB;
+    }
+
+    // If both are working members, keep original order
+    return 0;
+  });
+
+  // Remove isWorkingMember field before passing to wrapper
+  const membersForWrapper = sortedMembers.map(
+    ({ isWorkingMember, ...member }) => member,
   );
+
+  return <ExecutiveTeamIndexWrapper members={membersForWrapper} />;
 };
 
 export default ExecutiveTeamIndex;
