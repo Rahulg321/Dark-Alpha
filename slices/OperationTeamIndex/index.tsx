@@ -20,7 +20,7 @@ const OperationTeamIndex = ({ slice }: OperationTeamIndexProps) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="block-space bg-mainBlue"
+      className="block-space"
     >
       <div className="big-container">
         <div className="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center sm:gap-6">
