@@ -25,11 +25,6 @@ const OperationTeamIndex = ({ slice }: OperationTeamIndexProps) => {
       <div className="big-container">
         <div className="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center sm:gap-6">
           <h2 className="font-extrabold">Operating Partners</h2>
-          <div className="w-full sm:w-auto">
-            <Suspense fallback={<div>Loading...</div>}>
-              <FilterPageTags />
-            </Suspense>
-          </div>
         </div>
         <Suspense
           fallback={

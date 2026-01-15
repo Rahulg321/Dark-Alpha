@@ -1,5 +1,3 @@
-"use client";
-
 import { Content } from "@prismicio/client";
 import OperatingTeamMemberIndex from "./OperatingTeamMemberIndex";
 
