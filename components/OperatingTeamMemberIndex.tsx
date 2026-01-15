@@ -159,9 +159,7 @@ const OperatingTeamMemberIndex = ({
                 <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
                   Name
                 </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
-                  Designation
-                </th>
+
                 <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
                   Industry
                 </th>
@@ -177,9 +175,6 @@ const OperatingTeamMemberIndex = ({
                     {member.data?.name || "Name not available"}
                   </td>
                   <td className="px-6 py-4 text-sm uppercase tracking-wide text-gray-700">
-                    {member.data?.designation || "-"}
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-700">
                     {Array.isArray(member.tags) && member.tags.length > 0
                       ? member.tags
                           .filter((tag) => typeof tag === "string")
