@@ -48,11 +48,6 @@ const AdvisorMemberCard = ({ member, classname }: AdvisorMemberCardProps) => {
           <p className="text-lg font-semibold leading-snug text-gray-900">
             {member.data.name || "Name not available"}
           </p>
-          {member.data.designation && (
-            <p className="mt-1 text-sm font-medium uppercase tracking-wide text-gray-500">
-              {member.data.designation}
-            </p>
-          )}
         </div>
 
         <div className="mt-auto flex items-center justify-center gap-2 text-sm">
