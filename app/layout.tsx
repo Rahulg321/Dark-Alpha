@@ -35,7 +35,7 @@ export default function RootLayout({
         content="8pP_lJBKWWCw5FpUWOGsVYea4jHoZ4bVNitNrYCI_EU"
       />
       <body className="">
-        <main className="parent-container bg-background">
+        <main className="parent-container">
           <Topbar />
           {children}
           <Analytics />

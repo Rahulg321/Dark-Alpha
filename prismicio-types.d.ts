@@ -444,6 +444,17 @@ interface OperatingmemberDocumentData {
   image: prismic.ImageField<never>;
 
   /**
+   * Description field in *OperatingMember*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: operatingmember.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
    * LinkedinProfileLink field in *OperatingMember*
    *
    * - **Field Type**: Link
@@ -625,6 +636,58 @@ interface TeammemberDocumentData {
   name: prismic.KeyTextField;
 
   /**
+   * Department field in *TeamMember*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: teammember.department
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  department: prismic.SelectField<
+    | "Capital Markets"
+    | "Deal Team"
+    | "Legal & Compliance"
+    | "Operations"
+    | "M&A/Origination"
+    | "Technology"
+    | "Investor Relations"
+    | "Public Markets/Hedge Fund"
+  >;
+
+  /**
+   * Level field in *TeamMember*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Analyst
+   * - **API ID Path**: teammember.level
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  level: prismic.SelectField<
+    | "Analyst"
+    | "Associate"
+    | "Vice President"
+    | "Managing Director"
+    | "Managing Partner"
+    | "Senior Vice President"
+    | "Senior Managing Director",
+    "filled"
+  >;
+
+  /**
+   * Description field in *TeamMember*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: teammember.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
    * LinkedInProfileLink field in *TeamMember*
    *
    * - **Field Type**: Link
@@ -636,17 +699,6 @@ interface TeammemberDocumentData {
   linkedinprofilelink: prismic.LinkField;
 
   /**
-   * BioLink field in *TeamMember*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: teammember.biolink
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  biolink: prismic.LinkField;
-
-  /**
    * Profile Image field in *TeamMember*
    *
    * - **Field Type**: Image
@@ -656,17 +708,6 @@ interface TeammemberDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   profile_image: prismic.ImageField<never>;
-
-  /**
-   * Designation field in *TeamMember*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: teammember.designation
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  designation: prismic.KeyTextField;
 
   /**
    * Slice Zone field in *TeamMember*
@@ -727,117 +768,6 @@ export type TeammemberDocument<Lang extends string = string> =
     Lang
   >;
 
-type WorkingMemberDocumentDataSlicesSlice =
-  | LeftImageSliceSlice
-  | HeroSliceSlice;
-
-/**
- * Content for Working Member documents
- */
-interface WorkingMemberDocumentData {
-  /**
-   * Name field in *Working Member*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: working_member.name
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  name: prismic.KeyTextField;
-
-  /**
-   * LinkedInProfileLink field in *Working Member*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: working_member.linkedinprofilelink
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  linkedinprofilelink: prismic.LinkField;
-
-  /**
-   * Designation field in *Working Member*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: working_member.designation
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  designation: prismic.KeyTextField;
-
-  /**
-   * Profile Image field in *Working Member*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: working_member.profile_image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  profile_image: prismic.ImageField<never>;
-
-  /**
-   * Slice Zone field in *Working Member*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: working_member.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<WorkingMemberDocumentDataSlicesSlice> /**
-   * Meta Title field in *Working Member*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: working_member.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
-   * Meta Description field in *Working Member*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: working_member.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Working Member*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: working_member.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-}
-
-/**
- * Working Member document from Prismic
- *
- * - **API ID**: `working_member`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type WorkingMemberDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<WorkingMemberDocumentData>,
-    "working_member",
-    Lang
-  >;
-
 export type AllDocumentTypes =
   | BlogpostDocument
   | CareerDocument
@@ -845,8 +775,7 @@ export type AllDocumentTypes =
   | HomepageDocument
   | OperatingmemberDocument
   | PageDocument
-  | TeammemberDocument
-  | WorkingMemberDocument;
+  | TeammemberDocument;
 
 /**
  * Default variation for BlogContentIndex Slice
@@ -1949,9 +1878,6 @@ declare module "@prismicio/client" {
       TeammemberDocument,
       TeammemberDocumentData,
       TeammemberDocumentDataSlicesSlice,
-      WorkingMemberDocument,
-      WorkingMemberDocumentData,
-      WorkingMemberDocumentDataSlicesSlice,
       AllDocumentTypes,
       BlogContentIndexSlice,
       BlogContentIndexSliceVariation,

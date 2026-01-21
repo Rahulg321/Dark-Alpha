@@ -19,18 +19,53 @@
         },
         "type": "UID"
       },
+      "department": {
+        "type": "Select",
+        "config": {
+          "label": "Department",
+          "placeholder": "",
+          "options": [
+            "Capital Markets",
+            "Deal Team",
+            "Legal & Compliance",
+            "Operations",
+            "M&A/Origination",
+            "Technology",
+            "Investor Relations",
+            "Public Markets/Hedge Fund"
+          ]
+        }
+      },
+      "level": {
+        "type": "Select",
+        "config": {
+          "label": "Level",
+          "placeholder": "",
+          "options": [
+            "Analyst",
+            "Associate",
+            "Vice President",
+            "Managing Director",
+            "Managing Partner",
+            "Senior Vice President",
+            "Senior Managing Director"
+          ],
+          "default_value": "Analyst"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
       "linkedinprofilelink": {
         "type": "Link",
         "config": {
           "label": "LinkedInProfileLink",
-          "placeholder": "",
-          "select": null
-        }
-      },
-      "biolink": {
-        "type": "Link",
-        "config": {
-          "label": "BioLink",
           "placeholder": "",
           "select": null
         }
@@ -41,13 +76,6 @@
           "label": "Profile Image",
           "constraint": {},
           "thumbnails": []
-        }
-      },
-      "designation": {
-        "type": "Text",
-        "config": {
-          "label": "Designation",
-          "placeholder": ""
         }
       },
       "slices": {

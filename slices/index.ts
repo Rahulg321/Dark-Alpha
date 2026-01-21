@@ -22,5 +22,4 @@ export const components = {
   team_index: dynamic(() => import("./TeamIndex")),
   text_block: dynamic(() => import("./TextBlock")),
   text_with_background: dynamic(() => import("./TextWithBackground")),
-  working_team_index: dynamic(() => import("./WorkingTeamIndex")),
 };

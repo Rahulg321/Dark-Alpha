@@ -1,4 +1,4 @@
-import { createClient } from "@/prismicio";
+import { createClient, getMasterRef } from "@/prismicio";
 import React from "react";
 import ExecutiveTeamIndexWrapper from "./ExecutiveTeamIndexWrapper";
 import { Content } from "@prismicio/client";
@@ -6,21 +6,18 @@ import { Content } from "@prismicio/client";
 const ExecutiveTeamIndex = async () => {
   const client = await createClient();
 
+  // Resolve the master ref to ensure we're using the correct ref (bypasses cache)
+  const masterRef = await getMasterRef();
+
   // Fetch both team members and working members concurrently
-  const [teamMembers, workingMembers] = await Promise.all([
-    client.getAllByType("teammember", {
+  const teamMembers = await client.getAllByType("teammember", {
+      ref: masterRef,
       orderings: {
         field: "document.first_publication_date",
         direction: "asc",
       },
-    }),
-    client.getAllByType("working_member", {
-      orderings: {
-        field: "document.first_publication_date",
-        direction: "asc",
-      },
-    }),
-  ]);
+});
+    
 
   // Define the order of designations (team member designations)
   const designationOrder = [
@@ -33,44 +30,22 @@ const ExecutiveTeamIndex = async () => {
     "Associate",
   ];
 
-  // Normalize and combine team members and working members
   const normalizedTeamMembers = teamMembers.map((member) => ({
     id: member.id,
     uid: member.uid,
     name: member.data.name || "",
-    designation: member.data.designation,
+    designation: member.data.level,
+    level: member.data.level,
+    department: member.data.department,
+    tags: Array.isArray(member.tags) ? member.tags : [],
     profile_image: member.data.profile_image,
     linkedinprofilelink: member.data.linkedinprofilelink,
     bioLink: `/team/${member.uid}`,
-    isWorkingMember: false,
   }));
 
-  const normalizedWorkingMembers = workingMembers.map((member) => ({
-    id: member.id,
-    uid: member.uid,
-    name: member.data.name || "",
-    designation: member.data.designation,
-    profile_image: member.data.profile_image,
-    linkedinprofilelink: member.data.linkedinprofilelink,
-    bioLink: `/working-team/${member.uid}`,
-    isWorkingMember: true,
-  }));
-
-  // Combine all members
-  const allMembers = [...normalizedTeamMembers, ...normalizedWorkingMembers];
-
-  // Sort members: team members by designation order, then working members
-  const sortedMembers = allMembers.sort((a, b) => {
-    // If one is a working member and the other is not, working members come after
-    if (a.isWorkingMember && !b.isWorkingMember) {
-      return 1;
-    }
-    if (!a.isWorkingMember && b.isWorkingMember) {
-      return -1;
-    }
-
+  // Sort members: team members by designation order
+  const sortedMembers = normalizedTeamMembers.sort((a, b) => {
     // If both are team members, sort by designation order
-    if (!a.isWorkingMember && !b.isWorkingMember) {
       const designationA = a.designation || "";
       const designationB = b.designation || "";
 
@@ -83,18 +58,9 @@ const ExecutiveTeamIndex = async () => {
       if (indexB === -1) return -1;
 
       return indexA - indexB;
-    }
-
-    // If both are working members, keep original order
-    return 0;
   });
 
-  // Remove isWorkingMember field before passing to wrapper
-  const membersForWrapper = sortedMembers.map(
-    ({ isWorkingMember, ...member }) => member,
-  );
-
-  return <ExecutiveTeamIndexWrapper members={membersForWrapper} />;
+  return <ExecutiveTeamIndexWrapper members={sortedMembers} />;
 };
 
 export default ExecutiveTeamIndex;

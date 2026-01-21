@@ -44,6 +44,20 @@ export const createBuildClient = (
 };
 
 /**
+ * Gets the current master ref for build-time operations.
+ * Uses the build client which is compatible with static generation.
+ */
+export const getMasterRef = async (): Promise<string> => {
+  const client = createBuildClient();
+  const refs = await client.getRefs();
+  const masterRef = refs.find((ref) => ref.isMasterRef);
+  if (!masterRef) {
+    throw new Error("Master ref not found");
+  }
+  return masterRef.ref;
+};
+
+/**
  * Creates a Prismic client for runtime operations (like page components).
  * This version checks draft mode and enables auto-previews when needed.
  *

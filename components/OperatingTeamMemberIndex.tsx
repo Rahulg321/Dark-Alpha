@@ -5,6 +5,14 @@ import AdvisorMemberCard from "./AdvisorMemberCard";
 import { Content } from "@prismicio/client";
 import { LayoutGrid, Table2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 
@@ -22,7 +30,7 @@ const OperatingTeamMemberIndex = ({
   if (!operatingTeamMembers || operatingTeamMembers.length === 0) {
     return (
       <div className="py-8 text-center">
-        <p className="text-gray-500">No operating team members found.</p>
+        <p className="text-muted-foreground">No operating team members found.</p>
       </div>
     );
   }
@@ -96,48 +104,61 @@ const OperatingTeamMemberIndex = ({
             placeholder="Search by name..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="max-w-sm"
+            className="w-full sm:w-full md:max-w-sm"
           />
 
           {/* Industry Filter */}
-          <select
-            value={selectedIndustry}
-            onChange={(e) => setSelectedIndustry(e.target.value)}
-            className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 sm:w-[200px]"
+          <Select value={selectedIndustry} onValueChange={setSelectedIndustry}>
+            <SelectTrigger className="w-full sm:w-full md:w-48">
+              <SelectValue placeholder="Industry Focus" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Industry Focus</SelectItem>
+              {allIndustries.map((industry) => (
+                <SelectItem key={industry} value={industry}>
+                  {industry}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+
+          {/* Designation Filter */}
+          <Select
+            value={selectedDesignation}
+            onValueChange={setSelectedDesignation}
           >
-            <option value="all">Industry Focus</option>
-            {allIndustries.map((industry) => (
-              <option key={industry} value={industry}>
-                {industry}
-              </option>
-            ))}
-          </select>
+            <SelectTrigger className="w-full sm:w-full md:w-48">
+              <SelectValue placeholder="All Designations" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Designations</SelectItem>
+              {allDesignations.map((designation) => (
+                <SelectItem key={designation} value={designation}>
+                  {designation}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         {/* View Toggle Buttons */}
         <div className="flex justify-end gap-2">
-          <button
+          <Button
             onClick={() => setViewMode("grid")}
-            className={`flex items-center justify-center rounded-md p-2 transition-colors ${
-              viewMode === "grid"
-                ? "bg-gray-900 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-            }`}
+            variant={viewMode === "grid" ? "default" : "outline"}
+            size="icon"
             aria-label="Grid view"
           >
             <LayoutGrid size={20} />
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => setViewMode("table")}
-            className={`flex items-center justify-center rounded-md p-2 transition-colors ${
-              viewMode === "table"
-                ? "bg-gray-900 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-            }`}
+            variant={viewMode === "table" ? "default" : "outline"}
+            size="icon"
             aria-label="Table view"
           >
             <Table2 size={20} />
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -156,25 +177,25 @@ const OperatingTeamMemberIndex = ({
           <table className="w-full">
             <thead>
               <tr>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
+                <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">
                   Name
                 </th>
 
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
+                <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">
                   Industry
                 </th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
+                <th className="px-6 py-4 text-center text-sm font-semibold text-foreground">
                   Actions
                 </th>
               </tr>
             </thead>
             <tbody>
               {filteredMembers.map((member) => (
-                <tr key={member.id} className="border-b hover:bg-gray-50">
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                <tr key={member.id} className="border-b hover:bg-accent">
+                  <td className="px-6 py-4 text-sm font-medium text-foreground">
                     {member.data?.name || "Name not available"}
                   </td>
-                  <td className="px-6 py-4 text-sm uppercase tracking-wide text-gray-700">
+                  <td className="px-6 py-4 text-sm uppercase tracking-wide text-muted-foreground">
                     {Array.isArray(member.tags) && member.tags.length > 0
                       ? member.tags
                           .filter((tag) => typeof tag === "string")
@@ -187,19 +208,19 @@ const OperatingTeamMemberIndex = ({
                         <>
                           <PrismicNextLink
                             field={member.data.linkedinprofilelink}
-                            className="text-sm font-semibold text-[#0f879f] hover:underline"
+                            className="text-sm font-semibold text-primary hover:underline"
                           >
                             LinkedIn
                           </PrismicNextLink>
                           {member.uid && (
-                            <span className="text-gray-300">•</span>
+                            <span className="text-muted-foreground">•</span>
                           )}
                         </>
                       )}
                       {member.uid && (
                         <Link
                           href={`/operating-team/${member.uid}`}
-                          className="text-sm font-semibold text-[#0f879f] hover:underline"
+                          className="text-sm font-semibold text-primary hover:underline"
                         >
                           Bio
                         </Link>
@@ -214,7 +235,7 @@ const OperatingTeamMemberIndex = ({
       )}
 
       {filteredMembers.length === 0 && (
-        <div className="py-12 text-center text-gray-500">
+        <div className="py-12 text-center text-muted-foreground">
           No operating team members found matching your search criteria.
         </div>
       )}
