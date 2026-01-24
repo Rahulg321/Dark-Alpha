@@ -14,15 +14,15 @@ const ContactFormSection = ({ slice }: ContactFormSectionProps) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="block-space bg-slate-800"
+      className="block-space"
     >
       <div className="big-container">
         <div className="flex flex-col-reverse gap-12 md:flex-row">
           <div className="flex-1">
-            <h2 className="text-3xl font-extrabold text-white md:text-5xl">
+            <h2 className="text-3xl font-extrabold md:text-5xl">
               {slice.primary.heading}
             </h2>
-            <span className="my-4 block text-pretty font-semibold text-gray-400">
+            <span className="my-4 block text-pretty font-semibold">
               {slice.primary.tagline}
             </span>
             <ContactForm />
