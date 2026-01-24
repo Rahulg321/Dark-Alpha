@@ -48,7 +48,8 @@
             "Managing Director",
             "Managing Partner",
             "Senior Vice President",
-            "Senior Managing Director"
+            "Senior Managing Director",
+            "Management"
           ],
           "default_value": "Analyst"
         }

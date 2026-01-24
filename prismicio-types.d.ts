@@ -672,7 +672,8 @@ interface TeammemberDocumentData {
     | "Managing Director"
     | "Managing Partner"
     | "Senior Vice President"
-    | "Senior Managing Director",
+    | "Senior Managing Director"
+    | "Management",
     "filled"
   >;
 
@@ -1816,36 +1817,6 @@ export type TextWithBackgroundSlice = prismic.SharedSlice<
   TextWithBackgroundSliceVariation
 >;
 
-/**
- * Default variation for WorkingTeamIndex Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type WorkingTeamIndexSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  never
->;
-
-/**
- * Slice variation for *WorkingTeamIndex*
- */
-type WorkingTeamIndexSliceVariation = WorkingTeamIndexSliceDefault;
-
-/**
- * WorkingTeamIndex Shared Slice
- *
- * - **API ID**: `working_team_index`
- * - **Description**: WorkingTeamIndex
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type WorkingTeamIndexSlice = prismic.SharedSlice<
-  "working_team_index",
-  WorkingTeamIndexSliceVariation
->;
-
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1949,9 +1920,6 @@ declare module "@prismicio/client" {
       TextWithBackgroundSliceDefaultPrimary,
       TextWithBackgroundSliceVariation,
       TextWithBackgroundSliceDefault,
-      WorkingTeamIndexSlice,
-      WorkingTeamIndexSliceVariation,
-      WorkingTeamIndexSliceDefault,
     };
   }
 }

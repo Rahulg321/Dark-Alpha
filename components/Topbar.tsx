@@ -4,6 +4,9 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 
 const Topbar = () => {
+  console.log(process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT);
+  console.log("inside topbar");
+
   return (
     <div className="flex justify-between bg-black px-6 py-2 text-gray-400">
       <div className=" hidden md:flex md:items-center md:gap-4">
