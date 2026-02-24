@@ -13,16 +13,14 @@ export type CareerContentIndexProps =
 /**
  * Component for "CareerContentIndex" Slices.
  */
-const CareerContentIndex = ({
-  slice,
-}: CareerContentIndexProps) => {
+const CareerContentIndex = ({ slice }: CareerContentIndexProps) => {
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="block-space narrow-container"
     >
-      <h1 className="mb-6 text-center lg:mb-12">Open Roles</h1>
+      <h1 className="mb-6 lg:mb-12">Open Roles</h1>
       <Suspense
         fallback={
           <div className="grid grid-cols-1 space-y-4">

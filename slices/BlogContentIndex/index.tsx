@@ -20,7 +20,7 @@ const BlogContentIndex = ({ slice }: BlogContentIndexProps) => {
       data-slice-variation={slice.variation}
       className="block-space narrow-container"
     >
-      <h1 className="mb-6 text-center md:mb-8 lg:mb-12">All Posts</h1>
+      <h1 className="mb-6 md:mb-8">All Posts</h1>
       <Suspense
         fallback={
           <div className="text-center" role="progressbar">
