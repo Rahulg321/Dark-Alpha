@@ -16,8 +16,8 @@ const TextBlock = ({ slice }: TextBlockProps) => {
       data-slice-variation={slice.variation}
       className="block-space"
     >
-      <div className="narrow-container">
-        <div className="prose prose-lg prose-gray md:prose-xl prose-headings:mb-4 prose-h2:mt-8 prose-ul:text-base">
+      <div className="narrow-container text-justify">
+        <div className="prose prose-lg md:prose-xl prose-headings:mb-4 prose-h2:mt-8 prose-ul:text-base">
           <PrismicRichText field={slice.primary.main_content} />
         </div>
       </div>
