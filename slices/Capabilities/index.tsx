@@ -43,7 +43,7 @@ const Capabilities = ({ slice }: CapabilitiesProps) => {
             tagline="At Dark Alpha, we believe that cooperation is the cornerstone of success. Through collaborative efforts with our partners, we navigate the investment landscape with precision and purpose. "
           />
         </div>
-        <div className="mt-6 grid grid-cols-1 gap-6 rounded-xl px-6 py-8 shadow-md md:mt-12 md:grid-cols-2">
+        <div className="mt-6 grid grid-cols-1 gap-6 rounded-xl px-6 py-8 md:mt-12 md:grid-cols-2">
           <div>
             <h2>What We Do</h2>
             <span className="mt-4 block font-semibold text-gray-600">

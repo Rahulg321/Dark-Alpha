@@ -68,6 +68,10 @@ import { SubmitButton } from "../Button";
 import { sendApplication } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
 import { KeyTextField } from "@prismicio/client";
+import { Input } from "@/components/ui/input";
+
+const inputClass =
+  "h-8 text-xs rounded-md border border-input px-2.5 py-1.5 bg-transparent file:text-xs file:h-6";
 
 const CareerApplyForm = ({
   title,
@@ -78,83 +82,77 @@ const CareerApplyForm = ({
 }) => {
   const { toast } = useToast();
   return (
-    <div className="">
-      <form
-        action={async (formData) => {
-          const response = await sendApplication(formData, title);
-          if (response.error) {
-            toast({
-              title: "Error Submitting Application ❌",
-              variant: "destructive",
-              description: response.message,
-            });
-          } else {
-            setDialogOpen(false);
-            toast({
-              title: "Successfully Submitted Application",
-              description: response.message,
-            });
-          }
-        }}
-        className="flex flex-col"
-        method="dialog"
-      >
-        <div className="mb-2 flex flex-col">
-          <label htmlFor="name" className="font-semibold">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="John Doe"
-            className="form-input"
-            required
-          />
-        </div>
-        <div className="mb-2 flex flex-col">
-          <label htmlFor="phonenumber" className="font-semibold">
-            Phone Number
-          </label>
-          <input
-            type="text"
-            id="phonenumber"
-            name="phonenumber"
-            placeholder="123-456-7890"
-            className="form-input"
-            required
-          />
-        </div>
-
-        <div className="mb-2 flex flex-col">
-          <label htmlFor="email" className="font-semibold">
-            Email Address
-          </label>
-          <input
-            type="text"
-            id="email"
-            placeholder="test@example.com"
-            name="email"
-            className="form-input"
-            required
-          />
-        </div>
-        <div className="mb-2 flex flex-col">
-          <label htmlFor="resume" className="font-semibold">
-            Resume
-          </label>
-          <input
-            type="file"
-            id="resume"
-            name="resume"
-            placeholder="resume"
-            className="form-input"
-            required
-          />
-        </div>
-        <SubmitButton />
-      </form>
-    </div>
+    <form
+      action={async (formData) => {
+        const response = await sendApplication(formData, title);
+        if (response.error) {
+          toast({
+            title: "Error",
+            variant: "destructive",
+            description: response.message,
+          });
+        } else {
+          setDialogOpen(false);
+          toast({
+            title: "Application submitted",
+            description: response.message,
+          });
+        }
+      }}
+      className="space-y-3"
+      method="dialog"
+    >
+      <div className="space-y-1.5">
+        <label htmlFor="name" className="text-xs font-medium text-muted-foreground">
+          Name
+        </label>
+        <Input
+          id="name"
+          name="name"
+          placeholder="John Doe"
+          className={inputClass}
+          required
+        />
+      </div>
+      <div className="space-y-1.5">
+        <label htmlFor="phonenumber" className="text-xs font-medium text-muted-foreground">
+          Phone
+        </label>
+        <Input
+          id="phonenumber"
+          name="phonenumber"
+          placeholder="123-456-7890"
+          className={inputClass}
+          required
+        />
+      </div>
+      <div className="space-y-1.5">
+        <label htmlFor="email" className="text-xs font-medium text-muted-foreground">
+          Email
+        </label>
+        <Input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          className={inputClass}
+          required
+        />
+      </div>
+      <div className="space-y-1.5">
+        <label htmlFor="resume" className="text-xs font-medium text-muted-foreground">
+          Resume
+        </label>
+        <Input
+          type="file"
+          id="resume"
+          name="resume"
+          className={inputClass + " cursor-pointer file:rounded file:border-0 file:px-2 file:py-1 file:text-xs"}
+          required
+        />
+      </div>
+      <SubmitButton />
+    </form>
   );
 };
 

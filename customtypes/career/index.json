@@ -19,17 +19,10 @@
         },
         "type": "UID"
       },
-      "department": {
+      "excerpt": {
         "type": "Text",
         "config": {
-          "label": "Department",
-          "placeholder": ""
-        }
-      },
-      "pay_range": {
-        "type": "Text",
-        "config": {
-          "label": "Pay Range",
+          "label": "Excerpt",
           "placeholder": ""
         }
       },
@@ -42,11 +35,42 @@
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "small_description": {
-        "type": "Text",
+      "department": {
+        "type": "Select",
         "config": {
-          "label": "Small Description",
-          "placeholder": ""
+          "label": "Department",
+          "placeholder": "",
+          "options": [
+            "Capital Markets",
+            "Due Diligence",
+            "Investment Team",
+            "M&A/Origination",
+            "Public Markets/Hedge Funds",
+            "Technology"
+          ],
+          "default_value": "Capital Markets"
+        }
+      },
+      "hire_level": {
+        "type": "Select",
+        "config": {
+          "label": "Hire Level",
+          "placeholder": "",
+          "options": [
+            "Managing Director",
+            "Associate",
+            "Intern",
+            "Analyst",
+            "Vice President"
+          ]
+        }
+      },
+      "status": {
+        "type": "Select",
+        "config": {
+          "label": "Status",
+          "placeholder": "",
+          "options": ["Active", "Hold", "Passed", "Upcoming"]
         }
       },
       "slices": {
@@ -55,9 +79,6 @@
         "config": {
           "choices": {
             "text_block": {
-              "type": "SharedSlice"
-            },
-            "working_team_index": {
               "type": "SharedSlice"
             },
             "criteria_info_slice": {
