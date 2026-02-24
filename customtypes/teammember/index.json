@@ -32,7 +32,9 @@
             "M&A/Origination",
             "Technology",
             "Investor Relations",
-            "Public Markets/Hedge Fund"
+            "Public Markets/Hedge Fund",
+            "Investment Team",
+            "Due Diligence"
           ]
         }
       },
@@ -48,7 +50,9 @@
             "Managing Director",
             "Managing Partner",
             "Senior Vice President",
-            "Senior Managing Director"
+            "Senior Managing Director",
+            "Management",
+            "Attorney"
           ],
           "default_value": "Analyst"
         }

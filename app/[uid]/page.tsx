@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SliceZone } from "@prismicio/react";
 
-import { createClient, createBuildClient } from "@/prismicio";
+import { createClient, createBuildClient, getMasterRef } from "@/prismicio";
 import { components } from "@/slices";
 
 type Params = Promise<{ uid: string }>;
@@ -59,7 +59,8 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   try {
     const client = createBuildClient();
-    const pages = await client.getAllByType("page");
+    const masterRef = await getMasterRef();
+    const pages = await client.getAllByType("page", { ref: masterRef });
 
     return pages.map((page) => {
       return { uid: page.uid };

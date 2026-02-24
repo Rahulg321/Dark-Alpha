@@ -8,6 +8,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "@/components/ui/toaster";
 import { GeistSans } from "geist/font/sans";
 import { cn } from "@/lib/utils";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://darkalphacapital.com"),
@@ -37,6 +38,8 @@ export default function RootLayout({
       <body className="">
         <main className="parent-container">
           <Topbar />
+          <Header />
+
           {children}
           <Analytics />
           <SpeedInsights />

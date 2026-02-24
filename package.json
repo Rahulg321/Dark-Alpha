@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"next dev --turbopack\" \"npm run slicemachine\"",
-    "build": "next build",
+    "build": "rm -rf .next/cache/fetch-cache 2>/dev/null; next build",
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine"

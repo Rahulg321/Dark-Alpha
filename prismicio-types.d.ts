@@ -22,6 +22,25 @@ interface BlogpostDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * Category field in *Blogpost*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  category: prismic.SelectField<
+    | "Independent Sponsor Insights"
+    | "Deal Sourcing & Origination"
+    | "Private Equity Strategies"
+    | "Capital Raising & Investor Relations"
+    | "Industry Trends"
+    | "Thought Leadership"
+    | "Resources & Guides"
+  >;
+
+  /**
    * Author field in *Blogpost*
    *
    * - **Field Type**: Text
@@ -44,15 +63,15 @@ interface BlogpostDocumentData {
   created_at: prismic.DateField;
 
   /**
-   * Description field in *Blogpost*
+   * Excerpt field in *Blogpost*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: blogpost.description
+   * - **API ID Path**: blogpost.excerpt
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  description: prismic.KeyTextField;
+  excerpt: prismic.KeyTextField;
 
   /**
    * Featured Image field in *Blogpost*
@@ -66,15 +85,15 @@ interface BlogpostDocumentData {
   featured_image: prismic.ImageField<never>;
 
   /**
-   * something field in *Blogpost*
+   * Content field in *Blogpost*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: blogpost.something
+   * - **API ID Path**: blogpost.content
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  something: prismic.RichTextField;
+  content: prismic.RichTextField;
 
   /**
    * Slice Zone field in *Blogpost*
@@ -137,7 +156,6 @@ export type BlogpostDocument<Lang extends string = string> =
 
 type CareerDocumentDataSlicesSlice =
   | TextBlockSlice
-  | WorkingTeamIndexSlice
   | CriteriaInfoSliceSlice
   | FirmOverviewSlice
   | BlogContentIndexSlice
@@ -162,26 +180,15 @@ interface CareerDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * Department field in *Career*
+   * Excerpt field in *Career*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: career.department
+   * - **API ID Path**: career.excerpt
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  department: prismic.KeyTextField;
-
-  /**
-   * Pay Range field in *Career*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: career.pay_range
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  pay_range: prismic.KeyTextField;
+  excerpt: prismic.KeyTextField;
 
   /**
    * Description field in *Career*
@@ -195,15 +202,48 @@ interface CareerDocumentData {
   description: prismic.RichTextField;
 
   /**
-   * Small Description field in *Career*
+   * Department field in *Career*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **API ID Path**: career.small_description
+   * - **Default Value**: Capital Markets
+   * - **API ID Path**: career.department
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#select
    */
-  small_description: prismic.KeyTextField;
+  department: prismic.SelectField<
+    | "Capital Markets"
+    | "Due Diligence"
+    | "Investment Team"
+    | "M&A/Origination"
+    | "Public Markets/Hedge Funds"
+    | "Technology",
+    "filled"
+  >;
+
+  /**
+   * Hire Level field in *Career*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: career.hire_level
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  hire_level: prismic.SelectField<
+    "Managing Director" | "Associate" | "Intern" | "Analyst" | "Vice President"
+  >;
+
+  /**
+   * Status field in *Career*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: career.status
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  status: prismic.SelectField<"Active" | "Hold" | "Passed" | "Upcoming">;
 
   /**
    * Slice Zone field in *Career*
@@ -653,6 +693,8 @@ interface TeammemberDocumentData {
     | "Technology"
     | "Investor Relations"
     | "Public Markets/Hedge Fund"
+    | "Investment Team"
+    | "Due Diligence"
   >;
 
   /**
@@ -672,7 +714,9 @@ interface TeammemberDocumentData {
     | "Managing Director"
     | "Managing Partner"
     | "Senior Vice President"
-    | "Senior Managing Director",
+    | "Senior Managing Director"
+    | "Management"
+    | "Attorney",
     "filled"
   >;
 
@@ -1816,36 +1860,6 @@ export type TextWithBackgroundSlice = prismic.SharedSlice<
   TextWithBackgroundSliceVariation
 >;
 
-/**
- * Default variation for WorkingTeamIndex Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type WorkingTeamIndexSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  never
->;
-
-/**
- * Slice variation for *WorkingTeamIndex*
- */
-type WorkingTeamIndexSliceVariation = WorkingTeamIndexSliceDefault;
-
-/**
- * WorkingTeamIndex Shared Slice
- *
- * - **API ID**: `working_team_index`
- * - **Description**: WorkingTeamIndex
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type WorkingTeamIndexSlice = prismic.SharedSlice<
-  "working_team_index",
-  WorkingTeamIndexSliceVariation
->;
-
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1949,9 +1963,6 @@ declare module "@prismicio/client" {
       TextWithBackgroundSliceDefaultPrimary,
       TextWithBackgroundSliceVariation,
       TextWithBackgroundSliceDefault,
-      WorkingTeamIndexSlice,
-      WorkingTeamIndexSliceVariation,
-      WorkingTeamIndexSliceDefault,
     };
   }
 }

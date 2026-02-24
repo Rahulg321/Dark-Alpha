@@ -1,9 +1,9 @@
+import { filter } from "@prismicio/client";
+import { PrismicRichText } from "@prismicio/react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SliceZone } from "@prismicio/react";
 
-import { createClient, createBuildClient } from "@/prismicio";
-import { components } from "@/slices";
+import { createBuildClient, createClient, getMasterRef } from "@/prismicio";
 
 type Params = Promise<{ uid: string }>;
 
@@ -13,9 +13,40 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     .getByUID("career", (await params).uid)
     .catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
-}
+  if (page.data.status !== "Active") notFound();
 
+  const { title, excerpt, department, hire_level, description } = page.data;
+
+  return (
+    <div className="block-space narrow-container">
+      <header className="mb-8 space-y-3 sm:mb-10">
+        <div className="flex flex-wrap gap-2">
+          {department && (
+            <span className="rounded-md border border-border bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
+              {department}
+            </span>
+          )}
+          {hire_level && (
+            <span className="rounded-md border border-border bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
+              {hire_level}
+            </span>
+          )}
+        </div>
+        <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
+          {title}
+        </h1>
+        {excerpt && (
+          <p className="max-w-2xl text-base text-muted-foreground sm:text-lg">
+            {excerpt}
+          </p>
+        )}
+      </header>
+      <article className="prose prose-gray max-w-none dark:prose-invert md:prose-lg prose-headings:mb-4 prose-h2:mt-8 prose-p:text-muted-foreground prose-ul:text-base">
+        <PrismicRichText field={description} />
+      </article>
+    </div>
+  );
+}
 export async function generateMetadata({
   params,
 }: {
@@ -35,11 +66,13 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   try {
     const client = createBuildClient();
-    const pages = await client.getAllByType("career");
-
-    return pages.map((page) => {
-      return { uid: page.uid };
+    const masterRef = await getMasterRef();
+    const pages = await client.getAllByType("career", {
+      filters: [filter.at("my.career.status", "Active")],
+      ref: masterRef,
     });
+
+    return pages.map((page) => ({ uid: page.uid }));
   } catch (error) {
     // If Prismic is unavailable during build, return empty array
     // Pages will be generated on-demand at runtime

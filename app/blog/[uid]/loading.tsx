@@ -3,7 +3,7 @@ import React from "react";
 
 const loading = () => {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8">
+    <div className="mx-auto px-4 py-8">
       {/* Header Section */}
       <div className="mb-8">
         {/* Title Skeleton */}
