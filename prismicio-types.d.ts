@@ -22,6 +22,25 @@ interface BlogpostDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * Category field in *Blogpost*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogpost.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  category: prismic.SelectField<
+    | "Independent Sponsor Insights"
+    | "Deal Sourcing & Origination"
+    | "Private Equity Strategies"
+    | "Capital Raising & Investor Relations"
+    | "Industry Trends"
+    | "Thought Leadership"
+    | "Resources & Guides"
+  >;
+
+  /**
    * Author field in *Blogpost*
    *
    * - **Field Type**: Text
@@ -44,15 +63,15 @@ interface BlogpostDocumentData {
   created_at: prismic.DateField;
 
   /**
-   * Description field in *Blogpost*
+   * Excerpt field in *Blogpost*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: blogpost.description
+   * - **API ID Path**: blogpost.excerpt
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  description: prismic.KeyTextField;
+  excerpt: prismic.KeyTextField;
 
   /**
    * Featured Image field in *Blogpost*
@@ -66,15 +85,15 @@ interface BlogpostDocumentData {
   featured_image: prismic.ImageField<never>;
 
   /**
-   * something field in *Blogpost*
+   * Content field in *Blogpost*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: blogpost.something
+   * - **API ID Path**: blogpost.content
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  something: prismic.RichTextField;
+  content: prismic.RichTextField;
 
   /**
    * Slice Zone field in *Blogpost*

@@ -13,7 +13,7 @@ type BlogCardProps = {
 };
 
 const BlogCard = ({ post }: BlogCardProps) => {
-  const { title, featured_image, description, author } = post.data;
+  const { title, featured_image, excerpt, author } = post.data;
   const formattedDate = formatDate(post.data.created_at);
 
   return (
@@ -47,9 +47,9 @@ const BlogCard = ({ post }: BlogCardProps) => {
           {title}
         </h2>
 
-        {/* Description */}
+        {/* Excerpt */}
         <p className="mb-4 line-clamp-3 leading-relaxed text-gray-700">
-          {description}
+          {excerpt}
         </p>
 
         {/* Read More Link */}

@@ -13,18 +13,34 @@
           "placeholder": ""
         }
       },
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "category": {
+        "type": "Select",
+        "config": {
+          "label": "Category",
+          "placeholder": "",
+          "options": [
+            "Independent Sponsor Insights",
+            "Deal Sourcing & Origination",
+            "Private Equity Strategies",
+            "Capital Raising & Investor Relations",
+            "Industry Trends",
+            "Thought Leadership",
+            "Resources & Guides"
+          ]
+        }
+      },
       "author": {
         "type": "Text",
         "config": {
           "label": "Author",
           "placeholder": ""
         }
-      },
-      "uid": {
-        "config": {
-          "label": "UID"
-        },
-        "type": "UID"
       },
       "created_at": {
         "type": "Date",
@@ -33,10 +49,10 @@
           "placeholder": ""
         }
       },
-      "description": {
+      "excerpt": {
         "type": "Text",
         "config": {
-          "label": "Description",
+          "label": "Excerpt",
           "placeholder": ""
         }
       },
@@ -48,10 +64,10 @@
           "thumbnails": []
         }
       },
-      "something": {
+      "content": {
         "type": "StructuredText",
         "config": {
-          "label": "something",
+          "label": "Content",
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
