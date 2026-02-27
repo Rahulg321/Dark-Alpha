@@ -217,7 +217,9 @@ interface CareerDocumentData {
     | "Investment Team"
     | "M&A/Origination"
     | "Public Markets/Hedge Funds"
-    | "Technology",
+    | "Technology"
+    | "Deal Team"
+    | "Operations",
     "filled"
   >;
 
@@ -231,7 +233,12 @@ interface CareerDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   hire_level: prismic.SelectField<
-    "Managing Director" | "Associate" | "Intern" | "Analyst" | "Vice President"
+    | "Managing Director"
+    | "Associate"
+    | "Intern"
+    | "Analyst"
+    | "Vice President"
+    | "Professional/Individual Contributor"
   >;
 
   /**

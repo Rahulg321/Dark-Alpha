@@ -46,7 +46,9 @@
             "Investment Team",
             "M&A/Origination",
             "Public Markets/Hedge Funds",
-            "Technology"
+            "Technology",
+            "Deal Team",
+            "Operations"
           ],
           "default_value": "Capital Markets"
         }
@@ -61,7 +63,8 @@
             "Associate",
             "Intern",
             "Analyst",
-            "Vice President"
+            "Vice President",
+            "Professional/Individual Contributor"
           ]
         }
       },

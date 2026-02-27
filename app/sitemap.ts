@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { createBuildClient, getMasterRef } from "@/prismicio";
+import { filter } from "@prismicio/client";
 
 export default async function sitemap() {
   const baseUrl = "https://www.darkalphacapital.com";
@@ -16,6 +17,18 @@ export default async function sitemap() {
     const operatingMembers = await client.getAllByType("operatingmember", {
       ref: masterRef,
     });
+
+    const careers = await client.getAllByType("career", {
+      filters: [filter.at("my.career.status", "Active")],
+      ref: masterRef,
+    });
+
+
+    const careersURLS =
+      careers.map((career) => ({
+        url: `${baseUrl}/careers/${career.uid}`,
+        lastModified: new Date(),
+      })) ?? [];
 
     const blog = await client.getAllByType("blogpost", {
       ref: masterRef,
@@ -105,6 +118,7 @@ export default async function sitemap() {
       ...teamMembersURLS,
       ...operatingMembersURLS,
       ...blogURLS,
+      ...careersURLS,
     ];
   } catch (error) {
     // If Prismic is unavailable during build, return static pages only
