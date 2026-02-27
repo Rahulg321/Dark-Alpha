@@ -18,7 +18,7 @@ const BackgroundImageSection = ({
     <section
       className={clsx("group relative overflow-hidden bg-slate-900", classname)}
     >
-      <div className="absolute bottom-0 left-0 right-0 top-0 z-10 flex flex-col gap-12">
+      <div className="absolute bottom-0 left-0 right-0 top-0 z-10 flex flex-col gap-12 pt-24 pb-8 sm:pt-28 md:pt-32 lg:pt-36">
         {children}
       </div>
       <PrismicNextImage

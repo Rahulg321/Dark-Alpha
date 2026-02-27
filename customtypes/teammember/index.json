@@ -52,7 +52,8 @@
             "Senior Vice President",
             "Senior Managing Director",
             "Management",
-            "Attorney"
+            "Attorney",
+            "Professional / Individual Contributor"
           ],
           "default_value": "Analyst"
         }

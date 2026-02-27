@@ -18,7 +18,9 @@ const HeroSlice = ({ slice }: HeroSliceProps) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       backgroundImage={slice.primary.background_image}
-      classname={clsx("min-h-[80dvh] -mt-[8rem] relative z-0")}
+      classname={clsx(
+        "min-h-[80dvh] relative z-0 md:-mt-[6rem] lg:-mt-[8rem]",
+      )}
     >
       <div className="big-container grid h-full grid-cols-1 lg:grid-cols-2">
         <div className="content-center justify-center">

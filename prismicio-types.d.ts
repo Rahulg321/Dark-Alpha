@@ -723,7 +723,8 @@ interface TeammemberDocumentData {
     | "Senior Vice President"
     | "Senior Managing Director"
     | "Management"
-    | "Attorney",
+    | "Attorney"
+    | "Professional / Individual Contributor",
     "filled"
   >;
 
