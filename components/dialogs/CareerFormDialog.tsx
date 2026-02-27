@@ -26,18 +26,26 @@ import CareerApplyForm from "../forms/CareerApplyForm";
 
 type CareerFormDialogProps = {
   post: Content.CareerDocument;
+  triggerSize?: "sm" | "default" | "lg";
+  triggerVariant?: "default" | "outline";
+  triggerLabel?: string;
 };
 
-const applyTrigger = (
-  <Button variant="outline" size="sm">
-    Apply
-  </Button>
-);
-
-export default function CareerFormDialog({ post }: CareerFormDialogProps) {
+export default function CareerFormDialog({
+  post,
+  triggerSize = "sm",
+  triggerVariant = "outline",
+  triggerLabel = "Apply",
+}: CareerFormDialogProps) {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const title = post.data.title ?? "Position";
+
+  const applyTrigger = (
+    <Button variant={triggerVariant} size={triggerSize}>
+      {triggerLabel}
+    </Button>
+  );
 
   if (isDesktop) {
     return (
