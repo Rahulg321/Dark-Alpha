@@ -74,7 +74,7 @@ export default async function sitemap() {
         priority: 0.8,
       },
       {
-        url: `${baseUrl}/about-dark-alpha`,
+        url: `${baseUrl}/about`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.8,
@@ -143,7 +143,7 @@ export default async function sitemap() {
         priority: 0.8,
       },
       {
-        url: `${baseUrl}/about-dark-alpha`,
+        url: `${baseUrl}/about`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.8,

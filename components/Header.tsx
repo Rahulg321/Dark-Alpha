@@ -41,7 +41,7 @@ const navbar = [
   },
   {
     navlabel: "About",
-    navlink: "/about-dark-alpha",
+    navlink: "/about",
   },
   {
     navlabel: "Contact",
@@ -80,7 +80,7 @@ const mobileNavLinks = [
   },
   {
     navlabel: "About",
-    navlink: "/about-dark-alpha",
+    navlink: "/about",
   },
   {
     navlabel: "Contact",
