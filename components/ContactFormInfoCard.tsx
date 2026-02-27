@@ -1,8 +1,9 @@
 import React from "react";
+import clsx from "clsx";
 
 type ContactFormInfoCardProps = {
   classname?: string;
-  icon: any;
+  icon: React.ReactNode;
   heading: string;
   tagline: string;
 };
@@ -14,13 +15,18 @@ const ContactFormInfoCard = ({
   tagline,
 }: ContactFormInfoCardProps) => {
   return (
-    <div className="flex rounded-xl border px-4 py-6">
-      <div className="text-3xl md:text-4xl">{icon}</div>
-      <div className="ml-4">
-        <span className="block font-bold md:text-xl">{heading}</span>
-        <span className="block text-sm font-semibold tracking-tighter md:text-base">
-          {tagline}
+    <div
+      className={clsx(
+        "flex items-start gap-3 rounded-lg border border-border/60 bg-background/50 px-4 py-3",
+        classname
+      )}
+    >
+      <span className="mt-0.5 text-lg text-muted-foreground">{icon}</span>
+      <div className="min-w-0 flex-1">
+        <span className="block text-xs font-medium uppercase tracking-wider text-muted-foreground">
+          {heading}
         </span>
+        <span className="mt-0.5 block text-sm text-foreground">{tagline}</span>
       </div>
     </div>
   );

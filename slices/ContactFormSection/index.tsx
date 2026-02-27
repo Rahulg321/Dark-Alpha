@@ -14,38 +14,41 @@ const ContactFormSection = ({ slice }: ContactFormSectionProps) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="block-space"
+      className="block-space bg-muted/30"
     >
       <div className="big-container">
-        <div className="flex flex-col-reverse gap-12 md:flex-row">
-          <div className="flex-1">
-            <h2 className="text-3xl font-extrabold md:text-5xl">
+        <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-2 md:gap-20">
+          <div className="min-w-0">
+            <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-4xl">
               {slice.primary.heading}
             </h2>
-            <span className="my-4 block text-pretty font-semibold">
+            <p className="mt-3 text-sm text-muted-foreground md:text-base">
               {slice.primary.tagline}
-            </span>
-            <ContactForm />
+            </p>
+            <div className="mt-10">
+              <ContactForm />
+            </div>
           </div>
-          <div className="flex flex-1 flex-col gap-4">
-            <div className="aspect-h-2 aspect-w-4 relative">
+          <div className="flex flex-col gap-6">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
               <PrismicNextImage
                 field={slice.primary.contactformimage}
-                className="rounded-xl object-cover"
+                className="object-cover"
                 fill
               />
             </div>
-            <ContactFormInfoCard
-              icon={<MdEmail />}
-              heading="Email"
-              tagline="info@darkalphacapital.com"
-            />
-
-            <ContactFormInfoCard
-              icon={<FaLocationDot />}
-              heading="Address"
-              tagline="8 The Green Suite 4000, Dover, DE 19901"
-            />
+            <div className="flex flex-col gap-3">
+              <ContactFormInfoCard
+                icon={<MdEmail />}
+                heading="Email"
+                tagline="info@darkalphacapital.com"
+              />
+              <ContactFormInfoCard
+                icon={<FaLocationDot />}
+                heading="Address"
+                tagline="8 The Green Suite 4000, Dover, DE 19901"
+              />
+            </div>
           </div>
         </div>
       </div>
